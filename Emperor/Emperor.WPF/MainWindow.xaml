@@ -4,9 +4,134 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF"
+        xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid >
+        Title="MainWindow" Height="600" Width="800" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style x:Key="LabelStyle">
+            <Setter Property="Label.FontSize" Value="15"></Setter>
+            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="IconStyle">
+            <Setter Property="Image.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Image.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Image.Width" Value="20"></Setter>
+            <Setter Property="Image.Height" Value="20"></Setter>
+        </Style>
+        <Style x:Key="IconLabelStyle">
+            <Setter Property="Label.Margin" Value="0 0 20 0"></Setter>
+            <Setter Property="Label.FontSize" Value="12"></Setter>
+            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
+        </Style>
 
+        <DataTemplate x:Key="dtBuildingListItem" DataType="x:Type Game.Building" >
+            <Border BorderThickness="1" CornerRadius="5" BorderBrush="Black" Background="#fafafa" Margin="5 0 5 0" Width="100">
+                <StackPanel Orientation="Vertical" >
+                    <Label FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Path=Name}"></Label>
+                    <Label FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Path=Count}"></Label>
+                    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="Resources/gold.png" Width="15" Height="15"></Image>
+                        <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
+                    </StackPanel>
+                </StackPanel>
+               
+            </Border>
+
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="547*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Name="Year" Margin="20,1" >Year</Label>
+        <Grid  Grid.Row="0" Grid.Column="1" Margin="5" Grid.ColumnSpan="2">
+            <ProgressBar   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="50" SmallChange="1" LargeChange="0" Foreground="Green" Background="LightGreen"></ProgressBar>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="15"> 10/60</TextBlock>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Image Style="{StaticResource IconStyle}" Source="Resources/gold.png" ToolTip="Gold"></Image>
+            <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Game.Gold}" Name="lbGold"></Label>
+
+            <Image Style="{StaticResource IconStyle}" Source="Resources/food.png" ToolTip="Food"></Image>
+            <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Food}" Name="lbFood"></Label>
+
+            <Image Style="{StaticResource IconStyle}" Source="Resources/iron.png" ToolTip="Iron"></Image>
+            <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Iron}" Name="lbIron"></Label>
+
+            <Image Style="{StaticResource IconStyle}" Source="Resources/weapon.png" ToolTip="Weapons"></Image>
+            <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Weapons}" Name="lbWeapons"></Label>
+
+            <Image Style="{StaticResource IconStyle}" Source="Resources/worker.png" ToolTip="Citizens"></Image>
+            <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Citizens}" Name="lbCitizens" ></Label>
+
+            <Image Style="{StaticResource IconStyle}" Source="Resources/soldier.png" ToolTip="Soldiers"></Image>
+            <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Soldiers}" Name="lbSoldiers"></Label>
+        </StackPanel>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2"  BorderBrush="Black" BorderThickness="2" CornerRadius="5">
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelStyle}" Content="Buildings"></Label>
+                <ItemsControl Grid.Row="2" Grid.ColumnSpan="2"  ItemsSource="{Binding Path=Game.Buildings}" ItemTemplate="{StaticResource dtBuildingListItem}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="5" BorderThickness="2" BorderBrush="Black">
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelStyle}" Content="Taxes &amp; Payments"></Label>
+                <StackPanel Orientation="Horizontal">
+
+                    <Label   Style="{StaticResource LabelStyle}" Content="Food Ration"></Label>
+                    <ComboBox Width="120" Margin="5 5 25 5"/>
+                 
+                    <Label   Style="{StaticResource LabelStyle}" Content="Taxes"></Label>
+                    <ComboBox Width="120" Margin="5 5 25 5"/>
+
+
+                    <Label Style="{StaticResource LabelStyle}" Content="Army Expenses"></Label>
+                    <ComboBox Width="120" Margin="5 5 25 5"/>
+
+                </StackPanel>
+                
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="4" Grid.ColumnSpan="2" CornerRadius="5" BorderThickness="2" BorderBrush="Black">
+            <StackPanel Orientation="Vertical">
+                <Label Style="{StaticResource LabelStyle}" Content="History log"></Label>
+              <!-- Listbox as history log-->
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="5" BorderThickness="2" BorderBrush="Black">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="Last Report" BorderBrush="Transparent" Name="btnLastReport" Click="btnLastReport_Click"></Button>
+                <Button Grid.Column="1" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="Graphs" BorderBrush="Transparent" Name="btnGraph" Click="btnGraph_Click"></Button>
+                <Button Grid.Column="2" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="History" BorderBrush="Transparent" Name="btnHistory" Click="btnHistory_Click"></Button>
+                <Button Grid.Column="4" Margin="10 20" Content="Next Year"  FontSize="16"  />
+            </Grid>
+        </Border>
     </Grid>
 </Window>

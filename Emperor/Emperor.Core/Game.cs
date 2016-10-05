@@ -20,18 +20,50 @@ namespace Emperor.Core
         public long Weapons { get; set; }
 
         public int Citizens { get; set; }
-        public int Military { get; set; }
+        public int Soldiers { get; set; }
 
         public TitleState TitleState { get; set; }
 
-        public List<Building> buildings { get; private set; }
+        public List<Building> Buildings { get; private set; }
 
         public Game()
         {
-            buildings = new List<Building>()
+            Buildings = new List<Building>()
             {
-                new Farm(this, "Farm", 1000)
+                new Farm(this, 1000,1),
+                new Market(this,2000,0),
+                new Mine(this, 3000,0)
             };
+
+            Year = 0;
+            MaxYear = 60;
+
+            Gold = 1000;
+            Food = 1000;
+            Iron = 0;
+            Weapons = 1000;
+
+            Citizens = 1000;
+            Soldiers = 0;
+
         }
+
+        public void CalculateNextTurn()
+        {
+            YearlyBalance balance = new YearlyBalance();
+
+            foreach(var building in Buildings)
+            {
+                building.Produce(balance);
+            }
+
+            CalculateLost(balance);         
+        }
+
+        private void CalculateLost(YearlyBalance balance)
+        {
+            balance.FoodLost = 50;
+        }
+
     }
 }

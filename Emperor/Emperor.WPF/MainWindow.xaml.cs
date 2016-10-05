@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emperor.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,31 @@ namespace Emperor.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameVM _gameVM;
+
         public MainWindow()
         {
             InitializeComponent();
+            _gameVM = new GameVM();
+            DataContext = _gameVM;
+        }
+
+        private void btnLastReport_Click(object sender, RoutedEventArgs e)
+        {
+            ReportWindow reportWindow = new ReportWindow();
+            reportWindow.ShowDialog();
+        }
+
+        private void btnGraph_Click(object sender, RoutedEventArgs e)
+        {
+            GraphWindow graphWindow = new GraphWindow();
+            graphWindow.ShowDialog();
+        }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow historyWindow = new HistoryWindow();
+            historyWindow.ShowDialog();
         }
     }
 }
