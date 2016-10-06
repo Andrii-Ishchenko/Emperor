@@ -32,7 +32,9 @@ namespace Emperor.Core
             {
                 new Farm(this, 1000,1),
                 new Market(this,2000,0),
-                new Mine(this, 3000,0)
+                new Mine(this, 3000,0),
+                new Smith(this,4000,0),
+                new Castle(this,5000,0)
             };
 
             Year = 0;

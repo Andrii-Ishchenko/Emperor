@@ -47,5 +47,10 @@ namespace Emperor.WPF
             HistoryWindow historyWindow = new HistoryWindow();
             historyWindow.ShowDialog();
         }
+
+        private void titleBorder_Click(object sender, MouseButtonEventArgs e)
+        {
+            new AdviceWindow().ShowDialog();
+        }
     }
 }

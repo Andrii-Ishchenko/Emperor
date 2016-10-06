@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Emperor.Core.States
 {
-    public abstract class TitleState
+    public class Prince : TitleState
     {
-        public int AssignYear { get; set; }
-        public abstract void HandleState(Game game); 
+        public override void HandleState(Game game)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
