@@ -42,7 +42,7 @@ namespace Emperor.Core
 
             Gold = 100000;
             Food = 1000;
-            Iron = 0;
+            Iron = 125;
             Weapons = 1000;
 
             Citizens = 1000;

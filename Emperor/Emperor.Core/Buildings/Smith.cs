@@ -16,7 +16,7 @@ namespace Emperor.Core.Buildings
 
         public override void Produce(YearlyBalance balance)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

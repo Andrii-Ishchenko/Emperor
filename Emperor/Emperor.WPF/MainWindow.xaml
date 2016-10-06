@@ -146,7 +146,7 @@
                 <Button Grid.Column="0" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="Last Report" BorderBrush="Transparent" Name="btnLastReport" Click="btnLastReport_Click"></Button>
                 <Button Grid.Column="1" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="Graphs" BorderBrush="Transparent" Name="btnGraph" Click="btnGraph_Click"></Button>
                 <Button Grid.Column="2" Width="120" Height="40" Background="LightBlue" Foreground="White" FontSize="14" Content="History" BorderBrush="Transparent" Name="btnHistory" Click="btnHistory_Click"></Button>
-                <Button Grid.Column="4" Margin="10 8" Content="Next Year"  FontSize="16"  />
+                <Button Grid.Column="4" Margin="10 8" Content="Next Year" Name="btnNextTurn" FontSize="16" Click="btnNextTurn_Click"  />
             </Grid>
         </Border>
     </Grid>

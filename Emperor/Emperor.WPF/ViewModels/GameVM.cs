@@ -18,16 +18,8 @@ namespace Emperor.WPF.ViewModels
             Buildings = Game.Buildings.Select(x => new BuildingVM(x)).ToList();
         }
 
-        private IGame Game { get; set; }
+        private Game Game { get; set; }
         public List<BuildingVM> Buildings { get; private set; }
-
-        List<Building> IGame.Buildings
-        {
-            get
-            {
-                return Game.Buildings;
-            }
-        }
 
         public int Citizens
         {
@@ -52,6 +44,7 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Food = value;
+                OnPropertyChanged("Food");
             }
         }
 
@@ -59,12 +52,13 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Gold*-1;
+                return Game.Gold;
             }
 
             set
             {
                 Game.Gold = value;
+                OnPropertyChanged("Gold");
             }
         }
 
@@ -78,6 +72,7 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Iron = value;
+                OnPropertyChanged("Iron");
             }
         }
 
@@ -149,6 +144,19 @@ namespace Emperor.WPF.ViewModels
         public void CalculateNextTurn()
         {
             Game.CalculateNextTurn();
+        }
+
+        public void Build(BuildingVM building, int count)
+        {
+            if (building.Build(count))
+                OnPropertyChanged(String.Empty);
+
+        }
+
+        public void NextYear()
+        {
+            Game.CalculateNextTurn();
+            OnPropertyChanged(String.Empty);
         }
     }
 }

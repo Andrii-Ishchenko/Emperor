@@ -65,14 +65,12 @@ namespace Emperor.WPF
         {
             Button button = sender as Button;
             BuildingVM building = button.DataContext as BuildingVM;
-            building.Build(1);
-            Refresh();
+            _gameVM.Build(building, 1);
         }
 
-        private void Refresh()
+        private void btnNextTurn_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = null;
-            DataContext = _gameVM;
+            _gameVM.CalculateNextTurn();
         }
     }
 }

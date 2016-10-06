@@ -5,7 +5,6 @@ namespace Emperor.Core
 {
     public interface IGame
     {
-        List<Building> Buildings { get; }
         int Citizens { get; set; }
         long Food { get; set; }
         long Gold { get; set; }
