@@ -5,51 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF"
         xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
+        xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" ResizeMode="CanMinimize">
     <Window.Resources>
-        <Style x:Key="LabelStyle">
-            <Setter Property="Label.FontSize" Value="15"></Setter>
-            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
-        </Style>
-        <Style x:Key="IconStyle">
-            <Setter Property="Image.VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="Image.HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Image.Width" Value="20"></Setter>
-            <Setter Property="Image.Height" Value="20"></Setter>
-        </Style>
-        <Style x:Key="IconLabelStyle">
-            <Setter Property="Label.Margin" Value="0 0 20 0"></Setter>
-            <Setter Property="Label.FontSize" Value="12"></Setter>
-            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
-        </Style>
-        
-        <Style x:Key="SectionBorder">
-            <Setter Property="Border.CornerRadius" Value="0"/>
-            <Setter Property="Border.BorderBrush" Value="Black"/>
-            <Setter Property="Border.BorderThickness" Value="0 0 0 1"></Setter>
-        </Style>
-
-        <Style x:Key="TitleBorder">
-            <Style.Setters>
-                <Setter Property="Border.CornerRadius" Value="8"/>
-                <Setter Property="Border.Background" Value="SandyBrown"></Setter>
-                <Setter Property="Border.BorderThickness" Value="0"></Setter>
-                <Setter Property="Border.Margin" Value="8 0"></Setter>
-                <Setter Property="Border.Padding" Value="12 0"></Setter>
-            </Style.Setters>
-
-            <Style.Triggers>
-                <Trigger Property="Border.IsMouseOver" Value="False">
-                    <Setter Property="Border.Background" Value="Brown"></Setter>
-                    <Setter Property="Border.BorderBrush" Value="Black"></Setter>
-                    <Setter Property="Border.BorderThickness" Value="1"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <DataTemplate x:Key="dtBuildingListItem" DataType="x:Type Game.Building" >
+     
+        <DataTemplate x:Key="dtBuildingListItem" DataType="x:Type BuildingVM" >
             <Border BorderThickness="1" CornerRadius="5" BorderBrush="Black" Background="#fafafa" Margin="5 0 5 0" Width="60">
                 <StackPanel Orientation="Vertical" >
                     <Label FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Path=Name}" Margin="0"></Label>
@@ -59,9 +20,30 @@
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
                 </StackPanel>
-               
             </Border>
+        </DataTemplate>
 
+        <DataTemplate x:Key="lvBuildingListItem" DataType="x:Type modelVM.BuildingVM" >
+
+            <StackPanel Orientation="Vertical" Background="#eee">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="0" Width="32" Height="32" Fill="SandyBrown"></Rectangle>
+                    <Label Grid.Column="1" Content="{Binding Path=Name}" VerticalAlignment="Center"></Label>
+                    <Label Grid.Column="2" Content="{Binding Path=Count}"  VerticalAlignment="Center"></Label>
+                    <StackPanel Grid.Column="3"  Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="Resources/gold.png" Width="15" Height="15"></Image>
+                        <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
+                    </StackPanel>
+                    <Button Grid.Column="4" Content="Buy" Width="40" Height="20" Name="btnBuildingsListBuy" Click="btnBuildingsListBuy_Click"></Button>
+                </Grid>
+            </StackPanel>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -79,22 +61,22 @@
                 <Label DockPanel.Dock="Left" Style="{StaticResource LabelStyle}" Name="Year" Margin="20,1" >Year</Label>
                 <StackPanel DockPanel.Dock="Right"  Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Style="{StaticResource IconStyle}" Source="Resources/gold.png" ToolTip="Gold"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Game.Gold}" Name="lbGold"></Label>
+                    <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Gold, NotifyOnSourceUpdated=True}" Name="lbGold"></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="Resources/food.png" ToolTip="Food"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Food}" Name="lbFood"></Label>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Food}" Name="lbFood"></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="Resources/iron.png" ToolTip="Iron"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Iron}" Name="lbIron"></Label>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Iron}" Name="lbIron"></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="Resources/weapon.png" ToolTip="Weapons"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Weapons}" Name="lbWeapons"></Label>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Weapons}" Name="lbWeapons"></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="Resources/worker.png" ToolTip="Citizens"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Citizens}" Name="lbCitizens" ></Label>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Citizens}" Name="lbCitizens" ></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="Resources/soldier.png" ToolTip="Soldiers"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Game.Soldiers}" Name="lbSoldiers"></Label>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Soldiers}" Name="lbSoldiers"></Label>
                 </StackPanel>
                 <Grid Margin="5">
                     <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Value="50" SmallChange="1" LargeChange="0" Foreground="Green" Background="LightGreen"></ProgressBar>
@@ -105,14 +87,16 @@
        
         <Border Grid.Row="1" Style="{StaticResource SectionBorder}">
             <DockPanel LastChildFill="False">
-                <Border DockPanel.Dock="Left" Style="{StaticResource TitleBorder}" MouseLeftButtonDown="titleBorder_Click">
+                <Border DockPanel.Dock="Left" Style="{StaticResource TitleBorder}">
                     <Label Style="{StaticResource LabelStyle}">Lord</Label>
                 </Border>
+                <Button DockPanel.Dock="Right" Content="Promotion Advice" Padding="8 2" Margin="4 3" Name="btnPromotionAdvice" Click="btnPromotionAdvice_Click"></Button>
+                <Button DockPanel.Dock="Right" Content="Income &amp; Expenses" Padding="8 2" Margin="4 3" Name="btnIncomeAndExpenses" Click="btnIncomeAndExpenses_Click"></Button>
             </DockPanel>
         </Border>
         
         <Border Grid.Row="2" Style="{StaticResource SectionBorder}">
-            <Grid ShowGridLines="True">
+            <!--<Grid ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -136,35 +120,13 @@
                     <Button></Button>
                     
                 </DockPanel>
-            </Grid>
-            
-        </Border>
-
-        <Border Grid.Row="3" Style="{StaticResource SectionBorder}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="140"></ColumnDefinition>
-                    <ColumnDefinition Width="140"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+            </Grid>-->
+            <ListView Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}">
                 
-                <Label  Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" Margin="5 0"  Content="Food Ration"></Label>
-                <ComboBox Grid.Row="0" Grid.Column="1" Width="120" Margin="8"/>
-
-                <Label  Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" Margin="5 0" Content="Taxes"></Label>
-                <ComboBox Grid.Row="1" Grid.Column="1" Width="120" Margin="8"/>
-
-                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}" Margin="5 0" Content="Army Expenses"></Label>
-                <ComboBox Grid.Row="2" Grid.Column="1" Width="120" Margin="8"/>
-
-            </Grid>
-
+            </ListView>
         </Border>
+
+
 
         <Border Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource SectionBorder}">
             <StackPanel Orientation="Vertical">

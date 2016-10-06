@@ -64,9 +64,13 @@
     <Compile Include="HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IncomeAndExpenseManageWindow.xaml.cs">
+      <DependentUpon>IncomeAndExpenseManageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
     <Page Include="AdviceWindow.xaml">
@@ -78,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IncomeAndExpenseManageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

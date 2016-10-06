@@ -9,7 +9,7 @@ using Emperor.Core.States;
 
 namespace Emperor.Core
 {
-    public class Game
+    public class Game : IGame
     {
         public int Year { get; set; }
         public int MaxYear { get; set; }
@@ -40,7 +40,7 @@ namespace Emperor.Core
             Year = 0;
             MaxYear = 60;
 
-            Gold = 1000;
+            Gold = 100000;
             Food = 1000;
             Iron = 0;
             Weapons = 1000;

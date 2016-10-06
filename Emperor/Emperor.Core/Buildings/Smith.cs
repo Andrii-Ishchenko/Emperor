@@ -13,10 +13,6 @@ namespace Emperor.Core.Buildings
         {
 
         }
-        public override bool Build(int count)
-        {
-            throw new NotImplementedException();
-        }
 
         public override void Produce(YearlyBalance balance)
         {

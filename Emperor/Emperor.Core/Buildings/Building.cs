@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Emperor.Core
 {
-    public abstract class Building
+    public abstract class Building : IBuilding
     {
          protected Game _game;
 
@@ -31,7 +31,15 @@ namespace Emperor.Core
             return (quantity*Price >= _game.Gold);
         }
 
-        public abstract bool Build(int count);
+        public virtual bool Build(int count)
+        {
+            if (_game.Gold < count * Price)
+                return false;
+
+            _game.Gold -= count * Price;
+            Count += count;
+            return true;
+        }
 
         public override string ToString()
         {

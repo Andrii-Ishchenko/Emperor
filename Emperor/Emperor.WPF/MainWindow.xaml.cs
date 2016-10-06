@@ -1,4 +1,6 @@
-﻿using Emperor.WPF.ViewModels;
+﻿using Emperor.Core;
+using Emperor.WPF.ViewModels;
+using Emperor.WPF.ViewModels.DataVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,9 +50,29 @@ namespace Emperor.WPF
             historyWindow.ShowDialog();
         }
 
-        private void titleBorder_Click(object sender, MouseButtonEventArgs e)
+        private void btnIncomeAndExpenses_Click(object sender, RoutedEventArgs e)
+        {
+            IncomeAndExpenseManageWindow window = new IncomeAndExpenseManageWindow();
+            window.ShowDialog();
+        }
+
+        private void btnPromotionAdvice_Click(object sender, RoutedEventArgs e)
         {
             new AdviceWindow().ShowDialog();
+        }
+
+        private void btnBuildingsListBuy_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            BuildingVM building = button.DataContext as BuildingVM;
+            building.Build(1);
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            DataContext = null;
+            DataContext = _gameVM;
         }
     }
 }

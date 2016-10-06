@@ -4,6 +4,39 @@
              xmlns:local="clr-namespace:Emperor.WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="LabelStyle">
+            <Setter Property="Label.FontSize" Value="15"></Setter>
+            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="IconStyle">
+            <Setter Property="Image.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Image.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Image.Width" Value="20"></Setter>
+            <Setter Property="Image.Height" Value="20"></Setter>
+        </Style>
+        <Style x:Key="IconLabelStyle">
+            <Setter Property="Label.Margin" Value="0 0 20 0"></Setter>
+            <Setter Property="Label.FontSize" Value="12"></Setter>
+            <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="SectionBorder">
+            <Setter Property="Border.CornerRadius" Value="0"/>
+            <Setter Property="Border.BorderBrush" Value="Black"/>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 1"></Setter>
+        </Style>
+
+        <Style x:Key="TitleBorder">
+            <Style.Setters>
+                <Setter Property="Border.CornerRadius" Value="0 15 0 0"/>
+                <Setter Property="Border.Background" Value="SandyBrown"></Setter>
+                <Setter Property="Border.BorderBrush" Value="Transparent"></Setter>
+                <Setter Property="Border.BorderThickness" Value="0"></Setter>
+                <Setter Property="Border.Margin" Value="0"></Setter>
+                <Setter Property="Border.Padding" Value="12 0"></Setter>
+            </Style.Setters>
+        </Style>
+
     </Application.Resources>
 </Application>

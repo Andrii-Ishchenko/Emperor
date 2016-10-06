@@ -18,15 +18,5 @@ namespace Emperor.Core.Buildings
             balance.FoodGrowth += growth;
         }
 
-        public override bool Build(int count)
-        {
-            if (!CanBeBuiltQuantity(count))
-                return false;
-
-            //_game.Gold -= (count*Price);
-            //_count += count;
-
-            return true;
-        }
     }
 }
