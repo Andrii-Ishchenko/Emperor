@@ -40,8 +40,8 @@ namespace Emperor.Core
             Year = 0;
             MaxYear = 60;
 
-            Gold = 2000;
-            Food = 2000;
+            Gold = 1000;
+            Food = 1000;
             Iron = 0;
             Weapons = 0;
 

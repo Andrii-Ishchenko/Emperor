@@ -29,7 +29,7 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="35"></ColumnDefinition>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -60,7 +60,7 @@
 
         <Border Grid.Row="0" Style="{StaticResource SectionBorder}">
             <DockPanel>
-                <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontFamily="./Fonts/#Fontin-Regular " Name="Year" Margin="20,1" Content="YEAR"></Label>
+                <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontFamily="/Emperor.WPF;component/Fonts/#Fontin SmallCaps" Name="Year" Margin="20,1" Content="YEAR"></Label>
                 <StackPanel DockPanel.Dock="Right"  Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Gold"></Image>
                     <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Gold}" Name="lbGold"></Label>

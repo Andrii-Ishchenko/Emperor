@@ -136,6 +136,10 @@
     <Resource Include="Fonts\Fontin-Italic.ttf" />
     <Resource Include="Fonts\Fontin-Regular.ttf" />
     <Resource Include="Fonts\Fontin-SmallCaps.ttf" />
+    <Resource Include="Fonts\Fontin-Bold.otf" />
+    <Resource Include="Fonts\Fontin-Italic.otf" />
+    <Resource Include="Fonts\Fontin-Regular.otf" />
+    <Resource Include="Fonts\Fontin-SmallCaps.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

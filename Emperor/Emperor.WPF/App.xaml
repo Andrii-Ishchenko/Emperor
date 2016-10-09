@@ -38,5 +38,8 @@
             </Style.Setters>
         </Style>
 
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="/Emperor.WPF;component/Fonts/#Fontin" />
+        </Style>
     </Application.Resources>
 </Application>
