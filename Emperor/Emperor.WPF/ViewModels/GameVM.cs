@@ -9,7 +9,7 @@ using Emperor.Core.States;
 
 namespace Emperor.WPF.ViewModels
 {
-    public class GameVM :BaseVM,IGame
+    public class GameVM :BaseVM
     {
        
         public GameVM()
@@ -34,7 +34,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public long Food
+        public int Food
         {
             get
             {
@@ -48,7 +48,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public long Gold
+        public int Gold
         {
             get
             {
@@ -62,7 +62,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public long Iron
+        public int Iron
         {
             get
             {
@@ -86,6 +86,7 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.MaxYear = value;
+                OnPropertyChanged("MaxYear");
             }
         }
 
@@ -99,6 +100,7 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Soldiers = value;
+                OnPropertyChanged("Soldiers");
             }
         }
 
@@ -112,10 +114,11 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.TitleState = value;
+                OnPropertyChanged("TitleState");
             }
         }
 
-        public long Weapons
+        public int Weapons
         {
             get
             {
@@ -125,6 +128,7 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Weapons = value;
+                OnPropertyChanged("Weapons");
             }
         }
 
@@ -138,25 +142,29 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Year = value;
+                OnPropertyChanged("Year");
             }
         }
 
-        public void CalculateNextTurn()
+        public YearlyBalanceVM CalculateNextTurn()
         {
-            Game.CalculateNextTurn();
+            var balance = Game.CalculateNextTurn();
+            OnPropertyChanged(string.Empty);
+            return new YearlyBalanceVM(balance);
         }
 
         public void Build(BuildingVM building, int count)
         {
             if (building.Build(count))
-                OnPropertyChanged(String.Empty);
+                OnPropertyChanged(string.Empty);
 
         }
 
-        public void NextYear()
+        public void Sell(BuildingVM building, int count)
         {
-            Game.CalculateNextTurn();
-            OnPropertyChanged(String.Empty);
+            if (building.Sell(count))
+                OnPropertyChanged(string.Empty);
         }
+        
     }
 }

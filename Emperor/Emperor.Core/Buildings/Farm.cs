@@ -14,7 +14,7 @@ namespace Emperor.Core.Buildings
 
         public override void Produce(YearlyBalance balance)
         {
-            var growth = Utils.GetRandomInstance().Next(2 * 1000 * Count);
+            var growth = Utils.GetRandomInstance().Next(2 * 200 * Count);
             balance.FoodGrowth += growth;
         }
 

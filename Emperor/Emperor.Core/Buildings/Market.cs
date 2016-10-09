@@ -17,8 +17,8 @@ namespace Emperor.Core.Buildings
 
         public override void Produce(YearlyBalance balance)
         {
-            int goldIncome = Count * 200;
-            balance.GoldDelta += goldIncome;
+            int goldIncome = Count * 500;
+            balance.GoldGrowth += goldIncome;
         }
     }
 }

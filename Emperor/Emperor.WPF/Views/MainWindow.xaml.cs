@@ -70,7 +70,15 @@ namespace Emperor.WPF
 
         private void btnNextTurn_Click(object sender, RoutedEventArgs e)
         {
-            _gameVM.CalculateNextTurn();
+            var yearlyBalance = _gameVM.CalculateNextTurn();
+            grReport.DataContext = yearlyBalance;
+        }
+
+        private void btnBuildingsListSell_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            BuildingVM building = button.DataContext as BuildingVM;
+            _gameVM.Sell(building, 1);
         }
     }
 }

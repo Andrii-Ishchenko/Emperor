@@ -31,6 +31,13 @@ namespace Emperor.WPF.ViewModels.DataVM
             return res;
         }
 
+        public bool Sell(int count)
+        {
+            var res = _building.Sell(count);
+            OnPropertyChanged("Count");
+            return res;
+        }
+
         public bool CanBeBuiltQuantity(int quantity)
         {
             return _building.CanBeBuiltQuantity(quantity);

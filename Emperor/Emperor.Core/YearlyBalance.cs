@@ -10,9 +10,13 @@ namespace Emperor.Core
     {
         public int Year { get; set; }
 
+        public int CitizensGrowth { get; set; }
+        public int CitizensLost { get; set; }
         public int CitizensDelta { get; set; }
 
+        public int SoldiersGrowth { get; set; }
         public int SoldiersLost { get; set; }
+        public int SoldiersDelta { get; set; }
 
         public int GoldGrowth { get; set; }
         public int GoldLost { get; set; }
@@ -26,11 +30,11 @@ namespace Emperor.Core
         public int IronGrowth { get; set; }
         public int IronConsumed { get; set; }
         public int IronLost { get; set; }
-
+        public int IronDelta { get; set; }
 
         public int WeaponGrowth { get; set; }
-        public int WeaponConsumed { get; set; }
         public int WeaponLost { get; set; }
+        public int WeaponDelta { get; set; }
 
     }
 }

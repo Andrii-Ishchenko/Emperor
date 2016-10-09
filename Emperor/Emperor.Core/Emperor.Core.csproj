@@ -57,7 +57,7 @@
     <Compile Include="States\Prince.cs" />
     <Compile Include="States\TitleState.cs" />
     <Compile Include="Utils.cs" />
-    <Compile Include="YearlyIncome.cs" />
+    <Compile Include="YearlyBalance.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

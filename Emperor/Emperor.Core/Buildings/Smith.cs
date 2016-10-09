@@ -16,7 +16,10 @@ namespace Emperor.Core.Buildings
 
         public override void Produce(YearlyBalance balance)
         {
-           
+            var maxProduceCount = 10 * Count;
+            var takenIron = Math.Min(_game.Iron , maxProduceCount);
+            balance.WeaponGrowth = takenIron;// 1<->1
+            balance.IronConsumed = takenIron;
         }
     }
 }

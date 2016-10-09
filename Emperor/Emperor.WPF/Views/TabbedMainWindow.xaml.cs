@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Emperor.WPF
+namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for ReportWindow.xaml
+    /// Interaction logic for TabbedMainWindow.xaml
     /// </summary>
-    public partial class ReportWindow : Window
+    public partial class TabbedMainWindow : Window
     {
-        public ReportWindow()
+        public TabbedMainWindow()
         {
             InitializeComponent();
         }

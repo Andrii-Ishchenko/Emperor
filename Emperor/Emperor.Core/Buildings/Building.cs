@@ -41,6 +41,14 @@ namespace Emperor.Core
             return true;
         }
 
+        public virtual bool Sell(int count)
+        {
+            var sellCount = (int)Math.Min(count, Count);
+            Count -= sellCount;
+            _game.Gold += (sellCount * Price) / 2;
+            return true;    
+        }
+
         public override string ToString()
         {
             return Name;

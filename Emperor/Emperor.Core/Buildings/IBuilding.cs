@@ -7,6 +7,7 @@
         int Price { get; }
 
         bool Build(int count);
+        bool Sell(int count);
         bool CanBeBuiltQuantity(int quantity);
         void Produce(YearlyBalance income);
     }

@@ -55,41 +55,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdviceWindow.xaml.cs">
+    <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
+    <Compile Include="Views\AdviceWindow.xaml.cs">
       <DependentUpon>AdviceWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GraphWindow.xaml.cs">
+    <Compile Include="Views\GraphWindow.xaml.cs">
       <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HistoryWindow.xaml.cs">
+    <Compile Include="Views\HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IncomeAndExpenseManageWindow.xaml.cs">
+    <Compile Include="Views\IncomeAndExpenseManageWindow.xaml.cs">
       <DependentUpon>IncomeAndExpenseManageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportWindow.xaml.cs">
+    <Compile Include="Views\ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
-    <Page Include="AdviceWindow.xaml">
+    <Compile Include="Views\TabbedMainWindow.xaml.cs">
+      <DependentUpon>TabbedMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AdviceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GraphWindow.xaml">
+    <Page Include="Views\GraphWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HistoryWindow.xaml">
+    <Page Include="Views\HistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IncomeAndExpenseManageWindow.xaml">
+    <Page Include="Views\IncomeAndExpenseManageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -97,11 +101,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ReportWindow.xaml">
+    <Page Include="Views\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabbedMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,6 +132,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Fontin-Bold.ttf" />
+    <Resource Include="Fonts\Fontin-Italic.ttf" />
+    <Resource Include="Fonts\Fontin-Regular.ttf" />
+    <Resource Include="Fonts\Fontin-SmallCaps.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,7 +148,6 @@
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\coal.png" />
