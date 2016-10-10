@@ -10,31 +10,31 @@ namespace Emperor.Core
     {
         public int Year { get; set; }
 
-        public int CitizensGrowth { get; set; }
-        public int CitizensLost { get; set; }
-        public int CitizensDelta { get; set; }
+        public long CitizensGrowth { get; set; }
+        public long CitizensLost { get; set; }
+        public long CitizensDelta { get; set; }
 
-        public int SoldiersGrowth { get; set; }
-        public int SoldiersLost { get; set; }
-        public int SoldiersDelta { get; set; }
+        public long SoldiersGrowth { get; set; }
+        public long SoldiersLost { get; set; }
+        public long SoldiersDelta { get; set; }
 
-        public int GoldGrowth { get; set; }
-        public int GoldLost { get; set; }
-        public int GoldDelta { get; set; }
+        public long GoldGrowth { get; set; }
+        public long GoldLost { get; set; }
+        public long GoldDelta { get; set; }
 
-        public int FoodGrowth { get; set; }
-        public int FoodConsumed { get; set; }
-        public int FoodLost { get; set; }
-        public int FoodDelta { get; set; }
+        public long FoodGrowth { get; set; }
+        public long FoodConsumed { get; set; }
+        public long FoodLost { get; set; }
+        public long FoodDelta { get; set; }
 
-        public int IronGrowth { get; set; }
-        public int IronConsumed { get; set; }
-        public int IronLost { get; set; }
-        public int IronDelta { get; set; }
+        public long IronGrowth { get; set; }
+        public long IronConsumed { get; set; }
+        public long IronLost { get; set; }
+        public long IronDelta { get; set; }
 
-        public int WeaponGrowth { get; set; }
-        public int WeaponLost { get; set; }
-        public int WeaponDelta { get; set; }
+        public long WeaponGrowth { get; set; }
+        public long WeaponLost { get; set; }
+        public long WeaponDelta { get; set; }
 
     }
 }

@@ -21,102 +21,102 @@ namespace Emperor.WPF.ViewModels.DataVM
             get { return _balance.Year; }
         }
 
-        public int CitizensGrowth
+        public long CitizensGrowth
         {
             get { return _balance.CitizensGrowth; }
         }
 
-        public int CitizensLost
+        public long CitizensLost
         {
             get { return _balance.CitizensLost; }
         }
 
-        public int CitizensDelta
+        public long CitizensDelta
         {
             get { return _balance.CitizensDelta; }
         }
 
-        public int SoldiersGrowth
+        public long SoldiersGrowth
         {
             get { return _balance.SoldiersGrowth; }
         }
 
-        public int SoldiersLost
+        public long SoldiersLost
         {
             get { return _balance.SoldiersLost; }
         }
 
-        public int SoldiersDelta
+        public long SoldiersDelta
         {
             get { return _balance.SoldiersDelta; }
         }
 
-        public int GoldGrowth
+        public long GoldGrowth
         {
             get { return _balance.GoldGrowth; }
         }
 
-        public int GoldLost
+        public long GoldLost
         {
             get { return _balance.GoldLost; }
         }
 
-        public int GoldDelta
+        public long GoldDelta
         {
             get { return _balance.GoldDelta; }
         }
 
-        public int FoodGrowth
+        public long FoodGrowth
         {
             get { return _balance.FoodGrowth; }
         }
 
-        public int FoodConsumed
+        public long FoodConsumed
         {
             get { return _balance.FoodConsumed; }
         }
 
-        public int FoodLost
+        public long FoodLost
         {
             get { return _balance.FoodLost; }
         }
 
-        public int FoodDelta
+        public long FoodDelta
         {
             get { return _balance.FoodDelta; }
         }
 
-        public int IronGrowth
+        public long IronGrowth
         {
             get { return _balance.IronGrowth; }
         }
 
-        public int IronConsumed
+        public long IronConsumed
         {
             get { return _balance.IronConsumed; }
         }
 
-        public int IronLost
+        public long IronLost
         {
             get { return _balance.IronLost; }
         }
 
-        public int IronDelta
+        public long IronDelta
         {
             get { return _balance.IronDelta; }
         }
 
-        public int WeaponGrowth
+        public long WeaponGrowth
         {
             get { return _balance.WeaponGrowth; }
         }
 
-        public int WeaponLost
+        public long WeaponLost
         {
             get { return _balance.WeaponLost; }
         }
 
-        public int WeaponDelta
+        public long WeaponDelta
         {
             get { return _balance.WeaponDelta; }
         }

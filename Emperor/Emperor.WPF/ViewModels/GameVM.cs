@@ -21,7 +21,7 @@ namespace Emperor.WPF.ViewModels
         private Game Game { get; set; }
         public List<BuildingVM> Buildings { get; private set; }
 
-        public int Citizens
+        public long Citizens
         {
             get
             {
@@ -31,10 +31,11 @@ namespace Emperor.WPF.ViewModels
             set
             {
                 Game.Citizens = value;
+                OnPropertyChanged("Citizens");
             }
         }
 
-        public int Food
+        public long Food
         {
             get
             {
@@ -48,7 +49,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public int Gold
+        public long Gold
         {
             get
             {
@@ -62,7 +63,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public int Iron
+        public long Iron
         {
             get
             {
@@ -90,7 +91,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public int Soldiers
+        public long Soldiers
         {
             get
             {
@@ -118,7 +119,7 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public int Weapons
+        public long Weapons
         {
             get
             {

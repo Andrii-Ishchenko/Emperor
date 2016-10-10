@@ -28,6 +28,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         {
             var res = _building.Build(count);
             OnPropertyChanged("Count");
+            OnPropertyChanged("Price");
             return res;
         }
 
@@ -35,6 +36,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         {
             var res = _building.Sell(count);
             OnPropertyChanged("Count");
+            OnPropertyChanged("Price");
             return res;
         }
 

@@ -38,6 +38,7 @@ namespace Emperor.Core
 
             _game.Gold -= count * Price;
             Count += count;
+            Price = (int)(Price*1.25);
             return true;
         }
 
@@ -46,6 +47,7 @@ namespace Emperor.Core
             var sellCount = (int)Math.Min(count, Count);
             Count -= sellCount;
             _game.Gold += (sellCount * Price) / 2;
+            Price = (int)(Price / 1.25);
             return true;    
         }
 
