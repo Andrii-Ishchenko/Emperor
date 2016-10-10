@@ -48,6 +48,8 @@ namespace Emperor.Core
             Citizens = 1000;
             Soldiers = 0;
 
+            TitleState = new Count();
+
             balanceHistory = new Dictionary<int, YearlyBalance>();
         }
 
@@ -66,8 +68,9 @@ namespace Emperor.Core
             CalculateTaxes(balance);
             ConsumeFood(balance);
             CalculateCitizensGrowth(balance);          
-
             CalculateDeltas(balance);
+
+            TitleState.HandleState(this);
             ApplyBalance(balance);
 
             balanceHistory.Add(Year, balance);
@@ -90,13 +93,14 @@ namespace Emperor.Core
 
         private void ConsumeFood(YearlyBalance balance)
         {
-            balance.FoodConsumed = Math.Min(Food + balance.FoodGrowth - balance.FoodLost , (int)1.5*Citizens+2*Soldiers);
+            balance.FoodConsumed = Math.Min(Food + balance.FoodGrowth - balance.FoodLost ,(Citizens+2*Soldiers));
         }
 
         private void CalculateCitizensGrowth(YearlyBalance balance)
         {
-            balance.CitizensGrowth = Convert.ToInt32( Citizens/1000 + (Citizens)*(Citizens) / 75000 + 1);
-            balance.CitizensLost = (Citizens - balance.FoodConsumed) / 3;
+            var goldCoef = 1+Math.Sqrt(Gold/1000.0);
+            balance.CitizensGrowth = Convert.ToInt32( goldCoef*(Citizens/1000 + (Citizens)*(Citizens) / 75000) + 1);
+            balance.CitizensLost = ((Citizens+2*Soldiers) - balance.FoodConsumed) ;
         }
 
         private void CalculateDeltas(YearlyBalance balance)

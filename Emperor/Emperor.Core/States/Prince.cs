@@ -8,9 +8,15 @@ namespace Emperor.Core.States
 {
     public class Prince : TitleState
     {
+        public Prince()
+        {
+            _titleName = "Prince";
+        }
+
         public override void HandleState(Game game)
         {
-            throw new NotImplementedException();
+            if (game.Gold > 15000)
+                game.TitleState = new King();
         }
     }
 }

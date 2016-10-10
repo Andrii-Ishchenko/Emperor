@@ -24,7 +24,6 @@
         </DataTemplate>
 
         <DataTemplate x:Key="lvBuildingListItem" DataType="x:Type modelVM.BuildingVM" >
-
             <StackPanel Orientation="Vertical" Background="#eee">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -97,7 +96,7 @@
         <Border Grid.Row="1" Style="{StaticResource SectionBorder}">
             <DockPanel LastChildFill="False">
                 <Border DockPanel.Dock="Left" Style="{StaticResource TitleBorder}">
-                    <Label Style="{StaticResource LabelStyle}">Lord</Label>
+                    <Label Style="{StaticResource LabelStyle}" Content="{Binding Path=TitleState.TitleName}"></Label>
                 </Border>
                 <Button DockPanel.Dock="Right" Content="Promotion Advice" Padding="8 2" Margin="4 3" Name="btnPromotionAdvice" Click="btnPromotionAdvice_Click"></Button>
                 <Button DockPanel.Dock="Right" Content="Income &amp; Expenses" Padding="8 2" Margin="4 3" Name="btnIncomeAndExpenses" Click="btnIncomeAndExpenses_Click"></Button>

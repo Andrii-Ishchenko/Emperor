@@ -8,9 +8,14 @@ namespace Emperor.Core.States
 {
     public class Emperor : TitleState
     {
+        public Emperor()
+        {
+            _titleName = "Emperor";
+        }
+
         public override void HandleState(Game game)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }
