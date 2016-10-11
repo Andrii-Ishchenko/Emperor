@@ -52,8 +52,8 @@
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="200"></RowDefinition>
-            <RowDefinition Height="120"></RowDefinition>
-            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -164,8 +164,35 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="3" Style="{StaticResource SectionBorder}">
-            
+        <Border Grid.Row="3" Style="{StaticResource SectionBorder}" Background="DarkSlateGray" >
+            <Border BorderBrush="Gold" BorderThickness="1" HorizontalAlignment="Center" Width="300" Height="140">
+                <Grid ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Food</Label>
+                    <Label Grid.Column="0" Grid.Row="1" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Iron</Label>
+                    <Label Grid.Column="0" Grid.Row="2" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Weapon</Label>
+
+                    <Label Grid.Column="1" Grid.Row="0" Content="{Binding Gold}"/>
+
+                    <Label Grid.Column="0" Grid.Row="3" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Quantity</Label>
+                    <Label Grid.Column="1" Grid.Row="3" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">100</Label>
+                    <Button Grid.Column="2" Grid.Row="3" Margin="8" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8">+</Button>
+                    <Button Grid.Column="3" Grid.Row="3" Margin="8" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8">-</Button>
+                </Grid>
+            </Border>
         </Border>
 
         <Border Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource SectionBorder}">

@@ -87,7 +87,7 @@ namespace Emperor.Core
 
         private void CalculateTaxes(YearlyBalance balance)
         {
-            balance.GoldGrowth += Citizens;
+            balance.GoldGrowth = Citizens;
         }
 
         private void CalculateLost(YearlyBalance balance)

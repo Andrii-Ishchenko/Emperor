@@ -74,6 +74,9 @@
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
+    <Compile Include="Views\TabbedWindow.xaml.cs">
+      <DependentUpon>TabbedWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AdviceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TabbedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +152,7 @@
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\coal.png" />
