@@ -23,7 +23,7 @@
             </Border>
         </DataTemplate>
 
-        <DataTemplate x:Key="lvBuildingListItem" DataType="x:Type modelVM.BuildingVM" >
+        <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
             <StackPanel Orientation="Vertical" Background="#eee">
                 <Grid>
                     <Grid.ColumnDefinitions>

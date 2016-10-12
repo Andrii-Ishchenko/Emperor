@@ -34,31 +34,31 @@ namespace Emperor.WPF
 
         private void btnLastReport_Click(object sender, RoutedEventArgs e)
         {
-            ReportWindow reportWindow = new ReportWindow();
-            reportWindow.ShowDialog();
+            //ReportWindow reportWindow = new ReportWindow();
+           // reportWindow.ShowDialog();
         }
 
         private void btnGraph_Click(object sender, RoutedEventArgs e)
         {
-            GraphWindow graphWindow = new GraphWindow();
-            graphWindow.ShowDialog();
+            //GraphWindow graphWindow = new GraphWindow();
+            //graphWindow.ShowDialog();
         }
 
         private void btnHistory_Click(object sender, RoutedEventArgs e)
         {
-            HistoryWindow historyWindow = new HistoryWindow();
-            historyWindow.ShowDialog();
+            //HistoryWindow historyWindow = new HistoryWindow();
+            //historyWindow.ShowDialog();
         }
 
         private void btnIncomeAndExpenses_Click(object sender, RoutedEventArgs e)
         {
-            IncomeAndExpenseManageWindow window = new IncomeAndExpenseManageWindow();
-            window.ShowDialog();
+            //IncomeAndExpenseManageWindow window = new IncomeAndExpenseManageWindow();
+            //window.ShowDialog();
         }
 
         private void btnPromotionAdvice_Click(object sender, RoutedEventArgs e)
         {
-            new AdviceWindow().ShowDialog();
+            //new AdviceWindow().ShowDialog();
         }
 
         private void btnBuildingsListBuy_Click(object sender, RoutedEventArgs e)

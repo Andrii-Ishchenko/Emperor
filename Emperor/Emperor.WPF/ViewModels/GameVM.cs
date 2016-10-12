@@ -2,9 +2,11 @@
 using Emperor.WPF.ViewModels.DataVM;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Emperor.Core.States;
 
 namespace Emperor.WPF.ViewModels
@@ -165,7 +167,7 @@ namespace Emperor.WPF.ViewModels
         {
             if (building.Sell(count))
                 OnPropertyChanged(string.Empty);
-        }
-        
+        }     
+
     }
 }

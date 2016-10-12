@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF.Views"
+        xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="TabbedWindow" Height="600" Width="600" ResizeMode="CanMinimize">
+        Title="Emperor" Height="400" Width="600" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"/>
@@ -17,7 +18,14 @@
             <DockPanel>
                 <Label DockPanel.Dock="Left" Background="#fab387">Emperor</Label>
                 <Label DockPanel.Dock="Left" Margin="8,0,0,0"> Year</Label>
-                <Label DataContext="Left" > 23/ 60</Label>
+                <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}/{1}">
+                            <Binding Path="Year"/>
+                            <Binding Path="MaxYear"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
                 <StackPanel DockPanel.Dock="Right"  Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Gold"></Image>
                     <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Gold, FallbackValue=0}" Name="lbGold"></Label>
@@ -40,16 +48,16 @@
             </DockPanel>
         </Border>
         
-        <TabControl Grid.Row="1" >
+        <TabControl Grid.Row="1" Name="SectionsTabControl">
             <TabControl.Resources>
                 <Style TargetType="{x:Type TabPanel}">
                     <Setter Property="HorizontalAlignment" Value="Center" />
                 </Style>
-                
+
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
                         <Setter.Value>
-                            <ControlTemplate TargetType="TabItem">
+                            <ControlTemplate TargetType="{x:Type TabItem}">
                                 <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="6,6,0,0" Margin="2,0">
                                     <ContentPresenter x:Name="ContentSite"
                                         VerticalAlignment="Center"
@@ -59,9 +67,9 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />    
-                                        <Setter Property="FontStyle" Value="Italic" />
-                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
+                                        <Setter TargetName="ContentSite" Property="TextElement.FontStyle"  Value="Italic" />
+                                        <Setter TargetName="ContentSite" Property="TextElement.FontWeight" Value="Bold"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
@@ -71,13 +79,14 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
+                
             </TabControl.Resources>
 
             <TabItem Header="Buildings">
-
+                <local:BuildingsView></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-
+                <local:TradeView></local:TradeView>
             </TabItem>
             <TabItem Header="Army">
 
@@ -95,6 +104,6 @@
 
         </TabControl>
 
-        <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year"></Button>
+        <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Click="BtnNextYear_OnClick"></Button>
     </Grid>
 </Window>

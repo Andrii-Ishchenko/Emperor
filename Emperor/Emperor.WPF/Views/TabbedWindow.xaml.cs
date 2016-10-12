@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emperor.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace Emperor.WPF.Views
     /// </summary>
     public partial class TabbedWindow : Window
     {
+        private GameVM _gameVM;
+
         public TabbedWindow()
         {
             InitializeComponent();
+            _gameVM = new GameVM();
+            DataContext = _gameVM;         
+        }
+
+
+        private void BtnNextYear_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameVM.CalculateNextTurn();
         }
     }
 }

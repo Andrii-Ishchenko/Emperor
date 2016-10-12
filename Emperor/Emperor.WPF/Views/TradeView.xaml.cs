@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Emperor.WPF
+namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for IncomeAndExpenseManageWindow.xaml
+    /// Interaction logic for TradeView.xaml
     /// </summary>
-    public partial class IncomeAndExpenseManageWindow : Window
+    public partial class TradeView : UserControl
     {
-        public IncomeAndExpenseManageWindow()
+        public TradeView()
         {
             InitializeComponent();
         }

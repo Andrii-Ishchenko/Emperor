@@ -17,7 +17,7 @@ namespace Emperor.Core.Managers
         public void CalculateCitizensGrowth(YearlyBalance balance)
         {
             var goldCoef = 1 + Math.Sqrt(_game.Gold / 1000.0);
-            balance.CitizensGrowth = Convert.ToInt64(goldCoef * (_game.Citizens / 2500 + (_game.Citizens) * (_game.Citizens) / 125000) + 1);
+            balance.CitizensGrowth = Convert.ToInt64(goldCoef * (_game.Citizens / 175.0)  + 1);
         }
 
         public void CalculateCitizensLost(YearlyBalance balance)

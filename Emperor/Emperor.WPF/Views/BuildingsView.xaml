@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.BuildingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
+            <StackPanel Orientation="Vertical" Background="#eee" Margin="2,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Ellipse Grid.Column="0" Width="32" Height="32" Fill="SandyBrown"></Ellipse>
+                    <Label Grid.Column="1" Content="{Binding Path=Name}" VerticalAlignment="Center"></Label>
+                    <Label Grid.Column="2" Content="{Binding Path=Count}"  VerticalAlignment="Center"></Label>
+                    <StackPanel Grid.Column="3"  Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="../Resources/gold.png" Width="15" Height="15"></Image>
+                        <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
+                    </StackPanel>
+                    <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Click="btnBuildingsListBuy_OnClick"></Button>
+                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Click="BtnBuildingsListSell_OnClick"></Button>
+                </Grid>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid >
+        <ListView Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}"/>
+    </Grid>
+</UserControl>
