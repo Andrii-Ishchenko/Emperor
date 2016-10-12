@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Emperor.WPF.Commands;
 
 namespace Emperor.WPF.ViewModels.DataVM
 {
@@ -16,6 +17,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         public BuildingVM(Building building)
         {
             _building = building;
+            BuyCommand = new BuyBuildingCommand(this);
         }
 
         public string Name => _building.Name.ToUpper();
@@ -28,7 +30,6 @@ namespace Emperor.WPF.ViewModels.DataVM
         {
             var res = _building.Build(count);
             OnPropertyChanged("Count");
-            OnPropertyChanged("Price");
             return res;
         }
 
@@ -36,7 +37,6 @@ namespace Emperor.WPF.ViewModels.DataVM
         {
             var res = _building.Sell(count);
             OnPropertyChanged("Count");
-            OnPropertyChanged("Price");
             return res;
         }
 
@@ -49,5 +49,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         {
             _building.Produce(income);
         }
+
+        public BuyBuildingCommand BuyCommand { get; set; }
     }
 }

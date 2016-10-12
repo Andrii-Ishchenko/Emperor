@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Emperor.WPF.Views"
+             xmlns:cmd="clr-namespace:Emperor.WPF.Commands"
              xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
-            <StackPanel Orientation="Vertical" Background="#eee" Margin="2,5">
+            <StackPanel Orientation="Vertical" Background="#eee" Margin="2,5" x:Name="buildingsStackPanel">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="35"></ColumnDefinition>
@@ -27,12 +28,14 @@
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
                     <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Click="btnBuildingsListBuy_OnClick"></Button>
-                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Click="BtnBuildingsListSell_OnClick"></Button>
+                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Command="{Binding Path=BuyCommand}"></Button>
                 </Grid>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
     <Grid >
-        <ListView Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}"/>
+        <ListView Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}">
+
+        </ListView>
     </Grid>
 </UserControl>

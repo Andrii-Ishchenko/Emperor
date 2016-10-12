@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Emperor.Core.States;
+using Emperor.WPF.Commands;
 
 namespace Emperor.WPF.ViewModels
 {
@@ -18,6 +19,10 @@ namespace Emperor.WPF.ViewModels
         {
             Game = new Game();
             Buildings = Game.Buildings.Select(x => new BuildingVM(x)).ToList();
+            foreach (var building in Buildings)
+            {
+                building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
+            }       
         }
 
         private Game Game { get; set; }
@@ -167,7 +172,8 @@ namespace Emperor.WPF.ViewModels
         {
             if (building.Sell(count))
                 OnPropertyChanged(string.Empty);
-        }     
+        }
 
+        
     }
 }

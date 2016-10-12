@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\BuyBuildingCommand.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
