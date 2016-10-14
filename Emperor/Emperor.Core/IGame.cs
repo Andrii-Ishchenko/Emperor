@@ -5,6 +5,6 @@ namespace Emperor.Core
 {
     public interface IGame
     {
-        YearlyBalance CalculateNextTurn();
+        YearlyBalance NextTurn();
     }
 }

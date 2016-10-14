@@ -26,13 +26,17 @@ namespace Emperor.WPF.Views
         {
             InitializeComponent();
             _gameVM = new GameVM();
-            DataContext = _gameVM;         
+            DataContext = _gameVM;
+            tradeViewControl.DataContext = new TradeVM(_gameVM);
+            ratesViewControl.DataContext = new RatesVM(_gameVM);
+            buildingsViewControl.DataContext = _gameVM;
         }
 
 
         private void BtnNextYear_OnClick(object sender, RoutedEventArgs e)
         {
-            _gameVM.CalculateNextTurn();
+            _gameVM.NextTurn();
+            ratesViewControl.DataContext = new RatesVM(_gameVM);
         }
     }
 }

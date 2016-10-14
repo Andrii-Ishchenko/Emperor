@@ -55,14 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\BuyBuildingCommand.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
+    <Compile Include="ViewModels\TradeVM.cs" />
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
+    <Compile Include="Views\RatesView.xaml.cs">
+      <DependentUpon>RatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TabbedWindow.xaml.cs">
       <DependentUpon>TabbedWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +93,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\RatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TabbedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +167,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\soldier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\anvil-impact.png" />
+    <Resource Include="Resources\cash.png" />
+    <Resource Include="Resources\castle.png" />
+    <Resource Include="Resources\coins.png" />
+    <Resource Include="Resources\gladius.png" />
+    <Resource Include="Resources\gold-mine.png" />
+    <Resource Include="Resources\like.png" />
+    <Resource Include="Resources\ore.png" />
+    <Resource Include="Resources\pie-chart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

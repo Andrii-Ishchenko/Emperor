@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Emperor.WPF.Views"
+             xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="300">
+             d:DesignHeight="250" d:DesignWidth="400">
     <Grid Background="DarkSlateGray">
-        <Border BorderBrush="Gold" BorderThickness="1" HorizontalAlignment="Center" Width="240" Height="120" >
+        <Border BorderBrush="Gold" BorderThickness="1" HorizontalAlignment="Center" Width="400" Height="120">
             <Grid ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
@@ -19,7 +20,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
 
                 </Grid.RowDefinitions>
 
@@ -27,12 +28,16 @@
                 <Label Grid.Column="0" Grid.Row="1" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Iron</Label>
                 <Label Grid.Column="0" Grid.Row="2" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Weapon</Label>
 
-                <Label Grid.Column="1" Grid.Row="0" Content="{Binding Gold}"/>
+                <Label Grid.Column="1" Grid.Row="0" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Game.Food}"/> 
+                <Label Grid.Column="1" Grid.Row="1" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Game.Iron}"/>
+                <Label Grid.Column="1" Grid.Row="2" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Game.Weapons}"/> 
+
+
 
                 <Label Grid.Column="0" Grid.Row="3" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">Quantity</Label>
-                <Label Grid.Column="1" Grid.Row="3" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center">100</Label>
-                <Button Grid.Column="2" Grid.Row="3" Margin="4,10" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8">+</Button>
-                <Button Grid.Column="3" Grid.Row="3" Margin="4,10" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8">-</Button>
+                <Label Grid.Column="1" Grid.Row="3" Foreground="Goldenrod" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Multiplicator}"></Label>
+                <Button Grid.Column="2" Grid.Row="3" Margin="5" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8" Name="btnIncreaseMultiplicator" Command="{Binding IncreaseMultiplicatorCommand}">+</Button>
+                <Button Grid.Column="3" Grid.Row="3" Margin="5" Background="Goldenrod" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="8" Name="btnDecreaseMultiplicator" Command="{Binding DecreaseMultiplicatorCommand}">-</Button>
             </Grid>
         </Border>
     </Grid>

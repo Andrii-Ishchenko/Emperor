@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Emperor.WPF"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:Emperor.Core.Enums;assembly=Emperor.Core"
              StartupUri="Views\TabbedWindow.xaml">
     <Application.Resources>
         <Style x:Key="LabelStyle">
@@ -41,5 +43,12 @@
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontFamily" Value="/Emperor.WPF;component/Fonts/#Fontin" />
         </Style>
+
+        <ObjectDataProvider x:Key="enumRates" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Rate"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </Application.Resources>
 </Application>

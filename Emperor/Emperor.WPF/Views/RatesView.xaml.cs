@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emperor.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,11 @@ using System.Windows.Shapes;
 namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for TradeView.xaml
+    /// Interaction logic for RatesView.xaml
     /// </summary>
-    public partial class TradeView : UserControl
+    public partial class RatesView : UserControl
     {
-        public TradeView()
+        public RatesView()
         {
             InitializeComponent();
         }

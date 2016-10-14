@@ -154,9 +154,30 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public YearlyBalanceVM CalculateNextTurn()
+        public long Happiness
         {
-            var balance = Game.CalculateNextTurn();
+            get { return Game.Happiness; }
+            set { Game.Happiness = value;
+                OnPropertyChanged("Happiness");
+            }
+        } 
+
+        public Rates Rates
+        {
+            get
+            {
+                return Game.Rates;
+            }
+            set
+            {
+                Game.Rates = value;
+                OnPropertyChanged("Rates");
+            }
+        }
+
+        public YearlyBalanceVM NextTurn()
+        {
+            var balance = Game.NextTurn();
             OnPropertyChanged(string.Empty);
             return new YearlyBalanceVM(balance);
         }

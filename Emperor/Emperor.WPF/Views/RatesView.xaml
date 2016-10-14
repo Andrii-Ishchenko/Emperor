@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.RatesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="640">
+    <Grid>
+        <Grid Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" FontSize="14">Taxes</Label>
+            <ComboBox Grid.Column="1" Grid.Row="0" Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=TaxRate}" />
+            <TextBlock  Grid.Column="2" Grid.Row="0" TextWrapping="Wrap" Margin="10,2" VerticalAlignment="Center">
+                <TextBlock.Inlines>
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding Game.Citizens, FallbackValue=0}" />
+                    <Image Source="/Resources/worker.png" Height="20" />
+                    citizens will pay
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding PayedTaxes,Mode=OneWay, FallbackValue=0}" />
+                    <Image Source="/Resources/gold.png" Height="20" />
+                    taxes.
+                </TextBlock.Inlines>
+            </TextBlock>
+
+
+
+            <Label Grid.Column="0" Grid.Row="1" FontSize="14">Food Ration</Label>
+            <ComboBox Grid.Column="1" Grid.Row="1"  Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=FoodRate}"></ComboBox>
+            <TextBlock  Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="10,2" VerticalAlignment="Center">
+                <TextBlock.Inlines>
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding Game.Citizens, FallbackValue=0}" />
+                    <Image Source="/Resources/worker.png" Height="20" />
+                    citizens will eat
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding ConsumedFood,Mode=OneWay, FallbackValue=0}" />
+                    <Image Source="/Resources/food.png" Height="20" />
+                    food.
+
+                </TextBlock.Inlines>
+            </TextBlock>
+
+
+            <Label Grid.Column="0" Grid.Row="2" FontSize="14">Social Payments</Label>
+            <ComboBox Grid.Column="1" Grid.Row="2"  Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=SocialRate}"></ComboBox>
+
+            <Label Grid.Column="0" Grid.Row="3" FontSize="14">Army Payments</Label>
+            <ComboBox Grid.Column="1" Grid.Row="3"  Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=ArmyRate}"></ComboBox>
+                 
+        </Grid>
+    </Grid>
+</UserControl>

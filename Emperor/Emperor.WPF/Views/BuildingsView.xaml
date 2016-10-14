@@ -27,14 +27,18 @@
                         <Image Source="../Resources/gold.png" Width="15" Height="15"></Image>
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
-                    <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Click="btnBuildingsListBuy_OnClick"></Button>
-                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Command="{Binding Path=BuyCommand}"></Button>
+                    <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=BuyCommand}"></Button>
+                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Command="{Binding Path=SellCommand}"></Button>
                 </Grid>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
     <Grid >
-        <ListView Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="0" Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}">
 
         </ListView>
     </Grid>

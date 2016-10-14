@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for TradeView.xaml
+    /// Interaction logic for ReportsView.xaml
     /// </summary>
-    public partial class TradeView : UserControl
+    public partial class ReportsView : UserControl
     {
-        public TradeView()
+        public ReportsView()
         {
             InitializeComponent();
         }
-
     }
 }

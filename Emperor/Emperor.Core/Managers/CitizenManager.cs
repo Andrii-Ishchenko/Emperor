@@ -8,7 +8,7 @@ namespace Emperor.Core.Managers
     public class CitizenManager
     {
         private Game _game;
-
+        private RateCalculator calc = new RateCalculator();
         public CitizenManager(Game game)
         {
             _game = game;
@@ -22,7 +22,7 @@ namespace Emperor.Core.Managers
 
         public void CalculateCitizensLost(YearlyBalance balance)
         {
-            balance.CitizensLost = ((_game.Citizens + 2 * _game.Soldiers) - balance.FoodConsumed);
+            balance.CitizensLost = (calc.GetConsumedFood(_game.Citizens,_game.Rates.FoodRate) - balance.FoodConsumed);
         }
     }
 }

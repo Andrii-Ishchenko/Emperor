@@ -43,20 +43,23 @@
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\Castle.cs" />
     <Compile Include="Buildings\Farm.cs" />
-    <Compile Include="Buildings\IBuilding.cs" />
     <Compile Include="Buildings\Market.cs" />
     <Compile Include="Buildings\Mine.cs" />
     <Compile Include="Buildings\Smith.cs" />
+    <Compile Include="Enums\Rate.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="Managers\CitizenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RateCalculator.cs" />
+    <Compile Include="Rates.cs" />
     <Compile Include="States\Count.cs" />
     <Compile Include="States\Duke.cs" />
     <Compile Include="States\Emperor.cs" />
     <Compile Include="States\King.cs" />
     <Compile Include="States\Prince.cs" />
     <Compile Include="States\TitleState.cs" />
+    <Compile Include="Stats.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="YearlyBalance.cs" />
   </ItemGroup>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Emperor.Core.Buildings;
 using Emperor.Core.Managers;
 using Emperor.Core.States;
+using Emperor.Core.Enums;
 
 namespace Emperor.Core
 {
@@ -23,10 +24,16 @@ namespace Emperor.Core
         public long Citizens { get; set; }
         public long Soldiers { get; set; }
 
+        public long Happiness { get; set; }
+
         public TitleState TitleState { get; set; }
 
         public List<Building> Buildings { get; private set; }
-        public Dictionary<int,YearlyBalance> balanceHistory { get; private set; }
+
+        public YearlyBalance Balance { get; set; }      
+        public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
+
+        public Rates Rates { get; set; }
 
         private CitizenManager citizenManager;
 
@@ -52,42 +59,49 @@ namespace Emperor.Core
             Citizens = 1000;
             Soldiers = 0;
 
+            Happiness = 50;
             TitleState = new Count();
+            Rates = new Rates();
+            Rates.FoodRate = Rate.Average;
+            Rates.ArmyRate = Rate.Average;
+            Rates.SocialRate = Rate.None;
+            Rates.TaxRate = Rate.Average;
 
-            balanceHistory = new Dictionary<int, YearlyBalance>();
+            BalanceHistory = new Dictionary<int, YearlyBalance>();
             citizenManager = new CitizenManager(this);
+            Balance = new YearlyBalance();
         }
 
-        public YearlyBalance CalculateNextTurn()
+        public YearlyBalance NextTurn()
         {
-            YearlyBalance balance = new YearlyBalance();
-
-            balance.Year = Year;
+           
+            Balance.Year = Year;
 
             foreach(var building in Buildings)
             {
-                building.Produce(balance);
+                building.Produce(Balance);
             }
 
-            CalculateLost(balance);
-            CalculateTaxes(balance);
-            ConsumeFood(balance);
-            citizenManager.CalculateCitizensGrowth(balance);    
-            citizenManager.CalculateCitizensLost(balance);      
-            CalculateDeltas(balance);
+            CalculateLost(Balance);
+            CalculateTaxes(Balance);
+            ConsumeFood(Balance);
+            citizenManager.CalculateCitizensGrowth(Balance);    
+            citizenManager.CalculateCitizensLost(Balance);      
+            CalculateDeltas(Balance);
 
             TitleState.HandleState(this);
-            ApplyBalance(balance);
+            ApplyBalance(Balance);
 
-            balanceHistory.Add(Year, balance);
-
+            BalanceHistory.Add(Year, Balance);
+            
             Year++;
-            return balance; 
+            Balance = new YearlyBalance();
+            return BalanceHistory.Last().Value; 
         }
 
         private void CalculateTaxes(YearlyBalance balance)
         {
-            balance.GoldGrowth = Citizens;
+            balance.GoldGrowth = Rates.GetPayedTaxes(Citizens);
         }
 
         private void CalculateLost(YearlyBalance balance)
@@ -99,10 +113,9 @@ namespace Emperor.Core
 
         private void ConsumeFood(YearlyBalance balance)
         {
-            balance.FoodConsumed = Math.Min(Food + balance.FoodGrowth - balance.FoodLost ,(Citizens+2*Soldiers));
+            long foodNeeded = Rates.GetConsumedFood(Citizens);
+            balance.FoodConsumed = Math.Min(Food + balance.FoodGrowth - balance.FoodLost , foodNeeded);
         }
-
-
 
         private void CalculateDeltas(YearlyBalance balance)
         {

@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Emperor.Core
 {
-    public abstract class Building : IBuilding
+    public abstract class Building
     {
          protected Game _game;
 
@@ -26,9 +26,14 @@ namespace Emperor.Core
 
         public abstract void Produce(YearlyBalance income);
 
-        public  bool CanBeBuiltQuantity(int quantity)
+        public bool CanBeBuiltQuantity(int quantity)
         {
-            return (quantity*Price >= _game.Gold);
+            return (quantity*Price <= _game.Gold);
+        }
+
+        public bool CanBeSoldQuantity(int quantity)
+        {
+            return Count >= 1;
         }
 
         public virtual bool Build(int count)

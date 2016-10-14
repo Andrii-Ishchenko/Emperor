@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Emperor.WPF.Views"
         xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
         mc:Ignorable="d"
-        Title="Emperor" Height="400" Width="600" ResizeMode="CanMinimize">
+        Title="Emperor" Height="480" Width="640" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"/>
             <RowDefinition />
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="48"/>
         </Grid.RowDefinitions>
 
         <Border CornerRadius="4" BorderThickness="1" BorderBrush="Gray" Margin="4" Background="GhostWhite">
@@ -44,6 +44,9 @@
 
                     <Image Style="{StaticResource IconStyle}" Source="/Resources/soldier.png" ToolTip="Soldiers"></Image>
                     <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Soldiers, FallbackValue=0}" Name="lbSoldiers"></Label>
+
+                    <Image Style="{StaticResource IconStyle}" Source="/Resources/like.png" ToolTip="Happiness"></Image>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Happiness, FallbackValue=0}" Name="lbHappiness"></Label>
                 </StackPanel>
             </DockPanel>
         </Border>
@@ -83,19 +86,19 @@
             </TabControl.Resources>
 
             <TabItem Header="Buildings">
-                <local:BuildingsView></local:BuildingsView>
+                <local:BuildingsView x:Name="buildingsViewControl"></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-                <local:TradeView></local:TradeView>
+                <local:TradeView x:Name="tradeViewControl"></local:TradeView>
             </TabItem>
             <TabItem Header="Army">
 
             </TabItem>
             <TabItem Header="Income &amp; Outcome">
-
+                <local:RatesView x:Name="ratesViewControl"/>
             </TabItem>
             <TabItem Header="Yearly Reports">
-
+                <local:ReportsView/>
             </TabItem>
             <TabItem Header="Graphs">
                 
