@@ -16,7 +16,7 @@
 
         <Border CornerRadius="4" BorderThickness="1" BorderBrush="Gray" Margin="4" Background="GhostWhite">
             <DockPanel>
-                <Label DockPanel.Dock="Left" Background="#fab387">Emperor</Label>
+                <Label DockPanel.Dock="Left" Background="#fab387" Content="{Binding TitleState.TitleName}"/>
                 <Label DockPanel.Dock="Left" Margin="8,0,0,0"> Year</Label>
                 <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">
                     <TextBlock.Text>

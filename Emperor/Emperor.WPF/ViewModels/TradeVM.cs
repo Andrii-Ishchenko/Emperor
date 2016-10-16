@@ -70,7 +70,6 @@ namespace Emperor.WPF.ViewModels
         {
             return Multiplicator < long.MaxValue / 10;
         }
-
         public void IncreaseMultiplicator(object parameter)
         {
             

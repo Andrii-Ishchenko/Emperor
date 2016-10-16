@@ -29,11 +29,12 @@ namespace Emperor.Core
         public TitleState TitleState { get; set; }
 
         public List<Building> Buildings { get; private set; }
+        public List<Product> Products { get; set; }
 
         public YearlyBalance Balance { get; set; }      
         public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
 
-        public Rates Rates { get; set; }
+        public Rates Rates { get;private set; }
 
         private CitizenManager citizenManager;
 
@@ -46,6 +47,13 @@ namespace Emperor.Core
                 new Mine(this, 3000,0),
                 new Smith(this,4000,0),
                 new Castle(this,5000,0)
+            };
+
+            Products = new List<Product>()
+            {
+                new Product("Iron",0),
+                new Product("Food",3800),
+                new Product("Weapons",0)
             };
 
             Year = 0;

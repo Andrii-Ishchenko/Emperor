@@ -168,11 +168,6 @@ namespace Emperor.WPF.ViewModels
             {
                 return Game.Rates;
             }
-            set
-            {
-                Game.Rates = value;
-                OnPropertyChanged("Rates");
-            }
         }
 
         public YearlyBalanceVM NextTurn()

@@ -15,7 +15,7 @@ namespace Emperor.Core.States
 
         public override void HandleState(Game game)
         {
-            if (game.Gold > 25000)
+            if (game.Gold > 30000)
                 game.TitleState = new Emperor();
         }
     }

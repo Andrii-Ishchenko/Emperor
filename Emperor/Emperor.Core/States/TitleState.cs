@@ -14,8 +14,11 @@ namespace Emperor.Core.States
         public string TitleName
         {
             get { return _titleName; }
+            protected set { _titleName = value; }
         }
 
         public abstract void HandleState(Game game); 
+
+        
     }
 }
