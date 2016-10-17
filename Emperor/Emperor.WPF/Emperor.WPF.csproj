@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Components\InfoTooltip.xaml.cs">
+      <DependentUpon>InfoTooltip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\TradeVM.cs" />
@@ -77,6 +80,10 @@
     <Compile Include="Views\TradeView.xaml.cs">
       <DependentUpon>TradeView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Components\InfoTooltip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BuildingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,7 +153,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

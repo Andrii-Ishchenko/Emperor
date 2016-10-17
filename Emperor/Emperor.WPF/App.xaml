@@ -6,17 +6,40 @@
              xmlns:enums="clr-namespace:Emperor.Core.Enums;assembly=Emperor.Core"
              StartupUri="Views\TabbedWindow.xaml">
     <Application.Resources>
+        <Style x:Key="BorderedInfoTooltip" TargetType="{x:Type ToolTip}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToolTip}">
+                        <Border Background="BurlyWood" BorderBrush="SaddleBrown" BorderThickness="1" CornerRadius="4">
+                            <StackPanel Orientation="Horizontal">
+                               <!-- <Image Width="16" Height="16" Source="Resources/gladius.png"  Margin="6,2"/>-->
+                                <ContentPresenter Margin="6,4" HorizontalAlignment="Left" VerticalAlignment="Top" Content="{TemplateBinding Content}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="LabelStyle">
             <Setter Property="Label.FontSize" Value="15"></Setter>
             <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
         </Style>
-        <Style x:Key="IconStyle">
-            <Setter Property="Image.VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="Image.HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Image.Width" Value="20"></Setter>
-            <Setter Property="Image.Height" Value="20"></Setter>
+        
+        
+        <Style x:Key="IconStyle" TargetType="Image">
+            <Style.Resources>
+                <Style TargetType="ToolTip" BasedOn="{StaticResource BorderedInfoTooltip}"/>
+            </Style.Resources>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="20"></Setter>
+            <Setter Property="Height" Value="20"></Setter>
         </Style>
+
+
+        
         <Style x:Key="IconLabelStyle">
             <Setter Property="Label.Margin" Value="0 0 20 0"></Setter>
             <Setter Property="Label.FontSize" Value="12"></Setter>
