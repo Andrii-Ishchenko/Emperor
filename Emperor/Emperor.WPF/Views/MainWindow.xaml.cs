@@ -71,7 +71,6 @@ namespace Emperor.WPF
         private void btnNextTurn_Click(object sender, RoutedEventArgs e)
         {
             var yearlyBalance = _gameVM.NextTurn();
-            grReport.DataContext = yearlyBalance;
         }
 
         private void btnBuildingsListSell_Click(object sender, RoutedEventArgs e)

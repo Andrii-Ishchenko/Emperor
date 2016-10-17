@@ -68,7 +68,7 @@ namespace Emperor.Core
             Soldiers = 0;
 
             Happiness = 50;
-            TitleState = new Count();
+            TitleState = new Count(this);
             Rates = new Rates();
             Rates.FoodRate = Rate.Average;
             Rates.ArmyRate = Rate.Average;
@@ -97,7 +97,7 @@ namespace Emperor.Core
             citizenManager.CalculateCitizensLost(Balance);      
             CalculateDeltas(Balance);
 
-            TitleState.HandleState(this);
+            TitleState.HandleState();
             ApplyBalance(Balance);
 
             BalanceHistory.Add(Year, Balance);

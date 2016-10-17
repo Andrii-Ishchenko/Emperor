@@ -8,14 +8,14 @@ namespace Emperor.Core.States
 {
     public class Emperor : TitleState
     {
-        public Emperor()
+        public Emperor(Game game) : base(game)
         {
             _titleName = "Emperor";
         }
 
-        public override void HandleState(Game game)
+        public override void Promote()
         {
-           
+            //check end game
         }
     }
 }

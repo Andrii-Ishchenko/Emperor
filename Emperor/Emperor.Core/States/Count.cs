@@ -8,15 +8,15 @@ namespace Emperor.Core.States
 {
     public class Count : TitleState
     {
-        public Count()
+        public Count(Game game) : base(game)
         {
             _titleName = "Count";
+            PromotionRequirements.Add("Gold", (g) => { return (g.Gold > 5000); });
         }
 
-        public override void HandleState(Game game)
+        public override void Promote()
         {
-           if(game.Gold > 5000)
-                game.TitleState = new Duke();
+            _game.TitleState = new Duke(_game);
         }
     }
 }
