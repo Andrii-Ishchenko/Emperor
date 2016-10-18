@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Emperor.Core.Managers;
+using Emperor.WPF.ViewModels.DataVM;
 
 namespace Emperor.WPF.ViewModels
 {
     public class TradeVM : BaseVM
     {
+        private const long _multiplicatorMaxValue = 1000000000;
         private GameVM _gameVM;
         private TradeManager _tradeManager;
         public TradeVM(GameVM gameVM)
@@ -20,8 +22,11 @@ namespace Emperor.WPF.ViewModels
             Multiplicator = 1;
             IncreaseMultiplicatorCommand = new RelayCommand(IncreaseMultiplicator, CanIncreaseMultiplicator);
             DecreaseMultiplicatorCommand = new RelayCommand(DecreaseMultiplicator, CanDecreaseMultiplicator);
-            BuyFoodCommand = new RelayCommand(BuyFood,CanBuyFood);
-            SellFoodCommand = new RelayCommand(SellFood, CanSellFood);
+
+            BuyCommand = new RelayCommand(Buy, CanBuy);
+            SellCommand = new RelayCommand(Sell, CanSell);
+
+            SelectedProduct = Products.FirstOrDefault();
         }
 
         private long _multiplicator;
@@ -42,24 +47,31 @@ namespace Emperor.WPF.ViewModels
 
         public GameVM Game { get { return _gameVM; } }
 
-        public double FoodPrice { get { return _tradeManager.GetFoodPrice(); } }
-        public long TotalFoodPrice { get { return _tradeManager.GetTotalFoodPrice(Multiplicator); } }
+        public List<ProductVM> Products { get { return _gameVM.Products; } }
 
-
+        private ProductVM _selectedProduct;
+        public ProductVM SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set
+            {
+                if (_selectedProduct != value)
+                {
+                    _selectedProduct = value;
+                    OnPropertyChanged("SelectedProduct");
+                }
+            }
+        }
         public ICommand IncreaseMultiplicatorCommand { get; set; }
 
         public ICommand DecreaseMultiplicatorCommand { get; set; }
 
-        public ICommand BuyFoodCommand { get; set; }
-        public ICommand SellFoodCommand { get; set; }
-        public ICommand BuyIronCommand { get; set; }
-        public ICommand SellIronCommand { get; set; }
-        public ICommand BuyWeaponsCommand { get; set; }
-        public ICommand SellWeaponsCommand { get; set; }
+        public ICommand BuyCommand { get; set; }
+        public ICommand SellCommand { get; set; }
 
         public bool CanIncreaseMultiplicator(object parameter)
         {
-            return Multiplicator < long.MaxValue / 10;
+            return Multiplicator <= _multiplicatorMaxValue;
         }
         public void IncreaseMultiplicator(object parameter)
         {
@@ -74,61 +86,44 @@ namespace Emperor.WPF.ViewModels
         public void DecreaseMultiplicator(object parameter)
         {
             Multiplicator /= 10;
+        }   
+
+        public long TotalBuyPrice
+        {
+            get
+            {
+                return _tradeManager.GetTotalPriceBuy(SelectedProduct.Product, Multiplicator);
+            }
         }
 
-        public void BuyFood(object parameter)
+        public long TotalSellPrice
         {
-            //var count = (long) parameter;
-            var count = Multiplicator;
-            _tradeManager.BuyFood(count);
+            get
+            {
+                return _tradeManager.GetTotalPriceSell(SelectedProduct.Product, Multiplicator);
+            }
+        }
 
+        public void Buy(object parameter)
+        {
+            _tradeManager.Buy(SelectedProduct.Product, Multiplicator);
             OnPropertyChanged(string.Empty);
         }
 
-        public void SellFood(object parameter)
+        public void Sell(object parameter)
         {
-            //var count = (long)parameter;
-            var count = Multiplicator;
-            _tradeManager.SellFood(count);
-
+            _tradeManager.Sell(SelectedProduct.Product, Multiplicator);
             OnPropertyChanged(string.Empty);
         }
-        public bool CanBuyFood(object parameter)
+
+        public bool CanBuy(object parameter)
         {
-            //var count = (long)parameter;
-            var count = Multiplicator;
-            return _tradeManager.CanBuyFood(count);
+            return _tradeManager.CanBuy(SelectedProduct.Product, Multiplicator);
         }
 
-        public bool CanSellFood(object parameter)
+        public bool CanSell(object parameter)
         {
-            //var count = (long)parameter;
-            var count = Multiplicator;
-            return _tradeManager.CanSellFood(count);
+            return _tradeManager.CanSell(SelectedProduct.Product, Multiplicator);
         }
-
-        public void BuyIron(object parameter) { }
-        public void SellIron(object parameter) { }
-        public bool CanBuyIron(object parameter)
-        {
-            return true;
-        }
-        public bool CanSellIron(object parameter)
-        {
-            return true;
-        }
-
-        public void BuyWeapons(object parameter) { }
-        public void SellWeapons(object parameter) { }
-        public bool CanBuyWeapons(object parameter)
-        {
-            return true;
-        }
-        public bool CanSellWeapons(object parameter)
-        {
-            return true;
-        }
-
-
     }
 }

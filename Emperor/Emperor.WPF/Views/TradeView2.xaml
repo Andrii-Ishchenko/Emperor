@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.TradeView2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="640">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ProductVMListItem" DataType="{x:Type modelVM:ProductVM}" >
+            <Border Background="#eee" CornerRadius="2" BorderThickness="1" BorderBrush="#ccc" Margin="0">
+                <Grid Background="#eee">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" SharedSizeGroup="A" ></ColumnDefinition>
+                        <ColumnDefinition Width="100" SharedSizeGroup="B"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Ellipse Grid.Column="0" Width="28" Height="28" Fill="SaddleBrown" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+                            <Label Content="{Binding Path=Name}" DockPanel.Dock="Left" FontWeight="Bold" ></Label>
+                            <Label Grid.Column="1" Content="{Binding Path=Count}" ></Label>
+                        </DockPanel>
+                        <Separator Foreground="Black"  Margin="3,0"/>
+                        <!-- 
+                        <StackPanel Grid.Column="2"  Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Image Source="../Resources/gold.png" Width="15" Height="15"></Image>
+                            <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
+                        </StackPanel>
+                        -->
+                    </StackPanel>
+                         
+                    
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Column="0" Name="productsList" ItemsSource="{Binding Path=Products}" ItemTemplate="{StaticResource ProductVMListItem}" SelectedItem="{Binding SelectedProduct}">
+             
+            </ListView>
+            <local:ProductDetailedView Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</UserControl>

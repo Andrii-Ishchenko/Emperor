@@ -20,6 +20,8 @@ namespace Emperor.WPF.ViewModels
         {
             Game = new Game();
             Buildings = Game.Buildings.Select(x => new BuildingVM(x)).ToList();
+            Products = Game.Products.Select(x => new ProductVM(x)).ToList();
+
             foreach (var building in Buildings)
             {
                 building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
@@ -28,6 +30,8 @@ namespace Emperor.WPF.ViewModels
 
         private Game Game { get; set; }
         public List<BuildingVM> Buildings { get; private set; }
+        public List<ProductVM> Products { get; private set; }
+
 
         public long Citizens
         {

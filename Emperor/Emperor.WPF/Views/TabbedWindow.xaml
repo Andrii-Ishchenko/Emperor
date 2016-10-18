@@ -89,7 +89,7 @@
                 <local:BuildingsView x:Name="buildingsViewControl"></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-                <local:TradeView x:Name="tradeViewControl"></local:TradeView>
+                <local:TradeView2 x:Name="tradeViewControl"></local:TradeView2>
             </TabItem>
             <TabItem Header="Army">
                 <local:ArmyView></local:ArmyView>

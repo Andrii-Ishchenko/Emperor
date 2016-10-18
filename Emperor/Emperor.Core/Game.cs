@@ -18,9 +18,39 @@ namespace Emperor.Core
 
         public long Gold { get; set; }
 
-        public long Food { get; set; }
-        public long Iron { get; set; }
-        public long Weapons { get; set; }
+        public long Food
+        {
+            get
+            {
+                return GetProductByName("Food").Count;
+            }
+            set
+            {
+                GetProductByName("Food").Count = value;
+            }
+        }
+        public long Iron
+        {
+            get
+            {
+                return GetProductByName("Iron").Count;
+            }
+            set
+            {
+                GetProductByName("Iron").Count = value;
+            }
+        }
+        public long Weapons
+        {
+            get
+            {
+                return GetProductByName("Weapons").Count;
+            }
+            set
+            {
+                GetProductByName("Weapons").Count = value;
+            }
+        }
 
         public long Citizens { get; set; }
         public long Soldiers { get; set; }
@@ -53,9 +83,10 @@ namespace Emperor.Core
 
             Products = new List<Product>()
             {
-                new Product("Iron",0),
-                new Product("Food",3800),
-                new Product("Weapons",0)
+                
+                new Product("Food", 2500, 2),
+                new Product("Iron", 0, 80),
+                new Product("Weapons", 0, 180)
             };
 
             Year = 0;
@@ -88,6 +119,7 @@ namespace Emperor.Core
         public YearlyBalance NextTurn()
         {
            
+
             Balance.Year = Year;
 
             foreach(var building in Buildings)
@@ -109,6 +141,10 @@ namespace Emperor.Core
             
             Year++;
             Balance = new YearlyBalance();
+
+            //save stats here
+
+            //
             return BalanceHistory.Last().Value; 
         }
 
@@ -150,5 +186,9 @@ namespace Emperor.Core
             Soldiers += balance.SoldiersDelta;
         }
 
+        private Product GetProductByName(string name)
+        {
+            return Products.FirstOrDefault(p => p.Name == name);
+        }
     }
 }
