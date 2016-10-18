@@ -10,7 +10,6 @@ namespace Emperor.Core
     public class Stats
     {
         public int Year { get; set; }
-        public int MaxYear { get; set; }
 
         public long Gold { get; set; }
         public long Food { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emperor.Core.States
 {
-    public abstract class TitleState
+    public abstract class TitleState : ICloneable
     {
         protected string _titleName;
         protected Game _game;
@@ -65,5 +65,10 @@ namespace Emperor.Core.States
         }
 
         public abstract void Promote();
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

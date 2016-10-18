@@ -64,7 +64,7 @@ namespace Emperor.Core
 
         public YearlyBalance Balance { get; set; }      
         public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
-       
+        public Dictionary<int,Stats> StatsHistory { get; private set; } 
         public Rates Rates { get;private set; }
 
         public CitizenManager CitizenManager { get; private set; }
@@ -114,6 +114,9 @@ namespace Emperor.Core
             CitizenManager = new CitizenManager(this);
             TradeManager = new TradeManager(this);
             Balance = new YearlyBalance();
+            StatsHistory = new Dictionary<int, Stats>();
+
+            SaveStats();
         }
 
         public YearlyBalance NextTurn()
@@ -143,7 +146,7 @@ namespace Emperor.Core
             Balance = new YearlyBalance();
 
             //save stats here
-
+            SaveStats();
             //
             return BalanceHistory.Last().Value; 
         }
@@ -189,6 +192,22 @@ namespace Emperor.Core
         private Product GetProductByName(string name)
         {
             return Products.FirstOrDefault(p => p.Name == name);
+        }
+
+        public void SaveStats()
+        {
+            Stats stats = new Stats();
+            stats.Year = Year;
+            stats.Gold = Gold;
+            stats.Food = Food;
+            stats.Iron = Iron;
+            stats.Weapons = Weapons;
+            stats.Citizens = Citizens;
+            stats.Soldiers = Soldiers;
+            stats.Happiness = Happiness;
+            stats.TitleState = TitleState.Clone() as TitleState;
+
+            StatsHistory.Add(Year, stats);
         }
     }
 }

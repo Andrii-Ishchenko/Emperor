@@ -13,10 +13,8 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Label FontSize="14" VerticalAlignment="Center" Margin="8,2">Year</Label>
-            <ComboBox Width="80" Height="20" VerticalAlignment="Center">
-                <ComboBoxItem>1</ComboBoxItem>
-                <ComboBoxItem>2</ComboBoxItem>
-                <ComboBoxItem>3</ComboBoxItem>
+            <ComboBox Width="80" Height="20" VerticalAlignment="Center" ItemsSource="{Binding AllYears}">
+               
             </ComboBox>
         </StackPanel>
         

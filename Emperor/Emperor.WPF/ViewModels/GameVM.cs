@@ -32,6 +32,7 @@ namespace Emperor.WPF.ViewModels
         public List<BuildingVM> Buildings { get; private set; }
         public List<ProductVM> Products { get; private set; }
 
+        public List<int> AllYears { get { return Game.StatsHistory.Keys.ToList(); } }
 
         public long Citizens
         {
