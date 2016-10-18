@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,15 +22,23 @@ namespace Emperor.WPF.Views
     public partial class TabbedWindow : Window
     {
         private GameVM _gameVM;
-
+        private TradeVM _tradeVM;
         public TabbedWindow()
         {
             InitializeComponent();
             _gameVM = new GameVM();
+            _tradeVM = new TradeVM(_gameVM);
+            _tradeVM.PropertyChanged += (sender, args) => { UpdateGameContext(); };
             DataContext = _gameVM;
-            tradeViewControl.DataContext = new TradeVM(_gameVM);
+            tradeViewControl.DataContext = _tradeVM;
             ratesViewControl.DataContext = new RatesVM(_gameVM);
             buildingsViewControl.DataContext = _gameVM;
+        }
+
+        public void UpdateGameContext()
+        {
+            DataContext = null;
+            DataContext = _gameVM;
         }
 
 

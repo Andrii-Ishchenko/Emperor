@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Emperor.Core.Managers;
 using Emperor.Core.States;
 using Emperor.WPF.Commands;
 
@@ -170,6 +171,8 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
+        public TradeManager TradeManager { get { return Game.TradeManager; } }
+
         public YearlyBalanceVM NextTurn()
         {
             var balance = Game.NextTurn();
@@ -189,7 +192,6 @@ namespace Emperor.WPF.ViewModels
             if (building.Sell(count))
                 OnPropertyChanged(string.Empty);
         }
-
-        
+      
     }
 }

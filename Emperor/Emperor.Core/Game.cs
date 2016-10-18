@@ -17,6 +17,7 @@ namespace Emperor.Core
         public int MaxYear { get; set; }
 
         public long Gold { get; set; }
+
         public long Food { get; set; }
         public long Iron { get; set; }
         public long Weapons { get; set; }
@@ -29,14 +30,15 @@ namespace Emperor.Core
         public TitleState TitleState { get; set; }
 
         public List<Building> Buildings { get; private set; }
-        public List<Product> Products { get; set; }
+        public List<Product> Products { get; private set; }
 
         public YearlyBalance Balance { get; set; }      
         public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
-
+       
         public Rates Rates { get;private set; }
 
-        private CitizenManager citizenManager;
+        public CitizenManager CitizenManager { get; private set; }
+        public TradeManager TradeManager { get; private set; }
 
         public Game()
         {
@@ -69,14 +71,17 @@ namespace Emperor.Core
 
             Happiness = 50;
             TitleState = new Count(this);
-            Rates = new Rates();
-            Rates.FoodRate = Rate.Average;
-            Rates.ArmyRate = Rate.Average;
-            Rates.SocialRate = Rate.None;
-            Rates.TaxRate = Rate.Average;
+            Rates = new Rates
+            {
+                FoodRate = Rate.Average,
+                ArmyRate = Rate.Average,
+                SocialRate = Rate.None,
+                TaxRate = Rate.Average
+            };
 
             BalanceHistory = new Dictionary<int, YearlyBalance>();
-            citizenManager = new CitizenManager(this);
+            CitizenManager = new CitizenManager(this);
+            TradeManager = new TradeManager(this);
             Balance = new YearlyBalance();
         }
 
@@ -93,8 +98,8 @@ namespace Emperor.Core
             CalculateLost(Balance);
             CalculateTaxes(Balance);
             ConsumeFood(Balance);
-            citizenManager.CalculateCitizensGrowth(Balance);    
-            citizenManager.CalculateCitizensLost(Balance);      
+            CitizenManager.CalculateCitizensGrowth(Balance);    
+            CitizenManager.CalculateCitizensLost(Balance);      
             CalculateDeltas(Balance);
 
             TitleState.HandleState();
