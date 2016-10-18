@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.ArmyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Label Content="{Binding Path=Soldiers, FallbackValue=0}" VerticalAlignment="Center"></Label>
+            <DockPanel LastChildFill="True"  Margin="0" Width="200" HorizontalAlignment="Left">
+                
+                <Button DockPanel.Dock="Right" Margin="4" VerticalAlignment="Center" Width="60">Add</Button>
+                <TextBox HorizontalAlignment="Stretch" Margin="4" VerticalAlignment="Center"></TextBox>
+            </DockPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

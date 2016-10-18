@@ -60,6 +60,9 @@
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\TradeVM.cs" />
+    <Compile Include="Views\ArmyView.xaml.cs">
+      <DependentUpon>ArmyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
     <Compile Include="Views\TradeView.xaml.cs">
       <DependentUpon>TradeView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ArmyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BuildingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
