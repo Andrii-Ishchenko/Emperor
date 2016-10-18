@@ -22,33 +22,11 @@ namespace Emperor.WPF.Views
     /// </summary>
     public partial class BuildingsView : UserControl
     {
-        private GameVM _gameVM;
 
         public BuildingsView()
         {
             InitializeComponent();
-         //   DataContextChanged += BuildingsView_DataContextChanged;
-        }
-
-        void BuildingsView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            _gameVM = e.NewValue as GameVM;
-        }
-
-
-        private void btnBuildingsListBuy_OnClick(object sender, RoutedEventArgs e)
-        {
-           // Button button = sender as Button;
-           // BuildingVM building = button.DataContext as BuildingVM;
-           //_gameVM.Build(building, 1);
-     
-        }
-
-        private void BtnBuildingsListSell_OnClick(object sender, RoutedEventArgs e)
-        {
-            //Button button = sender as Button;
-            //BuildingVM building = button.DataContext as BuildingVM;
-            //_gameVM.Sell(building, 1);
+        
         }
        
     }

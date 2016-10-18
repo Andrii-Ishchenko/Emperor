@@ -15,7 +15,6 @@
         <StackPanel Orientation="Vertical">
             <Label Content="{Binding Path=Soldiers, FallbackValue=0}" VerticalAlignment="Center"></Label>
             <DockPanel LastChildFill="True"  Margin="0" Width="200" HorizontalAlignment="Left">
-                
                 <Button DockPanel.Dock="Right" Margin="4" VerticalAlignment="Center" Width="60">Add</Button>
                 <TextBox HorizontalAlignment="Stretch" Margin="4" VerticalAlignment="Center"></TextBox>
             </DockPanel>
