@@ -175,7 +175,7 @@ namespace Emperor.Core
             balance.GoldDelta = balance.GoldGrowth - balance.GoldLost;
             balance.FoodDelta = balance.FoodGrowth - balance.FoodLost - balance.FoodConsumed;
             balance.IronDelta = balance.IronGrowth - balance.IronLost - balance.IronConsumed;
-            balance.WeaponDelta = balance.WeaponGrowth - balance.WeaponLost;
+            balance.WeaponsDelta = balance.WeaponsGrowth - balance.WeaponsLost;
             balance.SoldiersDelta = balance.SoldiersGrowth - balance.SoldiersLost;
         }
 
@@ -185,7 +185,7 @@ namespace Emperor.Core
             Gold += balance.GoldDelta;
             Food += balance.FoodDelta;
             Iron += balance.IronDelta;
-            Weapons += balance.WeaponDelta;
+            Weapons += balance.WeaponsDelta;
             Soldiers += balance.SoldiersDelta;
         }
 

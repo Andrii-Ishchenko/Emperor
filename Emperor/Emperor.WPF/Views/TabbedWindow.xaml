@@ -3,8 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Emperor.WPF.Views"
-        xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
+        xmlns:local="clr-namespace:Emperor.WPF.Views"     
         mc:Ignorable="d"
         Title="Emperor" Height="480" Width="640" ResizeMode="CanMinimize">
     <Grid>
@@ -98,7 +97,7 @@
                 <local:RatesView x:Name="ratesViewControl"/>
             </TabItem>
             <TabItem Header="Yearly Reports">
-                <local:ReportsView/>
+                <local:BalancesView x:Name="balancesViewControl" />
             </TabItem>
             <TabItem Header="Graphs">
                 

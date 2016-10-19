@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for ReportsView.xaml
+    /// Interaction logic for BalanceDetailedView.xaml
     /// </summary>
-    public partial class ReportsView : UserControl
+    public partial class BalanceDetailedView : UserControl
     {
-        public ReportsView()
+        public BalanceDetailedView()
         {
             InitializeComponent();
         }

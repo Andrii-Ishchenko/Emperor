@@ -18,7 +18,7 @@ namespace Emperor.Core.Buildings
         {
             var maxProduceCount = 10 * Count;
             var takenIron = Math.Min(_game.Iron , maxProduceCount);
-            balance.WeaponGrowth = takenIron;// 1<->1
+            balance.WeaponsGrowth = takenIron;// 1<->1
             balance.IronConsumed = takenIron;
         }
     }

@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.BalancesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             xmlns:model="clr-namespace:Emperor.WPF.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,0,0,1" BorderBrush="Black" Background="Gainsboro">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontSize="14" VerticalAlignment="Center" Margin="8,2">Year</Label>
+                <ComboBox Width="80" Height="20"  Margin ="4,0" VerticalAlignment="Center" ItemsSource="{Binding Years}" SelectedItem="{Binding SelectedYear}"/>
+                <Button Content="&lt;&lt;" Height="20" Width="30" Margin ="4,0" Command="{Binding Path=SelectFirstCommand}" />
+                <Button Content="&lt;" Height="20" Width="30" Margin ="4,0" Command="{Binding Path=SelectPreviousCommand}" />
+                <Button Content="&gt;" Height="20" Width="30" Margin ="4,0" Command="{Binding Path=SelectNextCommand}" />
+                <Button Content="&gt;&gt;" Height="20" Width="30" Margin ="4,0"  Command="{Binding Path=SelectLastCommand}"/>
+            </StackPanel>
+        </Border>
+        <local:BalanceDetailedView Grid.Row="1" DataContext="{Binding SelectedBalance, TargetNullValue={x:Null}}"></local:BalanceDetailedView>
+        
+    </Grid>
+</UserControl>

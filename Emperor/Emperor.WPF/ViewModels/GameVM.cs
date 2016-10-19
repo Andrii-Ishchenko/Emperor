@@ -25,14 +25,15 @@ namespace Emperor.WPF.ViewModels
             foreach (var building in Buildings)
             {
                 building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
-            }       
+            }
+
+           SetBalanceHistory();
         }
 
         private Game Game { get; set; }
         public List<BuildingVM> Buildings { get; private set; }
         public List<ProductVM> Products { get; private set; }
-
-        public List<int> AllYears { get { return Game.StatsHistory.Keys.ToList(); } }
+        public Dictionary<int,YearlyBalanceVM> BalanceHistory { get; private set; } 
 
         public long Citizens
         {
@@ -182,6 +183,7 @@ namespace Emperor.WPF.ViewModels
         {
             var balance = Game.NextTurn();
             OnPropertyChanged(string.Empty);
+            SetBalanceHistory();
             return new YearlyBalanceVM(balance);
         }
 
@@ -197,6 +199,11 @@ namespace Emperor.WPF.ViewModels
             if (building.Sell(count))
                 OnPropertyChanged(string.Empty);
         }
-      
+
+        private void SetBalanceHistory()
+        {
+            BalanceHistory =
+               Game.BalanceHistory.ToDictionary(kvp => kvp.Key, kvp => new YearlyBalanceVM(kvp.Value));
+        }
     }
 }

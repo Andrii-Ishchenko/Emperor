@@ -23,16 +23,24 @@ namespace Emperor.WPF.Views
     {
         private GameVM _gameVM;
         private TradeVM _tradeVM;
+        private BalancesVM _balancesVM;
+        private RatesVM _ratesVM;
         public TabbedWindow()
         {
             InitializeComponent();
             _gameVM = new GameVM();
+
             _tradeVM = new TradeVM(_gameVM);
             _tradeVM.PropertyChanged += (sender, args) => { UpdateGameContext(); };
+
+            _balancesVM = new BalancesVM(_gameVM);
+            _ratesVM = new RatesVM(_gameVM);
             DataContext = _gameVM;
+
             tradeViewControl.DataContext = _tradeVM;
-            ratesViewControl.DataContext = new RatesVM(_gameVM);
+            ratesViewControl.DataContext = _ratesVM;
             buildingsViewControl.DataContext = _gameVM;
+            balancesViewControl.DataContext = _balancesVM;
         }
 
         public void UpdateGameContext()
@@ -45,7 +53,13 @@ namespace Emperor.WPF.Views
         private void BtnNextYear_OnClick(object sender, RoutedEventArgs e)
         {
             _gameVM.NextTurn();
-            ratesViewControl.DataContext = new RatesVM(_gameVM);
+            
+            ratesViewControl.DataContext = null;
+            ratesViewControl.DataContext = _ratesVM;
+
+            balancesViewControl.DataContext = null;
+            _balancesVM = new BalancesVM(_gameVM);
+            balancesViewControl.DataContext = _balancesVM;
         }
     }
 }

@@ -32,9 +32,9 @@ namespace Emperor.Core
         public long IronLost { get; set; }
         public long IronDelta { get; set; }
 
-        public long WeaponGrowth { get; set; }
-        public long WeaponLost { get; set; }
-        public long WeaponDelta { get; set; }
+        public long WeaponsGrowth { get; set; }
+        public long WeaponsLost { get; set; }
+        public long WeaponsDelta { get; set; }
 
     }
 }

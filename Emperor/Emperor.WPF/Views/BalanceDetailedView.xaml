@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.BalanceDetailedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <Grid>
+        <Grid Width="500" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" Content="Year"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding Year}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="CitizensGrowth"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CitizensGrowth}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="CitizensLost"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CitizensLost}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="CitizensDelta"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CitizensDelta}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="SoldiersGrowth"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding SoldiersGrowth}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="SoldiersLost"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding SoldiersLost}"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Content="SoldiersDelta"/>
+            <Label Grid.Row="6" Grid.Column="1" Content="{Binding SoldiersDelta}"/>
+
+            <Label Grid.Row="7" Grid.Column="0" Content="GoldGrowth"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding GoldGrowth}"/>
+
+            <Label Grid.Row="8" Grid.Column="0" Content="GoldLost"/>
+            <Label Grid.Row="8" Grid.Column="1" Content="{Binding GoldLost}"/>
+
+            <Label Grid.Row="9" Grid.Column="0" Content="GoldDelta"/>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding GoldDelta}"/>
+
+            <!-- SECOND COLUMN-->
+            
+            <Label Grid.Row="0" Grid.Column="2" Content="FoodGrowth"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="{Binding FoodGrowth}"/>
+
+            <Label Grid.Row="1" Grid.Column="2" Content="FoodLost"/>
+            <Label Grid.Row="1" Grid.Column="3" Content="{Binding FoodLost}"/>
+
+            <Label Grid.Row="2" Grid.Column="2" Content="FoodConsumed"/>
+            <Label Grid.Row="2" Grid.Column="3" Content="{Binding FoodConsumed}"/>
+
+            <Label Grid.Row="3" Grid.Column="2" Content="FoodDelta"/>
+            <Label Grid.Row="3" Grid.Column="3" Content="{Binding FoodDelta}"/>
+
+            <Label Grid.Row="4" Grid.Column="2" Content="IronGrowth"/>
+            <Label Grid.Row="4" Grid.Column="3" Content="{Binding IronGrowth}"/>
+
+            <Label Grid.Row="5" Grid.Column="2" Content="IronLost"/>
+            <Label Grid.Row="5" Grid.Column="3" Content="{Binding IronLost}"/>
+
+            <Label Grid.Row="6" Grid.Column="2" Content="IronConsumed"/>
+            <Label Grid.Row="6" Grid.Column="3" Content="{Binding IronConsumed}"/>
+
+            <Label Grid.Row="7" Grid.Column="2" Content="IronDelta"/>
+            <Label Grid.Row="7" Grid.Column="3" Content="{Binding IronDelta}"/>
+
+            <Label Grid.Row="8" Grid.Column="2" Content="WeaponsGrowth"/>
+            <Label Grid.Row="8" Grid.Column="3" Content="{Binding WeaponsGrowth}"/>
+
+            <Label Grid.Row="9" Grid.Column="2" Content="WeaponsLost"/>
+            <Label Grid.Row="9" Grid.Column="3" Content="{Binding WeaponsLost}"/>
+
+            <Label Grid.Row="10" Grid.Column="2" Content="WeaponsDelta"/>
+            <Label Grid.Row="10" Grid.Column="3" Content="{Binding WeaponsDelta}"/>
+
+        </Grid>
+       
+       
+    </Grid>
+</UserControl>

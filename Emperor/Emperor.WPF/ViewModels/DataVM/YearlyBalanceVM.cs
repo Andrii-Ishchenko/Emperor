@@ -106,19 +106,19 @@ namespace Emperor.WPF.ViewModels.DataVM
             get { return _balance.IronDelta; }
         }
 
-        public long WeaponGrowth
+        public long WeaponsGrowth
         {
-            get { return _balance.WeaponGrowth; }
+            get { return _balance.WeaponsGrowth; }
         }
 
-        public long WeaponLost
+        public long WeaponsLost
         {
-            get { return _balance.WeaponLost; }
+            get { return _balance.WeaponsLost; }
         }
 
-        public long WeaponDelta
+        public long WeaponsDelta
         {
-            get { return _balance.WeaponDelta; }
+            get { return _balance.WeaponsDelta; }
         }
 
     }

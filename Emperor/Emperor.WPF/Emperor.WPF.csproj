@@ -61,9 +61,13 @@
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
+    <Compile Include="ViewModels\BalancesVM.cs" />
     <Compile Include="ViewModels\TradeVM.cs" />
     <Compile Include="Views\ArmyView.xaml.cs">
       <DependentUpon>ArmyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BalanceDetailedView.xaml.cs">
+      <DependentUpon>BalanceDetailedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
@@ -77,8 +81,8 @@
     <Compile Include="Views\RatesView.xaml.cs">
       <DependentUpon>RatesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReportsView.xaml.cs">
-      <DependentUpon>ReportsView.xaml</DependentUpon>
+    <Compile Include="Views\BalancesView.xaml.cs">
+      <DependentUpon>BalancesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TabbedWindow.xaml.cs">
       <DependentUpon>TabbedWindow.xaml</DependentUpon>
@@ -90,6 +94,10 @@
       <DependentUpon>TradeView2.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ArmyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BalanceDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ReportsView.xaml">
+    <Page Include="Views\BalancesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
