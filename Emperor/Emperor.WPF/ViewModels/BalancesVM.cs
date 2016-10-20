@@ -18,15 +18,12 @@ namespace Emperor.WPF.ViewModels
         {
             _gameVM = gameVM;
             _selectedYear = 0;
-            _balanceHistoryVM = _gameVM.BalanceHistory;
-            if (_balanceHistoryVM.Keys.Count > 0)
-            {
-                MinLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).First();
-                MaxLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).Last();
-            }
+            FetchBalanceHistory();
 
-            SelectFirstCommand = new RelayCommand(SelectFirst,CanSelectFirst);
-            SelectLastCommand = new RelayCommand(SelectLast,CanSelectLast);
+           
+
+            SelectFirstCommand = new RelayCommand(SelectFirst);
+            SelectLastCommand = new RelayCommand(SelectLast);
             SelectNextCommand = new RelayCommand(SelectNext, CanSelectNext);
             SelectPreviousCommand = new RelayCommand(SelectPrevious, CanSelectPrevious);
         }
@@ -82,16 +79,6 @@ namespace Emperor.WPF.ViewModels
             SelectedYear++;
         }
 
-        public bool CanSelectFirst(object parameter)
-        {
-            return true;
-        }
-
-        public bool CanSelectLast(object parameter)
-        {
-            return true;
-        }
-
         public bool CanSelectPrevious(object parameter)
         {
             return SelectedYear > MinLoggedYear;
@@ -102,6 +89,17 @@ namespace Emperor.WPF.ViewModels
             return SelectedYear < MaxLoggedYear;
         }
 
-
+        public void FetchBalanceHistory()
+        {
+            _balanceHistoryVM = _gameVM.BalanceHistory;
+            if (_balanceHistoryVM.Keys.Count > 0)
+            {
+                MinLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).First();
+                MaxLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).Last();
+            }
+            OnPropertyChanged("Years");
+            OnPropertyChanged("MinLoggedYear");
+            OnPropertyChanged("MaxLoggedYear");
+        }
     }
 }

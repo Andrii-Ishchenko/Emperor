@@ -48,7 +48,6 @@
     <Compile Include="Buildings\Smith.cs" />
     <Compile Include="Enums\Rate.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="IGame.cs" />
     <Compile Include="Managers\CitizenManager.cs" />
     <Compile Include="Managers\TradeManager.cs" />
     <Compile Include="Product.cs" />

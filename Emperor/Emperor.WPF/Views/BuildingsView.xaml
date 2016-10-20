@@ -35,7 +35,7 @@
     </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ListView Grid.Column="0" Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}">

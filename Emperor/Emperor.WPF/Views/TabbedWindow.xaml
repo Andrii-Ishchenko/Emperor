@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF.Views"     
+        xmlns:vm="clr-namespace:Emperor.WPF.ViewModels"
         mc:Ignorable="d"
         Title="Emperor" Height="480" Width="640" ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <vm:GameVM/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36"/>
@@ -85,27 +89,29 @@
             </TabControl.Resources>
 
             <TabItem Header="Buildings">
-                <local:BuildingsView x:Name="buildingsViewControl"></local:BuildingsView>
+                <local:BuildingsView x:Name="buildingsViewControl" DataContext="{Binding BuildingsVM}"></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-                <local:TradeView2 x:Name="tradeViewControl"></local:TradeView2>
+                <local:TradeView2 x:Name="tradeViewControl" DataContext="{Binding TradeVM}"></local:TradeView2>
             </TabItem>
             <TabItem Header="Army">
                 <local:ArmyView></local:ArmyView>
             </TabItem>
             <TabItem Header="Income &amp; Outcome">
-                <local:RatesView x:Name="ratesViewControl"/>
+                <local:RatesView x:Name="ratesViewControl" DataContext="{Binding RatesVM}"/>
             </TabItem>
             <TabItem Header="Yearly Reports">
-                <local:BalancesView x:Name="balancesViewControl" />
+                <local:BalancesView x:Name="balancesViewControl" DataContext="{Binding BalancesVM}" />
             </TabItem>
             <TabItem Header="Graphs">
                 
             </TabItem>
-            
+            <TabItem Header="Advice">
+                <local:AdviceView DataContext="{Binding AdviceVM}"></local:AdviceView>
+            </TabItem>
 
         </TabControl>
 
-        <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Click="BtnNextYear_OnClick"></Button>
+        <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Command="{Binding NextTurnCommand}"></Button>
     </Grid>
 </Window>

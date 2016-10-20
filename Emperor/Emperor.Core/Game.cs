@@ -11,7 +11,7 @@ using Emperor.Core.Enums;
 
 namespace Emperor.Core
 {
-    public class Game : IGame
+    public class Game
     {
         public int Year { get; set; }
         public int MaxYear { get; set; }
@@ -93,10 +93,7 @@ namespace Emperor.Core
             MaxYear = 60;
 
             Gold = 2000;
-            Food = 2500;
-            Iron = 0;
-            Weapons = 0;
-
+         
             Citizens = 1000;
             Soldiers = 0;
 
@@ -194,7 +191,7 @@ namespace Emperor.Core
             return Products.FirstOrDefault(p => p.Name == name);
         }
 
-        public void SaveStats()
+        private void SaveStats()
         {
             Stats stats = new Stats();
             stats.Year = Year;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Emperor.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,8 +15,12 @@ namespace Emperor.WPF
     /// </summary>
     public partial class App : Application
     {
+        private Game _game;
+
+        
         public App()
         {
+            _game = new Game();
             InitializeComponent();
 
             FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata
@@ -25,6 +30,9 @@ namespace Emperor.WPF
 
         }
 
-
+        public Game Game
+        {
+            get { return _game; }          
+        }
     }
 }

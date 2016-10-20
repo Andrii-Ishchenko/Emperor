@@ -58,11 +58,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\AdviceVM.cs" />
+    <Compile Include="ViewModels\BuildingsVM.cs" />
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
+    <Compile Include="ViewModels\DataVM\TitleStateVM.cs" />
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\BalancesVM.cs" />
     <Compile Include="ViewModels\TradeVM.cs" />
+    <Compile Include="Views\AdviceView.xaml.cs">
+      <DependentUpon>AdviceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ArmyView.xaml.cs">
       <DependentUpon>ArmyView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +99,10 @@
     <Compile Include="Views\TradeView2.xaml.cs">
       <DependentUpon>TradeView2.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AdviceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ArmyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,16 +115,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ProductDetailedView.xaml">

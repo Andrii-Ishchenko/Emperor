@@ -108,12 +108,14 @@ namespace Emperor.WPF.ViewModels
         {
             _tradeManager.Buy(SelectedProduct.Product, Multiplicator);
             OnPropertyChanged(string.Empty);
+            OnTradeExecuted();
         }
 
         public void Sell(object parameter)
         {
             _tradeManager.Sell(SelectedProduct.Product, Multiplicator);
             OnPropertyChanged(string.Empty);
+            OnTradeExecuted();
         }
 
         public bool CanBuy(object parameter)
@@ -124,6 +126,14 @@ namespace Emperor.WPF.ViewModels
         public bool CanSell(object parameter)
         {
             return _tradeManager.CanSell(SelectedProduct.Product, Multiplicator);
+        }
+
+        public event EventHandler TradeExecuted;
+
+        protected void OnTradeExecuted()
+        {
+            if (TradeExecuted != null)
+                TradeExecuted(this, new EventArgs());
         }
     }
 }

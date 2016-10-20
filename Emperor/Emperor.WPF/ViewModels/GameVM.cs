@@ -10,28 +10,53 @@ using System.Windows.Input;
 using Emperor.Core.Managers;
 using Emperor.Core.States;
 using Emperor.WPF.Commands;
+using System.Windows;
 
 namespace Emperor.WPF.ViewModels
 {
     public class GameVM :BaseVM
     {
+
+        public AdviceVM AdviceVM { get;private set; }
+        public BalancesVM BalancesVM { get;private set; }
+        public BuildingsVM BuildingsVM { get; private set; }
+        public RatesVM RatesVM { get; private  set; }
+        public TradeVM TradeVM { get; private set; }
        
         public GameVM()
         {
-            Game = new Game();
-            Buildings = Game.Buildings.Select(x => new BuildingVM(x)).ToList();
-            Products = Game.Products.Select(x => new ProductVM(x)).ToList();
+            _game = ((App)Application.Current).Game;
 
-            foreach (var building in Buildings)
+            Products = _game.Products.Select(x => new ProductVM(x)).ToList();
+          
+           
+
+            UpdateBalanceHistory();
+            UpdateTitleState();
+            //Command
+            NextTurnCommand = new RelayCommand(NextTurn, CanNextTurn);
+
+            //OTHER VM INIT
+            AdviceVM = new AdviceVM(this);
+            BalancesVM = new BalancesVM(this);
+            BuildingsVM = new BuildingsVM(this);
+            BuildingsVM.FetchBuildings(_game.Buildings);
+            foreach (var building in BuildingsVM.Buildings)
             {
                 building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
             }
 
-           SetBalanceHistory();
+            RatesVM = new RatesVM(this);
+
+            TradeVM = new TradeVM(this);
+            TradeVM.TradeExecuted += (sender, args) => { OnPropertyChanged(string.Empty); };
+
+            
         }
 
-        private Game Game { get; set; }
-        public List<BuildingVM> Buildings { get; private set; }
+        private Game _game { get; set; }
+        private TitleStateVM _titleStateVM;
+
         public List<ProductVM> Products { get; private set; }
         public Dictionary<int,YearlyBalanceVM> BalanceHistory { get; private set; } 
 
@@ -39,12 +64,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Citizens;
+                return _game.Citizens;
             }
 
             set
             {
-                Game.Citizens = value;
+                _game.Citizens = value;
                 OnPropertyChanged("Citizens");
             }
         }
@@ -53,12 +78,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Food;
+                return _game.Food;
             }
 
             set
             {
-                Game.Food = value;
+                _game.Food = value;
                 OnPropertyChanged("Food");
             }
         }
@@ -67,12 +92,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Gold;
+                return _game.Gold;
             }
 
             set
             {
-                Game.Gold = value;
+                _game.Gold = value;
                 OnPropertyChanged("Gold");
             }
         }
@@ -81,12 +106,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Iron;
+                return _game.Iron;
             }
 
             set
             {
-                Game.Iron = value;
+                _game.Iron = value;
                 OnPropertyChanged("Iron");
             }
         }
@@ -95,12 +120,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.MaxYear;
+                return _game.MaxYear;
             }
 
             set
             {
-                Game.MaxYear = value;
+                _game.MaxYear = value;
                 OnPropertyChanged("MaxYear");
             }
         }
@@ -109,26 +134,26 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Soldiers;
+                return _game.Soldiers;
             }
 
             set
             {
-                Game.Soldiers = value;
+                _game.Soldiers = value;
                 OnPropertyChanged("Soldiers");
             }
         }
 
-        public TitleState TitleState
+        public TitleStateVM TitleState
         {
             get
             {
-                return Game.TitleState;
+                return _titleStateVM;
             }
 
             set
             {
-                Game.TitleState = value;
+                _titleStateVM = value;
                 OnPropertyChanged("TitleState");
             }
         }
@@ -137,12 +162,12 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Weapons;
+                return _game.Weapons;
             }
 
             set
             {
-                Game.Weapons = value;
+                _game.Weapons = value;
                 OnPropertyChanged("Weapons");
             }
         }
@@ -151,20 +176,20 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Year;
+                return _game.Year;
             }
 
             set
             {
-                Game.Year = value;
+                _game.Year = value;
                 OnPropertyChanged("Year");
             }
         }
 
         public long Happiness
         {
-            get { return Game.Happiness; }
-            set { Game.Happiness = value;
+            get { return _game.Happiness; }
+            set { _game.Happiness = value;
                 OnPropertyChanged("Happiness");
             }
         } 
@@ -173,18 +198,19 @@ namespace Emperor.WPF.ViewModels
         {
             get
             {
-                return Game.Rates;
+                return _game.Rates;
             }
         }
 
-        public TradeManager TradeManager { get { return Game.TradeManager; } }
+        public TradeManager TradeManager { get { return _game.TradeManager; } }
 
-        public YearlyBalanceVM NextTurn()
+        public void NextTurn(object parameter)
         {
-            var balance = Game.NextTurn();
+            var balance = _game.NextTurn();          
+            UpdateBalanceHistory();
+            UpdateTitleState();
+            BalancesVM.FetchBalanceHistory();
             OnPropertyChanged(string.Empty);
-            SetBalanceHistory();
-            return new YearlyBalanceVM(balance);
         }
 
         public void Build(BuildingVM building, int count)
@@ -200,10 +226,21 @@ namespace Emperor.WPF.ViewModels
                 OnPropertyChanged(string.Empty);
         }
 
-        private void SetBalanceHistory()
+        private void UpdateBalanceHistory()
         {
             BalanceHistory =
-               Game.BalanceHistory.ToDictionary(kvp => kvp.Key, kvp => new YearlyBalanceVM(kvp.Value));
+               _game.BalanceHistory.ToDictionary(kvp => kvp.Key, kvp => new YearlyBalanceVM(kvp.Value));
+        }
+
+        private void UpdateTitleState()
+        {
+            _titleStateVM = new TitleStateVM(_game.TitleState);
+        }
+
+        public ICommand NextTurnCommand { get; private set; }
+        public bool CanNextTurn(object parameter)
+        {
+            return true;
         }
     }
 }

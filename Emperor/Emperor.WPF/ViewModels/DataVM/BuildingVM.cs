@@ -90,5 +90,7 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         private ICommand _buyBuildingCommand;
         private ICommand _sellBuildingCommand;
+
+        
     }
 }
