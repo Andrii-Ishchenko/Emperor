@@ -11,7 +11,9 @@ namespace Emperor.Core.States
         public King(Game game) : base(game)
         {
             _titleName = "King";
-            PromotionRequirements.Add("Gold", (g) => { return (g.Gold > 30000); });
+            AddGoldRequirement(20000);
+            AddCastleRequirement(8);
+            AddCitizenRequirement(7500);
         }
 
         public override void Promote()

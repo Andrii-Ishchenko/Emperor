@@ -12,9 +12,23 @@ namespace Emperor.WPF.ViewModels
 
         public AdviceVM(GameVM gameVM)
         {
-            _gameVM = gameVM;        
+            _gameVM = gameVM;
+            FetchAdviceList();
+            _gameVM.PropertyChanged += ParentChanged;
         }
 
-        public List<String> AdviceList { get { return _gameVM.TitleState.AdviceList; } }
+        private void FetchAdviceList()
+        {
+            _adviceList = _gameVM.TitleState.AdviceList;
+        }
+
+        private List<string> _adviceList; 
+        public List<String> AdviceList { get { return _adviceList; } }
+
+        public void ParentChanged(object sender, EventArgs args)
+        {
+            FetchAdviceList();
+            OnPropertyChanged("AdviceList");
+        }
     }
 }

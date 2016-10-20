@@ -14,23 +14,21 @@ using System.Windows;
 
 namespace Emperor.WPF.ViewModels
 {
-    public class GameVM :BaseVM
+    public class GameVM : BaseVM
     {
-
-        public AdviceVM AdviceVM { get;private set; }
+        public AdviceVM AdviceVM { get; private set; }
         public ArmyVM ArmyVM { get; private set; }
-        public BalancesVM BalancesVM { get;private set; }
+        public BalancesVM BalancesVM { get; private set; }
         public BuildingsVM BuildingsVM { get; private set; }
-        public RatesVM RatesVM { get; private  set; }
+        public RatesVM RatesVM { get; private set; }
         public TradeVM TradeVM { get; private set; }
-       
+
         public GameVM()
         {
-            _game = ((App)Application.Current).Game;
+            _game = ((App) Application.Current).Game;
 
             Products = _game.Products.Select(x => new ProductVM(x)).ToList();
-          
-           
+
 
             UpdateBalanceHistory();
             UpdateTitleState();
@@ -39,7 +37,8 @@ namespace Emperor.WPF.ViewModels
 
             //OTHER VM INIT
             AdviceVM = new AdviceVM(this);
-            ArmyVM = new ArmyVM(this);        
+
+            ArmyVM = new ArmyVM(this);
             ArmyVM.RecruitEvent += ArmyVmOnRecruitEvent;
 
             BalancesVM = new BalancesVM(this);
@@ -56,24 +55,18 @@ namespace Emperor.WPF.ViewModels
 
             TradeVM = new TradeVM(this);
             TradeVM.TradeExecuted += (sender, args) => { OnPropertyChanged(string.Empty); };
-
-            
         }
-
 
 
         private Game _game { get; set; }
         private TitleStateVM _titleStateVM;
 
         public List<ProductVM> Products { get; private set; }
-        public Dictionary<int,YearlyBalanceVM> BalanceHistory { get; private set; } 
+        public Dictionary<int, YearlyBalanceVM> BalanceHistory { get; private set; }
 
         public long Citizens
         {
-            get
-            {
-                return _game.Citizens;
-            }
+            get { return _game.Citizens; }
 
             set
             {
@@ -84,10 +77,7 @@ namespace Emperor.WPF.ViewModels
 
         public long Food
         {
-            get
-            {
-                return _game.Food;
-            }
+            get { return _game.Food; }
 
             set
             {
@@ -98,10 +88,7 @@ namespace Emperor.WPF.ViewModels
 
         public long Gold
         {
-            get
-            {
-                return _game.Gold;
-            }
+            get { return _game.Gold; }
 
             set
             {
@@ -112,10 +99,7 @@ namespace Emperor.WPF.ViewModels
 
         public long Iron
         {
-            get
-            {
-                return _game.Iron;
-            }
+            get { return _game.Iron; }
 
             set
             {
@@ -126,10 +110,7 @@ namespace Emperor.WPF.ViewModels
 
         public int MaxYear
         {
-            get
-            {
-                return _game.MaxYear;
-            }
+            get { return _game.MaxYear; }
 
             set
             {
@@ -140,10 +121,7 @@ namespace Emperor.WPF.ViewModels
 
         public long Soldiers
         {
-            get
-            {
-                return _game.Soldiers;
-            }
+            get { return _game.Soldiers; }
 
             set
             {
@@ -154,10 +132,7 @@ namespace Emperor.WPF.ViewModels
 
         public TitleStateVM TitleState
         {
-            get
-            {
-                return _titleStateVM;
-            }
+            get { return _titleStateVM; }
 
             set
             {
@@ -168,10 +143,7 @@ namespace Emperor.WPF.ViewModels
 
         public long Weapons
         {
-            get
-            {
-                return _game.Weapons;
-            }
+            get { return _game.Weapons; }
 
             set
             {
@@ -182,10 +154,7 @@ namespace Emperor.WPF.ViewModels
 
         public int Year
         {
-            get
-            {
-                return _game.Year;
-            }
+            get { return _game.Year; }
 
             set
             {
@@ -197,25 +166,31 @@ namespace Emperor.WPF.ViewModels
         public long Happiness
         {
             get { return _game.Happiness; }
-            set { _game.Happiness = value;
-                OnPropertyChanged("Happiness");
-            }
-        } 
-
-        public Rates Rates
-        {
-            get
+            set
             {
-                return _game.Rates;
+                _game.Happiness = value;
+                OnPropertyChanged("Happiness");
             }
         }
 
-        public TradeManager TradeManager { get { return _game.TradeManager; } }
-        public ArmyManager ArmyManager { get { return _game.ArmyManager; } }
+        public Rates Rates
+        {
+            get { return _game.Rates; }
+        }
+
+        public TradeManager TradeManager
+        {
+            get { return _game.TradeManager; }
+        }
+
+        public ArmyManager ArmyManager
+        {
+            get { return _game.ArmyManager; }
+        }
 
         public void NextTurn(object parameter)
         {
-            var balance = _game.NextTurn();          
+            var balance = _game.NextTurn();
             UpdateBalanceHistory();
             UpdateTitleState();
             BalancesVM.FetchBalanceHistory();
@@ -226,7 +201,6 @@ namespace Emperor.WPF.ViewModels
         {
             if (building.Build(count))
                 OnPropertyChanged(string.Empty);
-
         }
 
         public void Sell(BuildingVM building, int count)
@@ -238,7 +212,7 @@ namespace Emperor.WPF.ViewModels
         private void UpdateBalanceHistory()
         {
             BalanceHistory =
-               _game.BalanceHistory.ToDictionary(kvp => kvp.Key, kvp => new YearlyBalanceVM(kvp.Value));
+                _game.BalanceHistory.ToDictionary(kvp => kvp.Key, kvp => new YearlyBalanceVM(kvp.Value));
         }
 
         private void UpdateTitleState()
@@ -252,6 +226,7 @@ namespace Emperor.WPF.ViewModels
         }
 
         public ICommand NextTurnCommand { get; private set; }
+
         public bool CanNextTurn(object parameter)
         {
             return true;

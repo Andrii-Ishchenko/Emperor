@@ -103,7 +103,7 @@
             <TabItem Header="Yearly Reports">
                 <local:BalancesView x:Name="balancesViewControl" DataContext="{Binding BalancesVM}" />
             </TabItem>
-            <TabItem Header="Graphs">
+            <TabItem Header="Graphs" Visibility="Collapsed">
                 
             </TabItem>
             <TabItem Header="Advice">

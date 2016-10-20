@@ -81,5 +81,52 @@ namespace Emperor.Core.States
         {
             return this.MemberwiseClone();
         }
+
+        protected void AddCastleRequirement(long castleLevel)
+        {
+            if (PromotionRequirements == null)
+                PromotionRequirements = new Dictionary<string, Func<Game, bool>>();
+            
+            PromotionRequirements.Add("Castle", (g) =>
+            {
+                var castle = g.Buildings.FirstOrDefault(b => b.Name == "Castle");
+                if (castle==null)
+                    throw new Exception();
+                return castle.Count >= castleLevel;
+            });
+        }
+
+        protected void AddCitizenRequirement(long citizens)
+        {
+            if (PromotionRequirements == null)
+                PromotionRequirements = new Dictionary<string, Func<Game, bool>>();
+
+            PromotionRequirements.Add("Citizens", (g) => g.Citizens >= citizens);
+        }
+
+        protected void AddGoldRequirement(long gold)
+        {
+            if (PromotionRequirements == null)
+                PromotionRequirements = new Dictionary<string, Func<Game, bool>>();
+
+            PromotionRequirements.Add("Gold", (g) => g.Gold >= gold);
+        }
+
+        protected void AddArmyRequirement(long army)
+        {
+            if (PromotionRequirements == null)
+                PromotionRequirements = new Dictionary<string, Func<Game, bool>>();
+
+            PromotionRequirements.Add("Army", (g) => g.Soldiers >= army);
+        }
+
+        protected void AddHappinessRequirement(long happiness)
+        {
+            if (PromotionRequirements == null)
+                PromotionRequirements = new Dictionary<string, Func<Game, bool>>();
+
+            PromotionRequirements.Add("Happiness", (g) => g.Happiness >= happiness);
+        }
+        
     }
 }

@@ -11,7 +11,9 @@ namespace Emperor.Core.States
         public Count(Game game) : base(game)
         {
             _titleName = "Count";
-            PromotionRequirements.Add("Gold", (g) => { return (g.Gold > 5000); });
+            AddGoldRequirement(5000);
+            AddCastleRequirement(2);
+            AddCitizenRequirement(1500);
         }
 
         public override void Promote()

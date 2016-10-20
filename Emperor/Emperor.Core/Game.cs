@@ -62,7 +62,6 @@ namespace Emperor.Core
         public List<Building> Buildings { get; private set; }
         public List<Product> Products { get; private set; }
 
-        public YearlyBalance Balance { get; set; }      
         public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
         public Dictionary<int,Stats> StatsHistory { get; private set; } 
         public Rates Rates { get;private set; }
@@ -70,6 +69,7 @@ namespace Emperor.Core
         public CitizenManager CitizenManager { get; private set; }
         public TradeManager TradeManager { get; private set; }
         public ArmyManager ArmyManager { get; private set; }
+        public BalanceManager BalanceManager { get; private set; }
 
         public Game()
         {
@@ -93,7 +93,7 @@ namespace Emperor.Core
             Year = 0;
             MaxYear = 60;
 
-            Gold = 20000;
+            Gold = 2000;
          
             Citizens = 1000;
             Soldiers = 0;
@@ -112,7 +112,7 @@ namespace Emperor.Core
             CitizenManager = new CitizenManager(this);
             TradeManager = new TradeManager(this);
             ArmyManager = new ArmyManager(this);
-            Balance = new YearlyBalance();
+            BalanceManager = new BalanceManager(this);
             StatsHistory = new Dictionary<int, Stats>();
 
             SaveStats();
@@ -123,60 +123,20 @@ namespace Emperor.Core
         public YearlyBalance NextTurn()
         {
            
-            Balance.Year = Year;
-
-            foreach(var building in Buildings)
-            {
-                building.Produce(Balance);
-            }
-
-            CalculateLost(Balance);
-            CalculateTaxes(Balance);
-            ConsumeFood(Balance);
-            CitizenManager.CalculateCitizensGrowth(Balance);    
-            CitizenManager.CalculateCitizensLost(Balance);      
-            CalculateDeltas(Balance);
-
             TitleState.HandleState();
-            ApplyBalance(Balance);
 
-            BalanceHistory.Add(Year, Balance);
+            var balance = BalanceManager.CalculateBalance();
+
+            ApplyBalance(balance);
+
+            BalanceHistory.Add(Year, balance);
             
             Year++;
-            Balance = new YearlyBalance();
 
             //save stats here
             SaveStats();
             //
             return BalanceHistory.Last().Value; 
-        }
-
-        private void CalculateTaxes(YearlyBalance balance)
-        {
-            balance.GoldGrowth = Rates.GetPayedTaxes(Citizens);
-        }
-
-        private void CalculateLost(YearlyBalance balance)
-        {
-            balance.FoodLost = Utils.GetRandomInstance().Next(100);
-
-            balance.SoldiersLost = (Soldiers>0) ? Math.Max(1, (int)(Soldiers * 0.02)) : 0;   
-        }
-
-        private void ConsumeFood(YearlyBalance balance)
-        {
-            long foodNeeded = Rates.GetConsumedFood(Citizens);
-            balance.FoodConsumed = Math.Min(Food + balance.FoodGrowth - balance.FoodLost , foodNeeded);
-        }
-
-        private void CalculateDeltas(YearlyBalance balance)
-        {
-            balance.CitizensDelta = balance.CitizensGrowth - balance.CitizensLost;
-            balance.GoldDelta = balance.GoldGrowth - balance.GoldLost;
-            balance.FoodDelta = balance.FoodGrowth - balance.FoodLost - balance.FoodConsumed;
-            balance.IronDelta = balance.IronGrowth - balance.IronLost - balance.IronConsumed;
-            balance.WeaponsDelta = balance.WeaponsGrowth - balance.WeaponsLost;
-            balance.SoldiersDelta = balance.SoldiersGrowth - balance.SoldiersLost;
         }
 
         private void ApplyBalance(YearlyBalance balance)
