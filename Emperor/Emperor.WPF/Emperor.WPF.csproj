@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\AdviceVM.cs" />
+    <Compile Include="ViewModels\ArmyVM.cs" />
     <Compile Include="ViewModels\BuildingsVM.cs" />
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
     <Compile Include="ViewModels\DataVM\TitleStateVM.cs" />

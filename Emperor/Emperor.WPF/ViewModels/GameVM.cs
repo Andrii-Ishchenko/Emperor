@@ -18,6 +18,7 @@ namespace Emperor.WPF.ViewModels
     {
 
         public AdviceVM AdviceVM { get;private set; }
+        public ArmyVM ArmyVM { get; private set; }
         public BalancesVM BalancesVM { get;private set; }
         public BuildingsVM BuildingsVM { get; private set; }
         public RatesVM RatesVM { get; private  set; }
@@ -38,9 +39,14 @@ namespace Emperor.WPF.ViewModels
 
             //OTHER VM INIT
             AdviceVM = new AdviceVM(this);
+            ArmyVM = new ArmyVM(this);        
+            ArmyVM.RecruitEvent += ArmyVmOnRecruitEvent;
+
             BalancesVM = new BalancesVM(this);
             BuildingsVM = new BuildingsVM(this);
             BuildingsVM.FetchBuildings(_game.Buildings);
+
+            //push inside buildingsVM
             foreach (var building in BuildingsVM.Buildings)
             {
                 building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
@@ -53,6 +59,8 @@ namespace Emperor.WPF.ViewModels
 
             
         }
+
+
 
         private Game _game { get; set; }
         private TitleStateVM _titleStateVM;
@@ -203,6 +211,7 @@ namespace Emperor.WPF.ViewModels
         }
 
         public TradeManager TradeManager { get { return _game.TradeManager; } }
+        public ArmyManager ArmyManager { get { return _game.ArmyManager; } }
 
         public void NextTurn(object parameter)
         {
@@ -235,6 +244,11 @@ namespace Emperor.WPF.ViewModels
         private void UpdateTitleState()
         {
             _titleStateVM = new TitleStateVM(_game.TitleState);
+        }
+
+        private void ArmyVmOnRecruitEvent(object sender, EventArgs eventArgs)
+        {
+            OnPropertyChanged(string.Empty);
         }
 
         public ICommand NextTurnCommand { get; private set; }

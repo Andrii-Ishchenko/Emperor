@@ -69,6 +69,7 @@ namespace Emperor.Core
 
         public CitizenManager CitizenManager { get; private set; }
         public TradeManager TradeManager { get; private set; }
+        public ArmyManager ArmyManager { get; private set; }
 
         public Game()
         {
@@ -84,7 +85,7 @@ namespace Emperor.Core
             Products = new List<Product>()
             {
                 
-                new Product("Food", 2500, 2),
+                new Product("Food", 3000, 2),
                 new Product("Iron", 0, 80),
                 new Product("Weapons", 0, 180)
             };
@@ -92,7 +93,7 @@ namespace Emperor.Core
             Year = 0;
             MaxYear = 60;
 
-            Gold = 2000;
+            Gold = 20000;
          
             Citizens = 1000;
             Soldiers = 0;
@@ -110,16 +111,18 @@ namespace Emperor.Core
             BalanceHistory = new Dictionary<int, YearlyBalance>();
             CitizenManager = new CitizenManager(this);
             TradeManager = new TradeManager(this);
+            ArmyManager = new ArmyManager(this);
             Balance = new YearlyBalance();
             StatsHistory = new Dictionary<int, Stats>();
 
             SaveStats();
         }
 
+
+
         public YearlyBalance NextTurn()
         {
            
-
             Balance.Year = Year;
 
             foreach(var building in Buildings)

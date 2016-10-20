@@ -11,7 +11,10 @@ namespace Emperor.Core.States
         protected string _titleName;
         protected Game _game;
         private Dictionary<string, Func<Game, bool>> _promotionRequirements;
-        
+
+        protected int _yearsToPromote = 3;
+        protected int _ellapsedYears = 0;
+
         public string TitleName
         {
             get { return _titleName; }
@@ -40,7 +43,15 @@ namespace Emperor.Core.States
         public void HandleState()
         {
             if (CheckRequirements())
-                Promote();
+            {
+                _ellapsedYears++;
+                if (_ellapsedYears == _yearsToPromote)
+                    Promote();
+            }
+            else
+            {
+                _ellapsedYears = 0;
+            }
         }
 
         public List<string> GetAdvice()

@@ -95,7 +95,7 @@
                 <local:TradeView2 x:Name="tradeViewControl" DataContext="{Binding TradeVM}"></local:TradeView2>
             </TabItem>
             <TabItem Header="Army">
-                <local:ArmyView></local:ArmyView>
+                <local:ArmyView DataContext="{Binding ArmyVM}"></local:ArmyView>
             </TabItem>
             <TabItem Header="Income &amp; Outcome">
                 <local:RatesView x:Name="ratesViewControl" DataContext="{Binding RatesVM}"/>

@@ -13,10 +13,15 @@
                 <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical">
-            <Label Content="{Binding Path=Soldiers, FallbackValue=0}" VerticalAlignment="Center"></Label>
+
+            <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Margin="6,0">
+                    <Run>Available Recruits: </Run>
+                    <Run FontWeight="Bold" Text="{Binding Path=MaxRecruits,Mode=OneWay, FallbackValue=0 }"/>
+                
+            </TextBlock>
             <DockPanel LastChildFill="True"  Margin="0" Width="200" HorizontalAlignment="Left">
-                <Button DockPanel.Dock="Right" Margin="4" VerticalAlignment="Center" Width="60">Add</Button>
-                <TextBox HorizontalAlignment="Stretch" Margin="4" VerticalAlignment="Center"></TextBox>
+                <Button DockPanel.Dock="Right" Margin="4" VerticalAlignment="Center" Width="60" Command="{Binding RecruitCommand}">Add</Button>
+                <TextBox HorizontalAlignment="Stretch" Margin="4" VerticalAlignment="Center" Text="{Binding Path=Recruits, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </DockPanel>
 
         </StackPanel>
