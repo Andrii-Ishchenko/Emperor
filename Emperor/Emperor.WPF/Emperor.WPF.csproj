@@ -60,6 +60,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\AdviceVM.cs" />
     <Compile Include="ViewModels\ArmyVM.cs" />
+    <Compile Include="ViewModels\BalancePopupWindowVM.cs" />
     <Compile Include="ViewModels\BuildingsVM.cs" />
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
     <Compile Include="ViewModels\DataVM\TitleStateVM.cs" />
@@ -75,6 +76,12 @@
     </Compile>
     <Compile Include="Views\BalanceDetailedView.xaml.cs">
       <DependentUpon>BalanceDetailedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BalanceView.xaml.cs">
+      <DependentUpon>BalanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BalanceWindow.xaml.cs">
+      <DependentUpon>BalanceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
@@ -109,6 +116,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BalanceDetailedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BalanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BalanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +228,10 @@
     <Resource Include="Resources\like.png" />
     <Resource Include="Resources\ore.png" />
     <Resource Include="Resources\pie-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\down.png" />
+    <Resource Include="Resources\up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

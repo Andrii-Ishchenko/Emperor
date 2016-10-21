@@ -11,6 +11,7 @@ using Emperor.Core.Managers;
 using Emperor.Core.States;
 using Emperor.WPF.Commands;
 using System.Windows;
+using Emperor.WPF.Views;
 
 namespace Emperor.WPF.ViewModels
 {
@@ -55,11 +56,15 @@ namespace Emperor.WPF.ViewModels
 
             TradeVM = new TradeVM(this);
             TradeVM.TradeExecuted += (sender, args) => { OnPropertyChanged(string.Empty); };
+
+            ShowPopup = true;
         }
 
 
         private Game _game { get; set; }
         private TitleStateVM _titleStateVM;
+        
+        public bool ShowPopup { get; set; }
 
         public List<ProductVM> Products { get; private set; }
         public Dictionary<int, YearlyBalanceVM> BalanceHistory { get; private set; }
@@ -194,6 +199,16 @@ namespace Emperor.WPF.ViewModels
             UpdateBalanceHistory();
             UpdateTitleState();
             BalancesVM.FetchBalanceHistory();
+
+            if (ShowPopup)
+            {
+                BalanceWindow bw = new BalanceWindow();
+                var vm = new BalancePopupWindowVM(BalanceHistory.Last().Value, this);
+                bw.DataContext = vm;
+                bw.ShowDialog();
+            }
+            
+
             OnPropertyChanged(string.Empty);
         }
 

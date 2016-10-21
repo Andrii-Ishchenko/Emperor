@@ -36,5 +36,6 @@ namespace Emperor.Core
         public long WeaponsLost { get; set; }
         public long WeaponsDelta { get; set; }
 
+        public double HappinessDelta { get; set; }
     }
 }

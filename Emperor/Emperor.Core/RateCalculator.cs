@@ -9,7 +9,7 @@ namespace Emperor.Core
 {
     public class RateCalculator
     {
-        public long GetConsumedFood(long citizens, Rate foodRate)
+        public static long GetConsumedFood(long citizens, Rate foodRate)
         {
             double multiplicator = foodRate == Rate.None ? 0 : ((int)foodRate + 1) * 0.2;
             double foodNeeded = citizens * multiplicator;
@@ -49,11 +49,23 @@ namespace Emperor.Core
 
         }
 
-        public long GetTaxes(long citizens, Rate taxRate)
+        public static long GetTaxes(long citizens, Rate taxRate)
         {
             double multiplicator = taxRate == Rate.None ? 0 : ((int)taxRate + 1) * 0.2;
             double taxesPayed = citizens * multiplicator;
             return Convert.ToInt64(taxesPayed);
+        }
+
+        public static double GetTaxesHappinessDelta(Rate taxRate)
+        {
+            double delta = 2 - 0.6*(int)taxRate;
+            return delta;
+        }
+
+        public static double GetFoodHappinessDelta(Rate foodRate)
+        {
+            double delta = foodRate == Rate.None ? -5 : -2 + 0.5*(int) foodRate;
+            return delta;
         }
     }
 }

@@ -70,12 +70,12 @@ namespace Emperor.Core
 
         public long GetConsumedFood(long citizens)
         {
-            return calc.GetConsumedFood(citizens,FoodRate);
+            return RateCalculator.GetConsumedFood(citizens,FoodRate);
         }
 
         public long GetPayedTaxes (long citizens)
         {
-            return calc.GetTaxes(citizens, TaxRate);
+            return RateCalculator.GetTaxes(citizens, TaxRate);
         }
     }
 }

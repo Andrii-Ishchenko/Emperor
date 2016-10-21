@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.BalanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="400">
+    <Grid>
+       <Grid.RowDefinitions>
+           <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0" FontSize="15">
+            <TextBlock.Inlines>
+                Year :
+                <Run Text="{Binding Year, FallbackValue=0, Mode=OneTime}" FontWeight="Bold"></Run>
+            </TextBlock.Inlines>
+        </TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="1"   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,20,0" FontSize="15">
+            <TextBlock.Inlines>
+                Citizens :
+                <Run Text="{Binding CitizensDelta, FallbackValue=0, Mode=OneTime}" FontWeight="Bold"></Run>
+                <Image Source="/Resources/worker.png" Height="15"></Image>
+            </TextBlock.Inlines>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock.Inlines>
+                <Image Source="/Resources/up.png" Height="15"></Image>
+                <Run Text="{Binding CitizensGrowth, FallbackValue=0, Mode=OneTime}"/>
+                <Image Source="/Resources/down.png" Height="15"></Image>
+                <Run Text="{Binding CitizensLost, FallbackValue=0, Mode=OneTime}"/>
+            </TextBlock.Inlines>
+        </TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="2"   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,20,0" FontSize="15">
+            <TextBlock.Inlines>
+                Gold :
+                <Run Text="{Binding GoldDelta, FallbackValue=0, Mode=OneTime}" FontWeight="Bold"></Run>
+                <Image Source="/Resources/gold.png" Height="15"></Image>
+            </TextBlock.Inlines>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock.Inlines>
+                <Image Source="/Resources/up.png" Height="15"></Image>
+                <Run Text="{Binding GoldGrowth, FallbackValue=0, Mode=OneTime}"/>
+                <Image Source="/Resources/down.png" Height="15"></Image>
+                <Run Text="{Binding GoldLost, FallbackValue=0, Mode=OneTime}"/>
+            </TextBlock.Inlines>
+        </TextBlock>
+
+    </Grid>
+</UserControl>

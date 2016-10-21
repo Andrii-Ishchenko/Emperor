@@ -18,6 +18,7 @@ namespace Emperor.Core.Managers
         private void CalculateTaxes(YearlyBalance balance)
         {
             balance.GoldGrowth = _game.Rates.GetPayedTaxes(_game.Citizens);
+            
         }
 
         private void CalculateLost(YearlyBalance balance)
@@ -43,6 +44,16 @@ namespace Emperor.Core.Managers
             balance.SoldiersDelta = balance.SoldiersGrowth - balance.SoldiersLost;
         }
 
+        private void CalculateHappinessDelta(YearlyBalance balance)
+        {
+            double delta = 0;
+
+            delta += RateCalculator.GetTaxesHappinessDelta(_game.Rates.TaxRate);
+            delta += RateCalculator.GetFoodHappinessDelta(_game.Rates.FoodRate);
+
+            balance.HappinessDelta = delta;
+        }
+
         public YearlyBalance CalculateBalance()
         {
             var balance = new YearlyBalance();
@@ -61,6 +72,7 @@ namespace Emperor.Core.Managers
             //TODO: pull reference from _game
             _game.CitizenManager.CalculateCitizensGrowth(balance);
             _game.CitizenManager.CalculateCitizensLost(balance);
+            CalculateHappinessDelta(balance);
             CalculateDeltas(balance);
 
             return balance;
