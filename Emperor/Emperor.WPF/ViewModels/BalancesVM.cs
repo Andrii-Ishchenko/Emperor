@@ -17,11 +17,9 @@ namespace Emperor.WPF.ViewModels
         public BalancesVM(GameVM gameVM)
         {
             _gameVM = gameVM;
-            _selectedYear = 0;
-            FetchBalanceHistory();
-
            
-
+            FetchBalanceHistory();
+                   
             SelectFirstCommand = new RelayCommand(SelectFirst);
             SelectLastCommand = new RelayCommand(SelectLast);
             SelectNextCommand = new RelayCommand(SelectNext, CanSelectNext);
@@ -96,7 +94,12 @@ namespace Emperor.WPF.ViewModels
             {
                 MinLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).First();
                 MaxLoggedYear = _balanceHistoryVM.Keys.OrderBy(x => x).Last();
+
+                SelectedYear = MaxLoggedYear;
             }
+
+
+
             OnPropertyChanged("Years");
             OnPropertyChanged("MinLoggedYear");
             OnPropertyChanged("MaxLoggedYear");

@@ -10,7 +10,6 @@ namespace Emperor.WPF.ViewModels
 {
     public class BuildingsVM :BaseVM
     {
-
         public BuildingsVM(GameVM gameVM)
         {
                  
@@ -22,6 +21,19 @@ namespace Emperor.WPF.ViewModels
         {
             Buildings = buildings.Select(x => new BuildingVM(x)).ToList();
         }
+
+        private BuildingVM _selectedBuilding;
+
+        public BuildingVM SelectedBuilding
+        {
+            get { return _selectedBuilding; }
+            set
+            {
+                _selectedBuilding = value; 
+                OnPropertyChanged("SelectedBuilding");
+            }
+        }
+        
 
         public event EventHandler BuildingsChanged;
 

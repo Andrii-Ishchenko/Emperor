@@ -19,7 +19,7 @@
                     <StackPanel Grid.Column="1" Orientation="Vertical">
                         <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
                             <Label Content="{Binding Path=Name}" DockPanel.Dock="Left" FontWeight="Bold" ></Label>
-                            <Label Grid.Column="1" Content="{Binding Path=Count}" ></Label>
+                            <Label Content="{Binding Path=Count}" ></Label>
                         </DockPanel>
                         <Separator Foreground="Black"  Margin="3,0"/>
                         <!-- 
@@ -42,7 +42,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListView Grid.Column="0" Name="productsList" ItemsSource="{Binding Path=Products}" ItemTemplate="{StaticResource ProductVMListItem}" SelectedItem="{Binding SelectedProduct}">
+            <ListView Grid.Column="0" Name="productsList" ItemsSource="{Binding Products}" ItemTemplate="{StaticResource ProductVMListItem}" SelectedItem="{Binding SelectedProduct}">
              
             </ListView>
             <local:ProductDetailedView Grid.Column="1"/>

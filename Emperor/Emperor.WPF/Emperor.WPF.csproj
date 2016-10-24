@@ -83,6 +83,9 @@
     <Compile Include="Views\BalanceWindow.xaml.cs">
       <DependentUpon>BalanceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BuildingDetailedView.xaml.cs">
+      <DependentUpon>BuildingDetailedView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BalanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BuildingDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
