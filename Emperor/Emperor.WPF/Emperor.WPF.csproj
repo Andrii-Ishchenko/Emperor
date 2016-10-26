@@ -67,50 +67,50 @@
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\BalancesVM.cs" />
-    <Compile Include="ViewModels\TradeVM.cs" />
-    <Compile Include="Views\AdviceView.xaml.cs">
+    <Compile Include="ViewModels\ProductsVM.cs" />
+    <Compile Include="Views\Advice\AdviceView.xaml.cs">
       <DependentUpon>AdviceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ArmyView.xaml.cs">
       <DependentUpon>ArmyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BalanceDetailedView.xaml.cs">
+    <Compile Include="Views\Balances\BalanceDetailedView.xaml.cs">
       <DependentUpon>BalanceDetailedView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BalanceView.xaml.cs">
+    <Compile Include="Views\Balances\BalanceView.xaml.cs">
       <DependentUpon>BalanceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BalanceWindow.xaml.cs">
+    <Compile Include="Views\Balances\BalanceWindow.xaml.cs">
       <DependentUpon>BalanceWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BuildingDetailedView.xaml.cs">
+    <Compile Include="Views\Buildings\BuildingDetailedView.xaml.cs">
       <DependentUpon>BuildingDetailedView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BuildingsView.xaml.cs">
+    <Compile Include="Views\Buildings\BuildingsView.xaml.cs">
       <DependentUpon>BuildingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
-    <Compile Include="Views\ProductDetailedView.xaml.cs">
+    <Compile Include="Views\Products\ProductDetailedView.xaml.cs">
       <DependentUpon>ProductDetailedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RatesView.xaml.cs">
       <DependentUpon>RatesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BalancesView.xaml.cs">
+    <Compile Include="Views\Balances\BalancesView.xaml.cs">
       <DependentUpon>BalancesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TabbedWindow.xaml.cs">
       <DependentUpon>TabbedWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TradeView.xaml.cs">
+    <Compile Include="Views\Products\TradeView.xaml.cs">
       <DependentUpon>TradeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TradeView2.xaml.cs">
-      <DependentUpon>TradeView2.xaml</DependentUpon>
+    <Compile Include="Views\Products\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\AdviceView.xaml">
+    <Page Include="Views\Advice\AdviceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,23 +118,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BalanceDetailedView.xaml">
+    <Page Include="Views\Balances\BalanceDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BalanceView.xaml">
+    <Page Include="Views\Balances\BalanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BalanceWindow.xaml">
+    <Page Include="Views\Balances\BalanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BuildingDetailedView.xaml">
+    <Page Include="Views\Buildings\BuildingDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BuildingsView.xaml">
+    <Page Include="Views\Buildings\BuildingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +142,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ProductDetailedView.xaml">
+    <Page Include="Views\Products\ProductDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,7 +150,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BalancesView.xaml">
+    <Page Include="Views\Balances\BalancesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,11 +158,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TradeView.xaml">
+    <Page Include="Views\Products\TradeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TradeView2.xaml">
+    <Page Include="Views\Products\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,7 +209,7 @@
   <ItemGroup>
     <Resource Include="Resources\coal.png" />
     <Resource Include="Resources\food.png" />
-    <Resource Include="Resources\weapon.png" />
+    <Resource Include="Resources\weapons.png" />
     <Resource Include="Resources\worker.png" />
   </ItemGroup>
   <ItemGroup>

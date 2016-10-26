@@ -90,7 +90,7 @@ namespace Emperor.Core
                 new Product("Weapons", 0, 180)
             };
 
-            Year = 0;
+            Year = 1;
             MaxYear = 60;
 
             Gold = 2000;

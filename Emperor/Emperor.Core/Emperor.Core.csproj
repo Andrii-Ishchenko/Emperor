@@ -42,10 +42,14 @@
   <ItemGroup>
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\Castle.cs" />
+    <Compile Include="Buildings\Church.cs" />
     <Compile Include="Buildings\Farm.cs" />
     <Compile Include="Buildings\Market.cs" />
     <Compile Include="Buildings\Mine.cs" />
+    <Compile Include="Buildings\Quarry.cs" />
+    <Compile Include="Buildings\Sawmill.cs" />
     <Compile Include="Buildings\Smith.cs" />
+    <Compile Include="Buildings\Tavern.cs" />
     <Compile Include="Enums\Rate.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Managers\ArmyManager.cs" />

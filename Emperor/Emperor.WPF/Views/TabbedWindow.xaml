@@ -39,7 +39,7 @@
                     <Image Style="{StaticResource IconStyle}" Source="/Resources/iron.png" ToolTip="Iron"></Image>
                     <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Iron, FallbackValue=0}" Name="lbIron"></Label>
 
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/weapon.png" ToolTip="Weapons"></Image>
+                    <Image Style="{StaticResource IconStyle}" Source="/Resources/weapons.png" ToolTip="Weapons"></Image>
                     <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Weapons, FallbackValue=0}" Name="lbWeapons"></Label>
 
                     <Image Style="{StaticResource IconStyle}" Source="/Resources/worker.png" ToolTip="Citizens"></Image>
@@ -92,7 +92,7 @@
                 <local:BuildingsView x:Name="buildingsViewControl" DataContext="{Binding BuildingsVM}"></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-                <local:TradeView2 x:Name="tradeViewControl" DataContext="{Binding TradeVM}"></local:TradeView2>
+                <local:ProductsView x:Name="productsView" DataContext="{Binding TradeVM}"></local:ProductsView>
             </TabItem>
             <TabItem Header="Army">
                 <local:ArmyView DataContext="{Binding ArmyVM}"></local:ArmyView>

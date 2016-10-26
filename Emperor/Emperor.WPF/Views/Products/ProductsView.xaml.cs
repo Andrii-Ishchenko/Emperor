@@ -18,9 +18,9 @@ namespace Emperor.WPF.Views
     /// <summary>
     /// Interaction logic for TradeView2.xaml
     /// </summary>
-    public partial class TradeView2 : UserControl
+    public partial class ProductsView : UserControl
     {
-        public TradeView2()
+        public ProductsView()
         {
             InitializeComponent();
         }
