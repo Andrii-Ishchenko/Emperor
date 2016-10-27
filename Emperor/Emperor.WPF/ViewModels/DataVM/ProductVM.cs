@@ -1,10 +1,5 @@
 ﻿using Emperor.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Emperor.WPF.ViewModels.DataVM
 {
@@ -15,6 +10,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         public ProductVM(Product product)
         {
             Product = product;
+            product.ProductChanged += Update;
         }
 
         public long Count
@@ -42,6 +38,11 @@ namespace Emperor.WPF.ViewModels.DataVM
             get { return Product.SellPrice; }
         }
 
+        public string Image
+        {
+            get { return string.Format(@"/Emperor.WPF;component/Resources/{0}.png", Name.ToLower()); }
+        }
+
         public Product Product
         {
             get
@@ -54,5 +55,12 @@ namespace Emperor.WPF.ViewModels.DataVM
                 _product = value;
             }
         }
+
+        public void Update(object sender, EventArgs eventArgs)
+        {
+            OnPropertyChanged(string.Empty);
+        }
+
+        
     }
 }

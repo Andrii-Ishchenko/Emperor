@@ -22,17 +22,15 @@ namespace Emperor.WPF.ViewModels
         public BalancesVM BalancesVM { get; private set; }
         public BuildingsVM BuildingsVM { get; private set; }
         public RatesVM RatesVM { get; private set; }
-        public TradeVM TradeVM { get; private set; }
+        public ProductsVM TradeVM { get; private set; }
 
         public GameVM()
         {
             _game = ((App) Application.Current).Game;
-
-            Products = _game.Products.Select(x => new ProductVM(x)).ToList();
-
-
+            _game.GameChanged += (o, a) => { OnPropertyChanged(string.Empty); };
             UpdateBalanceHistory();
             UpdateTitleState();
+
             //Command
             NextTurnCommand = new RelayCommand(NextTurn, CanNextTurn);
 
@@ -54,8 +52,9 @@ namespace Emperor.WPF.ViewModels
 
             RatesVM = new RatesVM(this);
 
-            TradeVM = new TradeVM(this);
-            TradeVM.TradeExecuted += (sender, args) => { OnPropertyChanged(string.Empty); };
+            TradeVM = new ProductsVM(this);
+            TradeVM.FetchProducts(_game.Products);
+            TradeVM.ProductsChanged += (sender, args) => { OnPropertyChanged(string.Empty); };
 
             ShowPopup = true;
         }
@@ -66,7 +65,7 @@ namespace Emperor.WPF.ViewModels
         
         public bool ShowPopup { get; set; }
 
-        public List<ProductVM> Products { get; private set; }
+        //public List<ProductVM> Products { get; set; }
         public Dictionary<int, YearlyBalanceVM> BalanceHistory { get; private set; }
 
         public long Citizens
@@ -195,7 +194,7 @@ namespace Emperor.WPF.ViewModels
 
         public void NextTurn(object parameter)
         {
-            var balance = _game.NextTurn();
+            _game.NextTurn();
             UpdateBalanceHistory();
             UpdateTitleState();
             BalancesVM.FetchBalanceHistory();
