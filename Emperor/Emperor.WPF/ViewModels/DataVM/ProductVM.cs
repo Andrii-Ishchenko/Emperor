@@ -45,15 +45,9 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public Product Product
         {
-            get
-            {
-                return _product;
-            }
+            get { return _product; }
 
-            set
-            {
-                _product = value;
-            }
+            set { _product = value; }
         }
 
         public void Update(object sender, EventArgs eventArgs)

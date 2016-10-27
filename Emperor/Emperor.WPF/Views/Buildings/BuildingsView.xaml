@@ -27,8 +27,8 @@
                         <Image Source="../Resources/gold.png" Width="15" Height="15"></Image>
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
-                    <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=BuyCommand}"></Button>
-                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Command="{Binding Path=SellCommand}"></Button>
+                    <Button Grid.Column="4" Content="Buy" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=BuyCommand}" CommandParameter="{Binding Path=DataContext.Multiplicator, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}"></Button>
+                    <Button Grid.Column="5" Content="Sell" Width="50" Height="20" Name="btnBuildingsListSell" Command="{Binding Path=SellCommand}" CommandParameter="{Binding Path=DataContext.Multiplicator, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}"></Button>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -38,7 +38,41 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" Background="Transparent" Name="BuildingsList" ItemsSource="{Binding Path=Buildings}" ItemTemplate="{StaticResource lvBuildingListItem}" SelectedItem="{Binding Path=SelectedBuilding}"/>
-        <local:BuildingDetailedView Grid.Column="1"></local:BuildingDetailedView>
+        <DockPanel Grid.Column="0">
+           
+            <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+                <Button 
+                    DockPanel.Dock="Right"
+                    Width="48" 
+                    Margin="2" 
+                    Command="{Binding Path=DecreaseMultiplicatorCommand}"
+                    Content="-"/>
+
+                <Button 
+                    DockPanel.Dock="Right"
+                    Width="48" 
+                    Margin="2" 
+                    Command="{Binding Path=IncreaseMultiplicatorCommand}"
+                    Content="+"/>
+              
+                <TextBox  
+                    Margin="2"
+                    Background="LightYellow"
+                    BorderBrush="Black"
+                    Text="{Binding Path=Multiplicator, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </DockPanel>
+            <ListView 
+              
+                Grid.Column="0" 
+                Background="Transparent" 
+                Name="BuildingsList" 
+                ItemsSource="{Binding Path=Buildings}" 
+                ItemTemplate="{StaticResource lvBuildingListItem}" 
+                SelectedItem="{Binding Path=SelectedBuilding}"
+                VerticalAlignment="Stretch"
+                />
+        </DockPanel>
+         <local:BuildingDetailedView Grid.Column="1"></local:BuildingDetailedView>
     </Grid>
 </UserControl>
