@@ -13,7 +13,7 @@ namespace Emperor.WPF.ViewModels
 {
     public class ProductsVM : BaseVM
     {
-        private const long _multiplicatorMaxValue = 1000000000;
+        private const long _multiplicatorMaxValue = 10000000;
         private GameVM _gameVM;
         private TradeManager _tradeManager;
 
@@ -33,7 +33,7 @@ namespace Emperor.WPF.ViewModels
         public void FetchProducts(List<Product> products)
         {
             Products = products.Select(p => new ProductVM(p)).ToList();
-            Products.ForEach(p => TradeExecuted += p.ParentChanged);
+            Products.ForEach(p =>p.PropertyChanged += ProductVMChanged);
         }
 
         public GameVM Game { get { return _gameVM; } }
@@ -119,7 +119,7 @@ namespace Emperor.WPF.ViewModels
             var productVM = parameter as ProductVM;
             _tradeManager.Buy(productVM.Product, Multiplicator);
             OnPropertyChanged("Products");
-            OnTradeExecuted();
+            //OnTradeExecuted();
         }
 
         public void Sell(object parameter)
@@ -127,7 +127,7 @@ namespace Emperor.WPF.ViewModels
             var productVM = parameter as ProductVM;
             _tradeManager.Sell(productVM.Product, Multiplicator);
             OnPropertyChanged("Products");
-            OnTradeExecuted();
+           // OnTradeExecuted();
         }
 
         public bool CanBuy(object parameter)
@@ -167,12 +167,17 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
-        public event EventHandler TradeExecuted;
-
-        protected void OnTradeExecuted()
+        public void ProductVMChanged(object sender, EventArgs eventArgs)
         {
-            if (TradeExecuted != null)
-                TradeExecuted(this, new EventArgs());
+            OnProductsChanged();
+        }
+
+        public event EventHandler ProductsChanged;
+
+        protected void OnProductsChanged()
+        {
+            if (ProductsChanged != null)
+                ProductsChanged(this, new EventArgs());
         }
     }
 }

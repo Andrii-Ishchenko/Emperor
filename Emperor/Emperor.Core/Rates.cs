@@ -18,54 +18,30 @@ namespace Emperor.Core
 
         public Rate FoodRate
         {
-            get
-            {
-                return _foodRate;
-            }
+            get { return _foodRate; }
 
-            set
-            {
-                _foodRate = value;
-            }
+            set { _foodRate = value; }
         }
 
         public Rate TaxRate
         {
-            get
-            {
-                return _taxRate;
-            }
+            get { return _taxRate; }
 
-            set
-            {
-                _taxRate = value;
-            }
+            set { _taxRate = value; }
         }
 
         public Rate SocialRate
         {
-            get
-            {
-                return _socialRate;
-            }
+            get { return _socialRate; }
 
-            set
-            {
-                _socialRate = value;
-            }
+            set { _socialRate = value; }
         }
 
         public Rate ArmyRate
         {
-            get
-            {
-                return _armyRate;
-            }
+            get { return _armyRate; }
 
-            set
-            {
-                _armyRate = value;
-            }
+            set { _armyRate = value; }
         }
 
         public long GetConsumedFood(long citizens)
@@ -76,6 +52,11 @@ namespace Emperor.Core
         public long GetPayedTaxes (long citizens)
         {
             return RateCalculator.GetTaxes(citizens, TaxRate);
+        }
+
+        public long GetPayedGold(long citizens)
+        {
+            return RateCalculator.GetPayedGold(citizens, SocialRate);
         }
     }
 }

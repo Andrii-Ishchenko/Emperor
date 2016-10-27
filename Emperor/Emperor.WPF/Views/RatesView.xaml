@@ -53,6 +53,19 @@
 
             <Label Grid.Column="0" Grid.Row="2" FontSize="14">Social Payments</Label>
             <ComboBox Grid.Column="1" Grid.Row="2"  Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=SocialRate}"></ComboBox>
+            <TextBlock  Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Margin="10,2" VerticalAlignment="Center">
+                <TextBlock.Inlines>
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding Game.Citizens, FallbackValue=0}" />
+                    <Image Source="/Resources/worker.png" Height="20" />
+                    citizens will recieve
+                    <Run FontWeight="Bold" FontSize="14" Text="{Binding PayedGold,Mode=OneWay, FallbackValue=0}" />
+                    <Image Source="/Resources/gold.png" Height="20" />
+                    gold.
+
+                </TextBlock.Inlines>
+            </TextBlock>
+
+
 
             <Label Grid.Column="0" Grid.Row="3" FontSize="14">Army Payments</Label>
             <ComboBox Grid.Column="1" Grid.Row="3"  Height="20" ItemsSource="{Binding Source={StaticResource enumRates}}" SelectedItem="{Binding Path=ArmyRate}"></ComboBox>

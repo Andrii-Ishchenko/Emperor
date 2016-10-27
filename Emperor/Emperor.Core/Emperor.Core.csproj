@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\Academy.cs" />
+    <Compile Include="Buildings\Barracks.cs" />
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\Castle.cs" />
     <Compile Include="Buildings\Church.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Buildings\Quarry.cs" />
     <Compile Include="Buildings\Sawmill.cs" />
     <Compile Include="Buildings\Smith.cs" />
+    <Compile Include="Buildings\Stable.cs" />
     <Compile Include="Buildings\Tavern.cs" />
     <Compile Include="Enums\Rate.cs" />
     <Compile Include="Game.cs" />

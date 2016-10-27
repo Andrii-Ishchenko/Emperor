@@ -46,6 +46,7 @@ namespace Emperor.WPF.ViewModels
             {
                 _gameVM.Rates.SocialRate = value;
                 OnPropertyChanged("SocialRate");
+                OnPropertyChanged("PayedGold");
             }
         }
 
@@ -84,6 +85,11 @@ namespace Emperor.WPF.ViewModels
         public long PayedTaxes
         {
             get { return _gameVM.Rates.GetPayedTaxes(_gameVM.Citizens); }
+        }
+
+        public long PayedGold
+        {
+            get { return _gameVM.Rates.GetPayedGold(_gameVM.Citizens); }
         }
     }
 }

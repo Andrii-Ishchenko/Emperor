@@ -46,7 +46,6 @@ namespace Emperor.Core
             //        break;
             //}
 
-
         }
 
         public static long GetTaxes(long citizens, Rate taxRate)
@@ -65,6 +64,17 @@ namespace Emperor.Core
         public static double GetFoodHappinessDelta(Rate foodRate)
         {
             double delta = foodRate == Rate.None ? -5 : -2 + 0.5*(int) foodRate;
+            return delta;
+        }
+
+        public static long GetPayedGold(long citizens, Rate socialRate)
+        {
+            return socialRate == Rate.None ? 0 : (long)( citizens*((int)socialRate + 1) * 0.2 );
+        }
+
+        public static double GetPayedGoldHappinessDelta(Rate socialRate)
+        {
+            double delta = (-0.25 + 0.35 * (int)socialRate);
             return delta;
         }
     }

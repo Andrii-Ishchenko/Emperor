@@ -44,13 +44,19 @@ namespace Emperor.Core.Managers
             balance.SoldiersDelta = balance.SoldiersGrowth - balance.SoldiersLost;
         }
 
+        public void CalculatePayedGold()
+        {
+           // long goldToPay = _game.Rates.GetPayedGold(_game.Citizens);
+           // pay all if unsufficient, and need f to recalculate Happiness grow as percentage 
+        }
+
         private void CalculateHappinessDelta(YearlyBalance balance)
         {
             double delta = 0;
 
             delta += RateCalculator.GetTaxesHappinessDelta(_game.Rates.TaxRate);
             delta += RateCalculator.GetFoodHappinessDelta(_game.Rates.FoodRate);
-
+         //   delta += RateCalculator.GetPayedGoldHappinessDelta(_game.Rates.SocialRate);
             balance.HappinessDelta = delta;
         }
 

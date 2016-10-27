@@ -8,6 +8,9 @@ namespace Emperor.Core.Buildings
 {
     public class Castle : Building
     {
+
+        //TODO: each lvl opens different policies
+
         public Castle(Game game, int price, int startCount) : base(game, "Castle", price, startCount)
         {
 

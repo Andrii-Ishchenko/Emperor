@@ -118,8 +118,6 @@ namespace Emperor.Core
             SaveStats();
         }
 
-
-
         public YearlyBalance NextTurn()
         {
            
@@ -133,9 +131,10 @@ namespace Emperor.Core
             
             Year++;
 
-            //save stats here
             SaveStats();
-            //
+
+            OnGameChanged();
+
             return BalanceHistory.Last().Value; 
         }
 
@@ -169,6 +168,14 @@ namespace Emperor.Core
             stats.TitleState = TitleState.Clone() as TitleState;
 
             StatsHistory.Add(Year, stats);
+        }
+
+        public event EventHandler GameChanged;
+
+        protected void OnGameChanged()
+        {
+            if (GameChanged != null)
+                GameChanged(this,new EventArgs());
         }
     }
 }

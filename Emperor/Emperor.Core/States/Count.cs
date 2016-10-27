@@ -12,7 +12,7 @@ namespace Emperor.Core.States
         {
             _titleName = "Count";
             AddGoldRequirement(5000);
-            AddCastleRequirement(2);
+            
             AddCitizenRequirement(1500);
         }
 

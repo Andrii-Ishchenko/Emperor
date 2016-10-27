@@ -8,6 +8,7 @@ namespace Emperor.Core.Buildings
 {
     public class Smith : Building
     {
+        //TODO: produce tools as well
 
         public Smith(Game game,int price, int count) : base(game,"Smith", price, count)
         {

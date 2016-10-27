@@ -8,6 +8,7 @@ namespace Emperor.Core.Buildings
 {
     public class Mine : Building
     {
+        
         public Mine(Game game, int price, int count) : base(game,"Mine",price, count)
         {
 
