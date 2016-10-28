@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Emperor.WPF.Commands;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace Emperor.WPF.ViewModels.DataVM
 {
-    public class BuildingVM :BaseVM
+    public class BuildingVM : BaseVM
     {
 
         private Building _building;
@@ -18,15 +19,9 @@ namespace Emperor.WPF.ViewModels.DataVM
         public BuildingVM(Building building)
         {
             _building = building;
-            _buyBuildingCommand = new RelayCommand(
-                (obj)=> { Build(1); },
-                (obj)=> { return CanBeBuiltQuantity(1); }
-            );
+            _buyBuildingCommand = new RelayCommand(Build, CanBeBuiltQuantity);
 
-            _sellBuildingCommand = new RelayCommand(
-                (obj) => { Sell(1); },
-                (obj) => { return CanBeSoldQuantity(1); }
-            );
+            _sellBuildingCommand = new RelayCommand(Sell, CanBeSoldQuantity);
         }
 
         public string Name => _building.Name;
@@ -37,15 +32,9 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public ICommand BuyCommand
         {
-            get
-            {
-                return _buyBuildingCommand;
-            }
+            get { return _buyBuildingCommand; }
 
-            set
-            {
-                _buyBuildingCommand = value;
-            }
+            set { _buyBuildingCommand = value; }
         }
         public ICommand SellCommand
         {
@@ -59,38 +48,35 @@ namespace Emperor.WPF.ViewModels.DataVM
             }
         }
 
-        public bool Build(int count)
+        public void Build(object parameter)
         {
-            var res = _building.Build(count);
+            var res = _building.Build(1);
             OnPropertyChanged("Count");
-            return res;
+
         }
 
-        public bool Sell(int count)
+        public void Sell(object parameter)
         {
-            var res = _building.Sell(count);
+            var res = _building.Sell(1);
             OnPropertyChanged("Count");
-            return res;
+
         }
 
-        public bool CanBeBuiltQuantity(int quantity)
+        public bool CanBeBuiltQuantity(object parameter)
         {
-            return _building.CanBeBuiltQuantity(quantity);
+           // Debug.WriteLine("CanBeBuild :{0} \t\t {1}",Name,parameter==null?"NULL":parameter.ToString());
+
+            return _building.CanBeBuiltQuantity(1);
         }
 
-        public bool CanBeSoldQuantity(int quantity)
+        public bool CanBeSoldQuantity(object parameter)
         {
-            return _building.CanBeSoldQuantity(quantity);
-        }
-
-        public void Produce(YearlyBalance income)
-        {
-            _building.Produce(income);
+            return _building.CanBeSoldQuantity(1);
         }
 
         private ICommand _buyBuildingCommand;
         private ICommand _sellBuildingCommand;
 
-        
+
     }
 }

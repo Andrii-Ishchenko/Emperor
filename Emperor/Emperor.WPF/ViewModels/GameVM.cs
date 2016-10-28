@@ -213,17 +213,17 @@ namespace Emperor.WPF.ViewModels
             OnPropertyChanged(string.Empty);
         }
 
-        public void Build(BuildingVM building, int count)
-        {
-            if (building.Build(count))
-                OnPropertyChanged(string.Empty);
-        }
+        //public void Build(BuildingVM building, int count)
+        //{
+        //    if (building.Build(count))
+        //        OnPropertyChanged(string.Empty);
+        //}
 
-        public void Sell(BuildingVM building, int count)
-        {
-            if (building.Sell(count))
-                OnPropertyChanged(string.Empty);
-        }
+        //public void Sell(BuildingVM building, int count)
+        //{
+        //    if (building.Sell(count))
+        //        OnPropertyChanged(string.Empty);
+        //}
 
         private void UpdateBalanceHistory()
         {
