@@ -75,6 +75,11 @@ namespace Emperor.Core.States
             return PromotionRequirements.All((kvp) => kvp.Value(_game));
         }
 
+        public virtual bool CheckEndGame()
+        {
+            return false;
+        }
+
         public abstract void Promote();
 
         public object Clone()

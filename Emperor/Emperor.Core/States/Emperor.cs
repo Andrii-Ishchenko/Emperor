@@ -17,5 +17,10 @@ namespace Emperor.Core.States
         {
             //check end game
         }
+
+        public override bool CheckEndGame()
+        {
+            return true; 
+        }
     }
 }

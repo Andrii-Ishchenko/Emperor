@@ -92,7 +92,7 @@
                 <local:BuildingsView x:Name="buildingsViewControl" DataContext="{Binding BuildingsVM}"></local:BuildingsView>
             </TabItem>
             <TabItem Header="Resources">
-                <local:ProductsView x:Name="productsView" DataContext="{Binding TradeVM}"></local:ProductsView>
+                <local:ProductsView x:Name="productsView" DataContext="{Binding ProductsVM}"></local:ProductsView>
             </TabItem>
             <TabItem Header="Army">
                 <local:ArmyView DataContext="{Binding ArmyVM}"></local:ArmyView>

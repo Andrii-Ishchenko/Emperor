@@ -22,7 +22,7 @@ namespace Emperor.WPF.ViewModels
         public BalancesVM BalancesVM { get; private set; }
         public BuildingsVM BuildingsVM { get; private set; }
         public RatesVM RatesVM { get; private set; }
-        public ProductsVM TradeVM { get; private set; }
+        public ProductsVM ProductsVM { get; private set; }
 
         public GameVM()
         {
@@ -41,10 +41,10 @@ namespace Emperor.WPF.ViewModels
             ArmyVM.RecruitEvent += ArmyVmOnRecruitEvent;
 
             BalancesVM = new BalancesVM(this);
+
             BuildingsVM = new BuildingsVM(this);
             BuildingsVM.FetchBuildings(_game.Buildings);
-
-            //push inside buildingsVM
+            //TODO: do as with tradevm
             foreach (var building in BuildingsVM.Buildings)
             {
                 building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
@@ -52,9 +52,9 @@ namespace Emperor.WPF.ViewModels
 
             RatesVM = new RatesVM(this);
 
-            TradeVM = new ProductsVM(this);
-            TradeVM.FetchProducts(_game.Products);
-            TradeVM.ProductsChanged += (sender, args) => { OnPropertyChanged(string.Empty); };
+            ProductsVM = new ProductsVM(this);
+            ProductsVM.FetchProducts(_game.Products);
+            ProductsVM.ProductsChanged += (sender, args) => { OnPropertyChanged(string.Empty); };
 
             ShowPopup = true;
         }
@@ -166,6 +166,8 @@ namespace Emperor.WPF.ViewModels
                 OnPropertyChanged("Year");
             }
         }
+
+        public bool IsGameEnd { get { return _game.IsGameEnd; } }
 
         public long Happiness
         {

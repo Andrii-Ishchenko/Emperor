@@ -13,6 +13,19 @@ namespace Emperor.Core
 {
     public class Game
     {
+        private bool _isGameEnd;
+
+        public bool IsGameEnd
+
+        {
+            get { return _isGameEnd; }
+            set
+            {
+                _isGameEnd = value; 
+                OnGameFinished();
+            }
+        }
+
         public int Year { get; set; }
         public int MaxYear { get; set; }
 
@@ -132,10 +145,17 @@ namespace Emperor.Core
             Year++;
 
             SaveStats();
+         
+            CheckEndGame();
 
             OnGameChanged();
-
             return BalanceHistory.Last().Value; 
+        }
+
+        private void CheckEndGame()
+        {
+            if (TitleState.CheckEndGame())
+                IsGameEnd = true;
         }
 
         private void ApplyBalance(YearlyBalance balance)
@@ -171,11 +191,19 @@ namespace Emperor.Core
         }
 
         public event EventHandler GameChanged;
+        public event EventHandler GameFinished;
 
         protected void OnGameChanged()
         {
             if (GameChanged != null)
                 GameChanged(this,new EventArgs());
+        }
+
+        protected void OnGameFinished()
+        {
+            if (GameFinished != null)
+                GameFinished(this,new EventArgs());
+            }
         }
     }
 }
