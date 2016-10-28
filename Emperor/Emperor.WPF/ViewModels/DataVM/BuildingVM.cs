@@ -50,28 +50,47 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public void Build(object parameter)
         {
-            var res = _building.Build(1);
+            if (parameter == null)
+                return;
+
+            int count = Convert.ToInt32(parameter);
+
+            var res = _building.Build(count);
             OnPropertyChanged("Count");
 
         }
 
         public void Sell(object parameter)
         {
-            var res = _building.Sell(1);
+            if (parameter == null)
+                return;
+
+            int count = Convert.ToInt32(parameter);
+
+            var res = _building.Sell(count);
             OnPropertyChanged("Count");
 
         }
 
         public bool CanBeBuiltQuantity(object parameter)
         {
-           // Debug.WriteLine("CanBeBuild :{0} \t\t {1}",Name,parameter==null?"NULL":parameter.ToString());
+            // Debug.WriteLine("CanBeBuild :{0} \t\t {1}",Name,parameter==null?"NULL":parameter.ToString());
+            if (parameter == null)
+                return false;
 
-            return _building.CanBeBuiltQuantity(1);
+            int count = Convert.ToInt32(parameter);
+
+            return _building.CanBeBuiltQuantity(count);
         }
 
         public bool CanBeSoldQuantity(object parameter)
         {
-            return _building.CanBeSoldQuantity(1);
+            if (parameter == null)
+                return false;
+
+            int count = Convert.ToInt32(parameter);
+
+            return _building.CanBeSoldQuantity(count);
         }
 
         private ICommand _buyBuildingCommand;

@@ -21,7 +21,7 @@ namespace Emperor.Core
             get { return _isGameEnd; }
             set
             {
-                _isGameEnd = value; 
+                _isGameEnd = value;
                 OnGameFinished();
             }
         }
@@ -33,36 +33,20 @@ namespace Emperor.Core
 
         public long Food
         {
-            get
-            {
-                return GetProductByName("Food").Count;
-            }
-            set
-            {
-                GetProductByName("Food").Count = value;
-            }
+            get { return GetProductByName("Food").Count; }
+            set { GetProductByName("Food").Count = value; }
         }
+
         public long Iron
         {
-            get
-            {
-                return GetProductByName("Iron").Count;
-            }
-            set
-            {
-                GetProductByName("Iron").Count = value;
-            }
+            get { return GetProductByName("Iron").Count; }
+            set { GetProductByName("Iron").Count = value; }
         }
+
         public long Weapons
         {
-            get
-            {
-                return GetProductByName("Weapons").Count;
-            }
-            set
-            {
-                GetProductByName("Weapons").Count = value;
-            }
+            get { return GetProductByName("Weapons").Count; }
+            set { GetProductByName("Weapons").Count = value; }
         }
 
         public long Citizens { get; set; }
@@ -75,9 +59,9 @@ namespace Emperor.Core
         public List<Building> Buildings { get; private set; }
         public List<Product> Products { get; private set; }
 
-        public Dictionary<int,YearlyBalance> BalanceHistory { get; private set; }
-        public Dictionary<int,Stats> StatsHistory { get; private set; } 
-        public Rates Rates { get;private set; }
+        public Dictionary<int, YearlyBalance> BalanceHistory { get; private set; }
+        public Dictionary<int, Stats> StatsHistory { get; private set; }
+        public Rates Rates { get; private set; }
 
         public CitizenManager CitizenManager { get; private set; }
         public TradeManager TradeManager { get; private set; }
@@ -88,16 +72,16 @@ namespace Emperor.Core
         {
             Buildings = new List<Building>()
             {
-                new Farm(this, 1000,1),
-                new Market(this,2000,0),
-                new Mine(this, 3000,0),
-                new Smith(this,4000,0),
-                new Castle(this,5000,0)
+                new Farm(this, 1000, 1),
+                new Market(this, 2000, 0),
+                new Mine(this, 3000, 0),
+                new Smith(this, 4000, 0),
+                new Castle(this, 5000, 0)
             };
 
             Products = new List<Product>()
             {
-                
+
                 new Product("Food", 3000, 2),
                 new Product("Iron", 0, 80),
                 new Product("Weapons", 0, 180)
@@ -107,7 +91,7 @@ namespace Emperor.Core
             MaxYear = 60;
 
             Gold = 2000;
-         
+
             Citizens = 1000;
             Soldiers = 0;
 
@@ -133,7 +117,7 @@ namespace Emperor.Core
 
         public YearlyBalance NextTurn()
         {
-           
+
             TitleState.HandleState();
 
             var balance = BalanceManager.CalculateBalance();
@@ -141,15 +125,15 @@ namespace Emperor.Core
             ApplyBalance(balance);
 
             BalanceHistory.Add(Year, balance);
-            
+
             Year++;
 
             SaveStats();
-         
+
             CheckEndGame();
 
             OnGameChanged();
-            return BalanceHistory.Last().Value; 
+            return BalanceHistory.Last().Value;
         }
 
         private void CheckEndGame()
@@ -166,7 +150,7 @@ namespace Emperor.Core
             Iron += balance.IronDelta;
             Weapons += balance.WeaponsDelta;
             Soldiers += balance.SoldiersDelta;
-            Happiness = (long)Math.Max(Math.Min(100, Happiness + balance.HappinessDelta),0);
+            Happiness = (long) Math.Max(Math.Min(100, Happiness + balance.HappinessDelta), 0);
         }
 
         private Product GetProductByName(string name)
@@ -196,14 +180,13 @@ namespace Emperor.Core
         protected void OnGameChanged()
         {
             if (GameChanged != null)
-                GameChanged(this,new EventArgs());
+                GameChanged(this, new EventArgs());
         }
 
         protected void OnGameFinished()
         {
             if (GameFinished != null)
-                GameFinished(this,new EventArgs());
-            }
+                GameFinished(this, new EventArgs());
         }
     }
 }
