@@ -39,6 +39,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,6 +75,9 @@
     <Compile Include="Views\Advice\AdviceView.xaml.cs">
       <DependentUpon>AdviceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Advice\AdviceWindow.xaml.cs">
+      <DependentUpon>AdviceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ArmyView.xaml.cs">
       <DependentUpon>ArmyView.xaml</DependentUpon>
     </Compile>
@@ -101,6 +108,9 @@
     <Compile Include="Views\Balances\BalancesView.xaml.cs">
       <DependentUpon>BalancesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResearchView.xaml.cs">
+      <DependentUpon>ResearchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TabbedWindow.xaml.cs">
       <DependentUpon>TabbedWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +121,10 @@
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Advice\AdviceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Advice\AdviceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ResearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TabbedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +211,7 @@
     <Resource Include="Fonts\Fontin-Italic.otf" />
     <Resource Include="Fonts\Fontin-Regular.otf" />
     <Resource Include="Fonts\Fontin-SmallCaps.otf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

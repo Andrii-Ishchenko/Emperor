@@ -1,8 +1,6 @@
-﻿using Emperor.WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,19 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Emperor.WPF.Views
+namespace Emperor.WPF.ViewModels.Views.Advice
 {
     /// <summary>
-    /// Interaction logic for TabbedWindow.xaml
+    /// Interaction logic for AdviceWindow.xaml
     /// </summary>
-    public partial class TabbedWindow : Window
+    public partial class AdviceWindow : Window
     {
-
-        public TabbedWindow()
+        public AdviceWindow()
         {
             InitializeComponent();
-         
         }
-
     }
 }

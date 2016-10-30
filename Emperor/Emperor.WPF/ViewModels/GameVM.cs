@@ -12,6 +12,7 @@ using Emperor.Core.States;
 using Emperor.WPF.Commands;
 using System.Windows;
 using Emperor.WPF.Views;
+using Emperor.WPF.ViewModels.Views.Advice;
 
 namespace Emperor.WPF.ViewModels
 {
@@ -33,6 +34,7 @@ namespace Emperor.WPF.ViewModels
 
             //Command
             NextTurnCommand = new RelayCommand(NextTurn, CanNextTurn);
+            ShowAdviceCommand = new RelayCommand(ShowAdvice);
 
             //OTHER VM INIT
             AdviceVM = new AdviceVM(this);
@@ -213,17 +215,7 @@ namespace Emperor.WPF.ViewModels
             OnPropertyChanged(string.Empty);
         }
 
-        //public void Build(BuildingVM building, int count)
-        //{
-        //    if (building.Build(count))
-        //        OnPropertyChanged(string.Empty);
-        //}
 
-        //public void Sell(BuildingVM building, int count)
-        //{
-        //    if (building.Sell(count))
-        //        OnPropertyChanged(string.Empty);
-        //}
 
         private void UpdateBalanceHistory()
         {
@@ -242,6 +234,14 @@ namespace Emperor.WPF.ViewModels
         }
 
         public ICommand NextTurnCommand { get; private set; }
+        public ICommand ShowAdviceCommand { get; private set; }
+
+        public void ShowAdvice(object parameter)
+        {
+            AdviceWindow aw = new AdviceWindow();
+            aw.DataContext = AdviceVM;
+            aw.ShowDialog();
+        }
 
         public bool CanNextTurn(object parameter)
         {

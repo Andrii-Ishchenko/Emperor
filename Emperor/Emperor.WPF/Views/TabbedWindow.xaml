@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF.Views"     
         xmlns:vm="clr-namespace:Emperor.WPF.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="Emperor" Height="600" Width="720" ResizeMode="CanMinimize">
     <Window.DataContext>
@@ -17,10 +18,16 @@
             <RowDefinition Height="48"/>
         </Grid.RowDefinitions>
 
-        <Border CornerRadius="4" BorderThickness="1" BorderBrush="Gray" Margin="4" Background="GhostWhite">
+        <Border CornerRadius="0,0,5,5" BorderThickness="1" BorderBrush="Gray" Margin="0,0,0,4" Background="GhostWhite">
             <DockPanel>
-                <Label DockPanel.Dock="Left" Background="#fab387" Content="{Binding TitleState.TitleName}"/>
-                <Label DockPanel.Dock="Left" Margin="8,0,0,0"> Year</Label>
+                <Label DockPanel.Dock="Left" Background="#fab387" Content="{Binding TitleState.TitleName, FallbackValue=Title}" VerticalAlignment="Center" Margin="4,0"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding ShowAdviceCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Label>
+                <Label DockPanel.Dock="Left" Margin="8,0,0,0" VerticalAlignment="Center"> Year</Label>
                 <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">
                     <TextBlock.Text>
                         <MultiBinding StringFormat="{}{0}/{1}">
@@ -97,6 +104,9 @@
             <TabItem Header="Army">
                 <local:ArmyView DataContext="{Binding ArmyVM}"></local:ArmyView>
             </TabItem>
+            <TabItem Header="Research View">
+                <local:ResearchView x:Name="researchViewControl" />
+            </TabItem>
             <TabItem Header="Income &amp; Outcome">
                 <local:RatesView x:Name="ratesViewControl" DataContext="{Binding RatesVM}"/>
             </TabItem>
@@ -106,10 +116,7 @@
             <TabItem Header="Graphs" Visibility="Collapsed">
                 
             </TabItem>
-            <TabItem Header="Advice">
-                <local:AdviceView DataContext="{Binding AdviceVM}"></local:AdviceView>
-            </TabItem>
-
+           
         </TabControl>
 
         <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Command="{Binding NextTurnCommand}"></Button>

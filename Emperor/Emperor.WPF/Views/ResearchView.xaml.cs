@@ -1,8 +1,6 @@
-﻿using Emperor.WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Emperor.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for TabbedWindow.xaml
+    /// Interaction logic for ResearchView.xaml
     /// </summary>
-    public partial class TabbedWindow : Window
+    public partial class ResearchView : UserControl
     {
-
-        public TabbedWindow()
+        public ResearchView()
         {
             InitializeComponent();
-         
         }
-
     }
 }
