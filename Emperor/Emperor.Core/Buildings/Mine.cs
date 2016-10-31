@@ -9,14 +9,14 @@ namespace Emperor.Core.Buildings
     public class Mine : Building
     {
         
-        public Mine(Game game, int price, int count) : base(game,"Mine",price, count)
+        public Mine(Game game, int price, int level) : base(game,"Mine",price, level)
         {
 
         }
 
         public override void Produce(YearlyBalance balance)
         {
-            balance.IronGrowth += Count * 8;
+            balance.IronGrowth += Level * 8;
         }
     }
 }

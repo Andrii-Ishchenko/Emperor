@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Emperor.Core.Buildings
 {
-    public class Church
+    public class Church : Building
     {
         //increase happiness level rise and decrease falls
         //provide gold = taxes / 10
+        public Church(Game game, int price, int startLevel) : base(game, "Church", price, startLevel)
+        {
+        }
+
+        public override void Produce(YearlyBalance income)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

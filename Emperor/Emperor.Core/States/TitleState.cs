@@ -97,7 +97,7 @@ namespace Emperor.Core.States
                 var castle = g.Buildings.FirstOrDefault(b => b.Name == "Castle");
                 if (castle==null)
                     throw new Exception();
-                return castle.Count >= castleLevel;
+                return castle.Level >= castleLevel;
             });
         }
 

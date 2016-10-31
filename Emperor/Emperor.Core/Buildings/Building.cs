@@ -11,18 +11,20 @@ namespace Emperor.Core
     {
          protected Game _game;
 
-        protected Building(Game game, string name, int price, int startCount)
+        protected Building(Game game, string name, int price, int startLevel)
         {
             _game = game;
             Price = price;
             Name = name;
-            Count = startCount;
+            Level = startLevel;
         }
+
+        private Dictionary<int,string> _names;  
 
         public string Name { get; private set; }
 
         public int Price { get; private set; }
-        public int Count { get; private set; }
+        public int Level { get; private set; }
 
         public abstract void Produce(YearlyBalance income);
 
@@ -31,27 +33,14 @@ namespace Emperor.Core
             return (quantity*Price <= _game.Gold);
         }
 
-        public bool CanBeSoldQuantity(int quantity)
-        {
-            return Count >= 1;
-        }
-
         public virtual bool Build(int count)
         {
             if (_game.Gold < count * Price)
                 return false;
 
             _game.Gold -= count * Price;
-            Count += count;          
+            Level += count;          
             return true;
-        }
-
-        public virtual bool Sell(int count)
-        {
-            var sellCount = (int)Math.Min(count, Count);
-            Count -= sellCount;
-            _game.Gold += (sellCount * Price) / 2;            
-            return true;    
         }
 
         public override string ToString()

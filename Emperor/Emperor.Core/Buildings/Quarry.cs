@@ -9,5 +9,7 @@ namespace Emperor.Core.Buildings
     public class Quarry
     {
         //provide stone
+        //if we have tools provide x4
+        //if we have horse provide +x2
     }
 }

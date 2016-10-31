@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Emperor.Core.Buildings
 {
-    public class Barracks
+    public class Barracks : Building
     {
         //allow to hire lvl2 warriors
+        //each lvl allow to hire +5 warriors
 
+        public Barracks(Game game, int price, int startLevel) : base(game, "Barracks", price, startLevel)
+        {
+        }
+
+        public override void Produce(YearlyBalance income)
+        {
+          
+        }
     }
 }

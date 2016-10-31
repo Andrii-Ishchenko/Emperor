@@ -20,13 +20,21 @@
 
         <Border CornerRadius="0,0,5,5" BorderThickness="1" BorderBrush="Gray" Margin="0,0,0,4" Background="GhostWhite">
             <DockPanel>
-                <Label DockPanel.Dock="Left" Background="#fab387" Content="{Binding TitleState.TitleName, FallbackValue=Title}" VerticalAlignment="Center" Margin="4,0"  >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseDoubleClick">
-                            <i:InvokeCommandAction Command="{Binding ShowAdviceCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Label>
+                <Border  DockPanel.Dock="Left" Background="#fab387" Margin="2" CornerRadius="4">
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Content="{Binding TitleState.TitleName, FallbackValue=Title}" VerticalAlignment="Center"  />
+                        <Image Source="/Resources/info.png" Width="16" Height="16" Margin="4,0" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding ShowAdviceCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                    </StackPanel>
+                    
+
+                </Border>
+
                 <Label DockPanel.Dock="Left" Margin="8,0,0,0" VerticalAlignment="Center"> Year</Label>
                 <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">
                     <TextBlock.Text>

@@ -9,6 +9,6 @@ namespace Emperor.Core.Buildings
     public class Stable
     {
         //allow to hire lvl3 warriors
-        //each lvl allow to transform 10 additional lvl2 warriors
+        //each lvl grant passively 5 more horses per year
     }
 }

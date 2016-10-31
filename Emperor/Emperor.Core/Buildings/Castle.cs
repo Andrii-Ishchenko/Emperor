@@ -11,7 +11,7 @@ namespace Emperor.Core.Buildings
 
         //TODO: each lvl opens different policies
 
-        public Castle(Game game, int price, int startCount) : base(game, "Castle", price, startCount)
+        public Castle(Game game, int price, int startLevel) : base(game, "Castle", price, startLevel)
         {
 
         }

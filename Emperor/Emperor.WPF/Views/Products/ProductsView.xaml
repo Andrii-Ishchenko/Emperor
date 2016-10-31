@@ -8,28 +8,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640">
     <UserControl.Resources>
-        <DataTemplate x:Key="ProductVMListItem" DataType="{x:Type modelVM:ProductVM}" >
+        <DataTemplate x:Key="ProductVMListItem" DataType="{x:Type modelVM:ProductVM}"  >
             <Border Background="#eee" CornerRadius="2" BorderThickness="1" BorderBrush="#ccc" Margin="0">
                 <Grid Background="#eee">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="32" SharedSizeGroup="A" ></ColumnDefinition>
-                        <ColumnDefinition Width="100" SharedSizeGroup="B"></ColumnDefinition>
+                        <ColumnDefinition Width="60" SharedSizeGroup="B"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <!--<Ellipse Grid.Column="0" Width="28" Height="28" Fill="SaddleBrown" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     <Image Grid.Column="0" Width="24" Height="24" Source="{Binding Image}"></Image>
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-                            <Label Content="{Binding Path=Name}" DockPanel.Dock="Left" FontWeight="Bold" ></Label>
-                            <Label Content="{Binding Path=Count}" ></Label>
-                        </DockPanel>
-                        <Separator Foreground="Black"  Margin="3,0"/>
-                        <!-- 
-                        <StackPanel Grid.Column="2"  Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Image Source="../Resources/gold.png" Width="15" Height="15"></Image>
-                            <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
-                        </StackPanel>
-                        -->
-                    </StackPanel>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                       
+                        <Label Content="{Binding Path=Name}" DockPanel.Dock="Left" FontWeight="Bold" ></Label>
+                        <!--<Label Content="{Binding Path=Count}" DockPanel.Dock="Right" ></Label>-->
+                        <!--<Image DockPanel.Dock="Right" Source="/Resources/gold.png" Width="12" Height="12" VerticalAlignment="Center" Margin="0"/>-->
+                    </DockPanel>
                          
                     
                 </Grid>

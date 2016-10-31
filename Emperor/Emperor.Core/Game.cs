@@ -76,15 +76,20 @@ namespace Emperor.Core
                 new Market(this, 2000, 0),
                 new Mine(this, 3000, 0),
                 new Smith(this, 4000, 0),
-                new Castle(this, 5000, 0)
+                new Barracks(this,2500,0),
+                new Academy(this,5000,0),
+                new Castle(this, 5000, 0),
+              
+
             };
 
             Products = new List<Product>()
             {
 
                 new Product("Food", 3000, 2),
-                new Product("Iron", 0, 80),
-                new Product("Weapons", 0, 180)
+                new Product("Iron", 0, 40),
+                new Product("Weapons", 0, 180),
+                new Product("Horses",0,100)
             };
 
             Year = 1;

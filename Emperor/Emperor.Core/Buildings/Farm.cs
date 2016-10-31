@@ -8,13 +8,13 @@ namespace Emperor.Core.Buildings
 {
     public class Farm : Building
     {
-        public Farm(Game game, int price, int count) : base(game, "Farm", price, count)
+        public Farm(Game game, int price, int level) : base(game, "Farm", price, level)
         {
         }
 
         public override void Produce(YearlyBalance balance)
         {
-            var growth = Utils.GetRandomInstance().Next(2 * 350 * Count);
+            var growth = Utils.GetRandomInstance().Next(2 * 350 * Level);
             balance.FoodGrowth += growth;
         }
 
