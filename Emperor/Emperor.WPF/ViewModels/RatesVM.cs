@@ -79,7 +79,7 @@ namespace Emperor.WPF.ViewModels
 
         public long ConsumedFood
         {
-            get { return _gameVM.Rates.GetConsumedFood(_gameVM.Citizens); }
+            get { return _gameVM.Rates.GetNeededFood(_gameVM.Citizens); }
         }
 
         public long PayedTaxes

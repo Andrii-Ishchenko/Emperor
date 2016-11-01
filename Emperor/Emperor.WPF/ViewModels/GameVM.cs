@@ -206,6 +206,7 @@ namespace Emperor.WPF.ViewModels
             if (ShowPopup)
             {
                 BalanceWindow bw = new BalanceWindow();
+                bw.ResizeMode = ResizeMode.CanMinimize; 
                 var vm = new BalancePopupWindowVM(BalanceHistory.Last().Value, this);
                 bw.DataContext = vm;
                 bw.ShowDialog();

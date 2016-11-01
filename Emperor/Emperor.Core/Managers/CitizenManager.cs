@@ -31,7 +31,16 @@ namespace Emperor.Core.Managers
 
         public void CalculateCitizensLost(YearlyBalance balance)
         {
-            balance.CitizensLost = (RateCalculator.GetConsumedFood(_game.Citizens,_game.Rates.FoodRate) - balance.FoodConsumed);
+            long foodNeeded = _game.Rates.GetNeededFood(_game.Citizens);
+            long consumed =  (RateCalculator.GetNeededFood(_game.Citizens, _game.Rates.FoodRate) - balance.FoodConsumed);
+            double coef = 0;
+            if (consumed < foodNeeded)
+            {
+                coef = consumed/(double) foodNeeded;
+                
+            }
+
+            balance.CitizensLost = (long)(coef*_game.Citizens);
         }
     }
 }

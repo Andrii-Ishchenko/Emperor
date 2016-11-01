@@ -44,9 +44,9 @@ namespace Emperor.Core
             set { _armyRate = value; }
         }
 
-        public long GetConsumedFood(long citizens)
+        public long GetNeededFood(long citizens)
         {
-            return RateCalculator.GetConsumedFood(citizens,FoodRate);
+            return RateCalculator.GetNeededFood(citizens,FoodRate);
         }
 
         public long GetPayedTaxes (long citizens)

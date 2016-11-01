@@ -56,7 +56,7 @@ namespace Emperor.WPF.ViewModels.DataVM
             int count = Convert.ToInt32(parameter);
 
             var res = _building.Build(count);
-            OnPropertyChanged("Level");
+            OnPropertyChanged(string.Empty);
 
         }
 

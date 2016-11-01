@@ -99,6 +99,9 @@
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
+    <Compile Include="Views\ProductsTopPanel.xaml.cs">
+      <DependentUpon>ProductsTopPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Products\ProductDetailedView.xaml.cs">
       <DependentUpon>ProductDetailedView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,9 @@
     </Compile>
     <Compile Include="Views\Products\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TitleTopPanel.xaml.cs">
+      <DependentUpon>TitleTopPanel.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Advice\AdviceView.xaml">
       <SubType>Designer</SubType>
@@ -156,6 +162,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ProductsTopPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Products\ProductDetailedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Products\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TitleTopPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

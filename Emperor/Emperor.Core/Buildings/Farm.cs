@@ -13,10 +13,18 @@ namespace Emperor.Core.Buildings
         }
 
         public override void Produce(YearlyBalance balance)
-        {
-            var growth = Utils.GetRandomInstance().Next(2 * 350 * Level);
+        {          
+            var delta = -100*Level + Utils.GetRandomInstance().Next(2*100*Level);
+            var growth = 300 * Level + delta;
             balance.FoodGrowth += growth;
         }
 
+        public override bool Build(int count)
+        {
+            var res = base.Build(count);
+            Price = (int)(Price*1.1);
+            return res;
+
+        }
     }
 }

@@ -11,13 +11,13 @@
     <UserControl.Resources>
         <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
             <Border Background="#eee" CornerRadius="4" BorderThickness="1" BorderBrush="#ccc" Margin="2" Padding="3">
-                <Grid Background="#eee">
+                <Grid Background="#eee" IsSharedSizeScope="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="35"></ColumnDefinition>
                         <ColumnDefinition Width="60"></ColumnDefinition>
                         <ColumnDefinition Width="18"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="54"></ColumnDefinition>
+                        <ColumnDefinition Width="54"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Ellipse Grid.Column="0" Width="24" Height="24" Fill="SandyBrown"></Ellipse>
                     <Label Grid.Column="1" Content="{Binding Path=Name}" VerticalAlignment="Center"></Label>

@@ -58,12 +58,12 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
                     <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
-                    <Label  Margin="4" HorizontalAlignment="Right" Content="{Binding Path=DataContext.TotalBuyPrice, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ProductsView}}}"></Label>
+                    <Label  Margin="4" HorizontalAlignment="Right" Content="{Binding Path=DataContext.TotalBuyPrice, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ProductsView}}}" ContentStringFormat="{}{0:#,#.00}"></Label>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
                     <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
-                    <Label  Margin="4" HorizontalAlignment="Right" Content="{Binding Path=DataContext.TotalSellPrice, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ProductsView}}}"></Label>
+                    <Label  Margin="4" HorizontalAlignment="Right" Content="{Binding Path=DataContext.TotalSellPrice, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ProductsView}}}" ContentStringFormat="{}{0:#,#.00}"></Label>
                 </StackPanel>
                 
                 <Button 
@@ -93,12 +93,12 @@
                 
                 <StackPanel Grid.Row="1" Grid.Column="0"  Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
-                    <Label Content="{Binding Path=BuyPrice, StringFormat={}{0:#,#.00} }" VerticalAlignment="Center" Margin="0"></Label>
+                    <Label Content="{Binding Path=BuyPrice}" ContentStringFormat="{}{0:#,#.00}" VerticalAlignment="Center" Margin="0"></Label>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="0"  Orientation="Horizontal" HorizontalAlignment="Right">
                     <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
-                    <Label Content="{Binding Path=SellPrice, StringFormat={}{0:#,#.00} }" VerticalAlignment="Center" Margin="0"></Label>
+                    <Label Content="{Binding Path=SellPrice}" ContentStringFormat="{}{0:#,#.00}" VerticalAlignment="Center" Margin="0"></Label>
                 </StackPanel>
 
             </Grid>

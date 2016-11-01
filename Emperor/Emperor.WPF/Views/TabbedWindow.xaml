@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF.Views"     
         xmlns:vm="clr-namespace:Emperor.WPF.ViewModels"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+       
         mc:Ignorable="d"
         Title="Emperor" Height="600" Width="720" ResizeMode="CanMinimize">
     <Window.DataContext>
@@ -13,63 +13,15 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="36"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="24"/>
             <RowDefinition />
             <RowDefinition Height="48"/>
         </Grid.RowDefinitions>
 
-        <Border CornerRadius="0,0,5,5" BorderThickness="1" BorderBrush="Gray" Margin="0,0,0,4" Background="GhostWhite">
-            <DockPanel>
-                <Border  DockPanel.Dock="Left" Background="#fab387" Margin="2" CornerRadius="4">
-                    <StackPanel Orientation="Horizontal">
-                        <Label  Content="{Binding TitleState.TitleName, FallbackValue=Title}" VerticalAlignment="Center"  />
-                        <Image Source="/Resources/info.png" Width="16" Height="16" Margin="4,0" >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                    <i:InvokeCommandAction Command="{Binding ShowAdviceCommand}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </Image>
-                    </StackPanel>
-                    
-
-                </Border>
-
-                <Label DockPanel.Dock="Left" Margin="8,0,0,0" VerticalAlignment="Center"> Year</Label>
-                <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center">
-                    <TextBlock.Text>
-                        <MultiBinding StringFormat="{}{0}/{1}">
-                            <Binding Path="Year"/>
-                            <Binding Path="MaxYear"/>
-                        </MultiBinding>
-                    </TextBlock.Text>
-                </TextBlock>
-                <StackPanel DockPanel.Dock="Right"  Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Gold"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Gold, FallbackValue=0}" Name="lbGold"></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/food.png" ToolTip="Food"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Food, FallbackValue=0}" Name="lbFood"></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/iron.png" ToolTip="Iron"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Iron, FallbackValue=0}" Name="lbIron"></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/weapons.png" ToolTip="Weapons"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Weapons, FallbackValue=0}" Name="lbWeapons"></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/worker.png" ToolTip="Citizens"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Citizens, FallbackValue=0}" Name="lbCitizens" ></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/soldier.png" ToolTip="Soldiers"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Soldiers, FallbackValue=0}" Name="lbSoldiers"></Label>
-
-                    <Image Style="{StaticResource IconStyle}" Source="/Resources/like.png" ToolTip="Happiness"></Image>
-                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Happiness, FallbackValue=0}" Name="lbHappiness"></Label>
-                </StackPanel>
-            </DockPanel>
-        </Border>
-        
-        <TabControl Grid.Row="1" Name="SectionsTabControl">
+        <local:TitleTopPanel Grid.Row="0"/>
+        <local:ProductsTopPanel Grid.Row="1"/>       
+        <TabControl Grid.Row="2" Name="SectionsTabControl">
             <TabControl.Resources>
                 <Style TargetType="{x:Type TabPanel}">
                     <Setter Property="HorizontalAlignment" Value="Center" />
@@ -127,6 +79,6 @@
            
         </TabControl>
 
-        <Button Grid.Row="2" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Command="{Binding NextTurnCommand}"></Button>
+        <Button Grid.Row="3" Width="140" Height="35" Margin="5" HorizontalAlignment="Right" Content="Next Year" Name="BtnNextYear" Command="{Binding NextTurnCommand}"></Button>
     </Grid>
 </Window>

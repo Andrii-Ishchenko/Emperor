@@ -30,7 +30,7 @@ namespace Emperor.Core.Managers
 
         private void ConsumeFood(YearlyBalance balance)
         {
-            long foodNeeded = _game.Rates.GetConsumedFood(_game.Citizens);
+            long foodNeeded = _game.Rates.GetNeededFood(_game.Citizens);
             balance.FoodConsumed = Math.Min(_game.Food + balance.FoodGrowth - balance.FoodLost, foodNeeded);
         }
 

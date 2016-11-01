@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Emperor.WPF.Views.ProductsTopPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Emperor.WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="28" d:DesignWidth="720">
+    <Grid>
+        <Border CornerRadius="5" BorderThickness="1" BorderBrush="Gray" Margin="0" Background="GhostWhite">
+            <StackPanel   Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Gold"></Image>
+                <Label Style="{StaticResource IconLabelStyle}"  Content="{Binding Path=Gold, FallbackValue=0}" Name="lbGold"></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/food.png" ToolTip="Food"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Food, FallbackValue=0}" Name="lbFood"></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/iron.png" ToolTip="Iron"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Iron, FallbackValue=0}" Name="lbIron"></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/weapons.png" ToolTip="Weapons"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Weapons, FallbackValue=0}" Name="lbWeapons"></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/worker.png" ToolTip="Citizens"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Citizens, FallbackValue=0}" Name="lbCitizens" ></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/soldier.png" ToolTip="Soldiers"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Soldiers, FallbackValue=0}" Name="lbSoldiers"></Label>
+
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/like.png" ToolTip="Happiness"></Image>
+                <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Happiness, FallbackValue=0}" Name="lbHappiness"></Label>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

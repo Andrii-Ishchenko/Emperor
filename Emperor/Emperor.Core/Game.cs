@@ -88,8 +88,12 @@ namespace Emperor.Core
 
                 new Product("Food", 3000, 2),
                 new Product("Iron", 0, 40),
+                new Product("Stone",100,15),
+                new Product("Wood",200,15),
+                new Product("Tools",0,50),
                 new Product("Weapons", 0, 180),
-                new Product("Horses",0,100)
+                new Product("Horses",0,100),
+               
             };
 
             Year = 1;

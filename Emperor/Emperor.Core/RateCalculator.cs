@@ -9,7 +9,7 @@ namespace Emperor.Core
 {
     public class RateCalculator
     {
-        public static long GetConsumedFood(long citizens, Rate foodRate)
+        public static long GetNeededFood(long citizens, Rate foodRate)
         {
             double multiplicator = foodRate == Rate.None ? 0 : ((int)foodRate + 1) * 0.2;
             double foodNeeded = citizens * multiplicator;

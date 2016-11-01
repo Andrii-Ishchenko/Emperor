@@ -21,10 +21,10 @@ namespace Emperor.Core
 
         private Dictionary<int,string> _names;  
 
-        public string Name { get; private set; }
+        public string Name { get; protected set; }
 
-        public int Price { get; private set; }
-        public int Level { get; private set; }
+        public int Price { get; protected set; }
+        public int Level { get; protected set; }
 
         public abstract void Produce(YearlyBalance income);
 
