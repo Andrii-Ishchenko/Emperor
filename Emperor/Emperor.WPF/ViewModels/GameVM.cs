@@ -217,7 +217,7 @@ namespace Emperor.WPF.ViewModels
         }
 
 
-
+        //todo: remove\refactor
         private void UpdateBalanceHistory()
         {
             BalanceHistory =
