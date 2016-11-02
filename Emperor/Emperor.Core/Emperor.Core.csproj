@@ -58,6 +58,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Managers\ArmyManager.cs" />
     <Compile Include="Managers\BalanceManager.cs" />
+    <Compile Include="Managers\BuildingManager.cs" />
     <Compile Include="Managers\CitizenManager.cs" />
     <Compile Include="Managers\TradeManager.cs" />
     <Compile Include="Product.cs" />

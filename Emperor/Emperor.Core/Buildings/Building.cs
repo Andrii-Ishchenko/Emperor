@@ -28,6 +28,18 @@ namespace Emperor.Core
         public int Level { get; protected set; }
         public string Description { get; protected set; }
 
+        private bool _isBuildingAvailable = false;
+        public bool IsBuildingAvailable
+        {
+            get { return _isBuildingAvailable; }
+            set {
+                if( _isBuildingAvailable != value)
+                {
+                    _isBuildingAvailable = value;
+                }
+            }
+        }
+
         public abstract void Produce(YearlyBalance income);
 
         public bool CanBeBuilt(int quantity)
@@ -55,6 +67,7 @@ namespace Emperor.Core
         public override string ToString()
         {
             return Name;
-        }
+        }    
+
     }
 }
