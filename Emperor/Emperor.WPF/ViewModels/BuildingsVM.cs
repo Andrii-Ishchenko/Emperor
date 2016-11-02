@@ -19,6 +19,7 @@ namespace Emperor.WPF.ViewModels
             _multiplicator = 1;
             IncreaseMultiplicatorCommand = new RelayCommand(IncreaseMultiplicator, CanIncreaseMultiplicator);
             DecreaseMultiplicatorCommand = new RelayCommand(DecreaseMultiplicator, CanDecreaseMultiplicator);
+            BuildingsChanged += (s, e) => { OnPropertyChanged("Buildings"); };
         }
 
         public List<BuildingVM> Buildings { get; private set; }
@@ -26,6 +27,7 @@ namespace Emperor.WPF.ViewModels
         public void FetchBuildings (List<Building> buildings)
         {
             Buildings = buildings.Select(x => new BuildingVM(x)).ToList();
+            Buildings.ForEach(x=>x.PropertyChanged+=(s,a)=> {OnBuildingsChanged();});
             SelectedBuilding = Buildings.FirstOrDefault();
         }
 
@@ -88,6 +90,8 @@ namespace Emperor.WPF.ViewModels
         {
             if (BuildingsChanged != null)
                 BuildingsChanged(this, new EventArgs());
+
+
         }
     }
 }

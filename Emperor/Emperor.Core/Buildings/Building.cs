@@ -17,10 +17,12 @@ namespace Emperor.Core
             Price = price;
             Name = name;
             Level = startLevel;
+            _buildRequirements = new List<Func<Game, bool>>();
+            _names = new Dictionary<int, string>();
         }
 
         protected Dictionary<int,string> _names;
-        protected List<Func<Game, bool>> BuildRequirements; 
+        protected List<Func<Game, bool>> _buildRequirements; 
         public string Name { get; protected set; }
         public int Price { get; protected set; }
         public int Level { get; protected set; }
@@ -28,9 +30,16 @@ namespace Emperor.Core
 
         public abstract void Produce(YearlyBalance income);
 
-        public bool CanBeBuiltQuantity(int quantity)
+        public bool CanBeBuilt(int quantity)
         {
-            return (quantity*Price <= _game.Gold);
+            return  BuildingAvailable() && (quantity*Price <= _game.Gold) ;
+        }
+
+        public bool BuildingAvailable()
+        {
+            if (_buildRequirements == null || _buildRequirements.Count == 0)
+                return true;
+            return _buildRequirements.All(br => br.Invoke(_game) == true);
         }
 
         public virtual bool Build(int count)

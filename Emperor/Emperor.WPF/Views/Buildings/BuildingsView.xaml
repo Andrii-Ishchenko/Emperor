@@ -72,8 +72,19 @@
                 ItemsSource="{Binding Path=Buildings}" 
                 ItemTemplate="{StaticResource lvBuildingListItem}" 
                 SelectedItem="{Binding Path=SelectedBuilding}"
-                VerticalAlignment="Stretch"  
-                />
+                VerticalAlignment="Stretch">
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding BuildingAvailable}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+            </ListView>
         </DockPanel>
         <local:BuildingDetailedView DataContext="{Binding SelectedBuilding}" Grid.Column="1"/>
         <!--<ContentControl Grid.Column="1" Content="{Binding Path=SelectedBuilding}" ContentTemplateSelector="{StaticResource BuildingDetailsTemplateSelector}">

@@ -19,9 +19,7 @@ namespace Emperor.WPF.ViewModels.DataVM
         public BuildingVM(Building building)
         {
             _building = building;
-            _buyBuildingCommand = new RelayCommand(Build, CanBeBuiltQuantity);
-
-            //_sellBuildingCommand = new RelayCommand(Sell, CanBeSoldQuantity);
+            _buyBuildingCommand = new RelayCommand(Build, CanBeBuilt);
         }
 
         public string Name => _building.Name;
@@ -32,23 +30,14 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public string Description => _building.Description;
 
+        public bool BuildingAvailable => _building.BuildingAvailable();
+
         public ICommand BuyCommand
         {
             get { return _buyBuildingCommand; }
 
             set { _buyBuildingCommand = value; }
         }
-        //public ICommand SellCommand
-        //{
-        //    get
-        //    {
-        //        return _sellBuildingCommand;
-        //    }
-        //    set
-        //    {
-        //        _sellBuildingCommand = value;
-        //    }
-        //}
 
         public void Build(object parameter)
         {
@@ -62,42 +51,18 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         }
 
-        //public void Sell(object parameter)
-        //{
-        //    if (parameter == null)
-        //        return;
-
-        //    int count = Convert.ToInt32(parameter);
-
-        //    var res = _building.Sell(count);
-        //    OnPropertyChanged("Count");
-
-        //}
-
-        public bool CanBeBuiltQuantity(object parameter)
+        public bool CanBeBuilt(object parameter)
         {
-            // Debug.WriteLine("CanBeBuild :{0} \t\t {1}",Name,parameter==null?"NULL":parameter.ToString());
+            
             if (parameter == null)
                 return false;
 
             int count = Convert.ToInt32(parameter);
 
-            return _building.CanBeBuiltQuantity(count);
+            return _building.CanBeBuilt(count);
         }
 
-        //public bool CanBeSoldQuantity(object parameter)
-        //{
-        //    if (parameter == null)
-        //        return false;
-
-        //    int count = Convert.ToInt32(parameter);
-
-        //    return _building.CanBeSoldQuantity(count);
-        //}
-
         private ICommand _buyBuildingCommand;
-        //private ICommand _sellBuildingCommand;
-
-
+       
     }
 }
