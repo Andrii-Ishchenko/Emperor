@@ -103,6 +103,50 @@ namespace Emperor.WPF.ViewModels
             }
         }
 
+        public long Wood
+        {
+            get { return _game.Wood; }
+
+            set
+            {
+                _game.Wood = value;
+                OnPropertyChanged("Wood");
+            }
+        }
+
+        public long Stone
+        {
+            get { return _game.Stone; }
+
+            set
+            {
+                _game.Stone = value;
+                OnPropertyChanged("Stone");
+            }
+        }
+
+        public long Tools
+        {
+            get { return _game.Tools; }
+
+            set
+            {
+                _game.Tools = value;
+                OnPropertyChanged("Tools");
+            }
+        }
+
+        public long Horses
+        {
+            get { return _game.Horses; }
+
+            set
+            {
+                _game.Horses = value;
+                OnPropertyChanged("Horses");
+            }
+        }
+
         public long Iron
         {
             get { return _game.Iron; }
@@ -212,7 +256,6 @@ namespace Emperor.WPF.ViewModels
                 bw.ShowDialog();
             }
             
-
             OnPropertyChanged(string.Empty);
         }
 

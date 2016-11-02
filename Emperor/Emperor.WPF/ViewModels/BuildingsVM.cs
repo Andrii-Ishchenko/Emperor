@@ -26,6 +26,7 @@ namespace Emperor.WPF.ViewModels
         public void FetchBuildings (List<Building> buildings)
         {
             Buildings = buildings.Select(x => new BuildingVM(x)).ToList();
+            SelectedBuilding = Buildings.FirstOrDefault();
         }
 
         private BuildingVM _selectedBuilding;

@@ -62,6 +62,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Framework\BuildingDetailTemplateSelector.cs" />
     <Compile Include="ViewModels\AdviceVM.cs" />
     <Compile Include="ViewModels\ArmyVM.cs" />
     <Compile Include="ViewModels\BalancePopupWindowVM.cs" />
@@ -238,6 +239,7 @@
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Buildings\DataTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\coal.png" />
@@ -259,15 +261,7 @@
     <Resource Include="Resources\soldier.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\anvil-impact.png" />
-    <Resource Include="Resources\cash.png" />
-    <Resource Include="Resources\castle.png" />
-    <Resource Include="Resources\coins.png" />
-    <Resource Include="Resources\gladius.png" />
-    <Resource Include="Resources\gold-mine.png" />
     <Resource Include="Resources\like.png" />
-    <Resource Include="Resources\ore.png" />
-    <Resource Include="Resources\pie-chart.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\down.png" />
@@ -275,6 +269,49 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Consideration\all-seeing-eye.png" />
+    <Resource Include="Resources\Consideration\anvil-impact.png" />
+    <Resource Include="Resources\Consideration\axe-in-stump.png" />
+    <Resource Include="Resources\Consideration\battle-gear %281%29.png" />
+    <Resource Include="Resources\Consideration\battle-gear %282%29.png" />
+    <Resource Include="Resources\Consideration\battle-gear.png" />
+    <Resource Include="Resources\Consideration\cash.png" />
+    <Resource Include="Resources\Consideration\castle %281%29.png" />
+    <Resource Include="Resources\Consideration\castle %282%29.png" />
+    <Resource Include="Resources\Consideration\castle %283%29.png" />
+    <Resource Include="Resources\Consideration\castle.png" />
+    <Resource Include="Resources\Consideration\chart.png" />
+    <Resource Include="Resources\Consideration\church %281%29.png" />
+    <Resource Include="Resources\Consideration\church.png" />
+    <Resource Include="Resources\Consideration\coins %281%29.png" />
+    <Resource Include="Resources\Consideration\coins %282%29.png" />
+    <Resource Include="Resources\Consideration\coins.png" />
+    <Resource Include="Resources\Consideration\dig-dug.png" />
+    <Resource Include="Resources\Consideration\gladius.png" />
+    <Resource Include="Resources\Consideration\gold-mine %282%29.png" />
+    <Resource Include="Resources\Consideration\gold-mine.png" />
+    <Resource Include="Resources\Consideration\horse-head %281%29.png" />
+    <Resource Include="Resources\Consideration\horse-head %282%29.png" />
+    <Resource Include="Resources\Consideration\horse-head %283%29.png" />
+    <Resource Include="Resources\Consideration\info-full.png" />
+    <Resource Include="Resources\Consideration\log %281%29.png" />
+    <Resource Include="Resources\Consideration\log.png" />
+    <Resource Include="Resources\Consideration\metal-bar.png" />
+    <Resource Include="Resources\Consideration\mining.png" />
+    <Resource Include="Resources\Consideration\ore.png" />
+    <Resource Include="Resources\Consideration\pie-chart.png" />
+    <Resource Include="Resources\Consideration\podium.png" />
+    <Resource Include="Resources\Consideration\rock.png" />
+    <Resource Include="Resources\Consideration\stone-crafting.png" />
+    <Resource Include="Resources\Consideration\tools.png" />
+    <Resource Include="Resources\Consideration\village.png" />
+    <Resource Include="Resources\Consideration\windmill.png" />
+    <Resource Include="Resources\Consideration\wood-pile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

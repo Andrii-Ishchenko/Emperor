@@ -30,6 +30,8 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public int Price => _building.Price;
 
+        public string Description => _building.Description;
+
         public ICommand BuyCommand
         {
             get { return _buyBuildingCommand; }

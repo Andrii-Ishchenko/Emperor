@@ -32,8 +32,18 @@
                         </MultiBinding>
                     </TextBlock.Text>
                 </TextBlock>
+
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Image Style="{StaticResource IconStyle}" Source="/Resources/worker.png" ToolTip="Citizens"></Image>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Citizens, FallbackValue=0}" Name="lbCitizens" ></Label>
+
+                    <Image Style="{StaticResource IconStyle}" Source="/Resources/soldier.png" ToolTip="Soldiers"></Image>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Soldiers, FallbackValue=0}" Name="lbSoldiers"></Label>
+
+                    <Image Style="{StaticResource IconStyle}" Source="/Resources/like.png" ToolTip="Happiness"></Image>
+                    <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Happiness, FallbackValue=0}" Name="lbHappiness"></Label>
+                </StackPanel>
             </DockPanel>
         </Border>
-
     </Grid>
 </UserControl>

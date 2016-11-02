@@ -19,12 +19,12 @@ namespace Emperor.Core
             Level = startLevel;
         }
 
-        private Dictionary<int,string> _names;  
-
+        protected Dictionary<int,string> _names;
+        protected List<Func<Game, bool>> BuildRequirements; 
         public string Name { get; protected set; }
-
         public int Price { get; protected set; }
         public int Level { get; protected set; }
+        public string Description { get; protected set; }
 
         public abstract void Produce(YearlyBalance income);
 

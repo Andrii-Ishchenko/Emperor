@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Emperor.WPF.Views"
              xmlns:cmd="clr-namespace:Emperor.WPF.Commands"
              xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
+             xmlns:framework="clr-namespace:Emperor.WPF.Framework"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
     <UserControl.Resources>
@@ -13,9 +14,9 @@
             <Border Background="#eee" CornerRadius="4" BorderThickness="1" BorderBrush="#ccc" Margin="2" Padding="3">
                 <Grid Background="#eee" IsSharedSizeScope="True">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="35"></ColumnDefinition>
-                        <ColumnDefinition Width="60"></ColumnDefinition>
-                        <ColumnDefinition Width="18"></ColumnDefinition>
+                        <ColumnDefinition Width="32"></ColumnDefinition>
+                        <ColumnDefinition Width="58"></ColumnDefinition>
+                        <ColumnDefinition Width="22"></ColumnDefinition>
                         <ColumnDefinition Width="54"></ColumnDefinition>
                         <ColumnDefinition Width="54"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
@@ -30,6 +31,12 @@
                 </Grid>
             </Border>
         </DataTemplate>
+    
+        <framework:BuildingDetailsTemplateSelector x:Key="BuildingDetailsTemplateSelector"/>
+    
+        <!-- Buidling mappings -->
+       
+        
     </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
@@ -68,8 +75,14 @@
                 VerticalAlignment="Stretch"  
                 />
         </DockPanel>
-        <!--<local:BuildingDetailedView Grid.Column="1"/>-->
-        <ContentPresenter Grid.Column="1"/>
+        <local:BuildingDetailedView DataContext="{Binding SelectedBuilding}" Grid.Column="1"/>
+        <!--<ContentControl Grid.Column="1" Content="{Binding Path=SelectedBuilding}" ContentTemplateSelector="{StaticResource BuildingDetailsTemplateSelector}">
+            <ContentControl.Resources>
+                <DataTemplate x:Key="FarmDetailsTemplate">
+                    <Label> FAAAARTM</Label>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>-->
     </Grid>
 </UserControl>
 

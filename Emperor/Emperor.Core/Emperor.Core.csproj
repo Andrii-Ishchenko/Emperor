@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buildings\Academy.cs" />
+    <Compile Include="Buildings\Bank.cs" />
     <Compile Include="Buildings\Barracks.cs" />
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\Castle.cs" />

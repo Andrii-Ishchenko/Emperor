@@ -43,6 +43,30 @@ namespace Emperor.Core
             set { GetProductByName("Iron").Count = value; }
         }
 
+        public long Wood
+        {
+            get { return GetProductByName("Wood").Count; }
+            set { GetProductByName("Wood").Count = value; }
+        }
+
+        public long Stone
+        {
+            get { return GetProductByName("Stone").Count; }
+            set { GetProductByName("Stone").Count = value; }
+        }
+
+        public long Tools
+        {
+            get { return GetProductByName("Tools").Count; }
+            set { GetProductByName("Tools").Count = value; }
+        }
+
+        public long Horses
+        {
+            get { return GetProductByName("Horses").Count; }
+            set { GetProductByName("Horses").Count = value; }
+        }
+
         public long Weapons
         {
             get { return GetProductByName("Weapons").Count; }
@@ -78,9 +102,9 @@ namespace Emperor.Core
                 new Smith(this, 4000, 0),
                 new Barracks(this,2500,0),
                 new Academy(this,5000,0),
-                new Castle(this, 5000, 0),
-              
-
+                new Bank(this,1000,0),
+                new Castle(this, 5000, 0),    
+                        
             };
 
             Products = new List<Product>()

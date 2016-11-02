@@ -10,6 +10,7 @@ namespace Emperor.Core.Buildings
     {
         public Farm(Game game, int price, int level) : base(game, "Farm", price, level)
         {
+            Description = "Farm allows you to get food as well as horses.";
         }
 
         public override void Produce(YearlyBalance balance)
