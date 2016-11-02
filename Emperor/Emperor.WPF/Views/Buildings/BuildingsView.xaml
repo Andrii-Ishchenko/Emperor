@@ -10,6 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
     <UserControl.Resources>
+        
         <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
             <Border Background="#eee" CornerRadius="4" BorderThickness="1" BorderBrush="#ccc" Margin="2" Padding="3">
                 <Grid Background="#eee" IsSharedSizeScope="True">
