@@ -8,10 +8,10 @@ namespace Emperor.Core.Buildings
 {
     public class Tavern
     {
-        //passively increase happiness by 1 for citizens
-        //decrease attack & def ability for warriors by 2
+        //passively increase happiness by 10 for citizens
+        //each lvl decrease atck, def by 1
         //consume food 100
-        //provide gold 100
+        //provide gold 200
         //increase human disaster chance
     }
 }

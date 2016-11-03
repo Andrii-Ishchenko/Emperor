@@ -10,6 +10,7 @@ namespace Emperor.Core.Buildings
     {
         //increase happiness level rise and decrease falls
         //provide gold = taxes / 10
+        //each lvl +1 def
         public Church(Game game, int price, int startLevel) : base(game, "Church", price, startLevel)
         {
         }

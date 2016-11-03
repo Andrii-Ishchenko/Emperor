@@ -10,6 +10,7 @@ namespace Emperor.Core.Buildings
     {
         //allow to hire lvl2 warriors
         //each lvl allow to hire +5 warriors
+        //each lvl +2 atck +1 def
 
         public Barracks(Game game, int price, int startLevel) : base(game, "Barracks", price, startLevel)
         {

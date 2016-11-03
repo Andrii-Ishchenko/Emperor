@@ -19,16 +19,16 @@
                 <Image Style="{StaticResource IconStyle}" Source="/Resources/iron.png" ToolTip="Iron"></Image>
                 <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Iron, FallbackValue=0}" Name="lbIron"></Label>
 
-                <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Wood"></Image>
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/wood.png" ToolTip="Wood"></Image>
                 <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Wood, FallbackValue=0}" Name="lbWood"></Label>
 
-                <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Stone"></Image>
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/stone.png" ToolTip="Stone"></Image>
                 <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Stone, FallbackValue=0}" Name="lbStone"></Label>
 
                 <Image Style="{StaticResource IconStyle}" Source="/Resources/tools.png" ToolTip="Tools"></Image>
                 <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Tools, FallbackValue=0}" Name="lbTools"></Label>
 
-                <Image Style="{StaticResource IconStyle}" Source="/Resources/gold.png" ToolTip="Horses"></Image>
+                <Image Style="{StaticResource IconStyle}" Source="/Resources/horses.png" ToolTip="Horses"></Image>
                 <Label Style="{StaticResource IconLabelStyle}" Content="{Binding Path=Horses, FallbackValue=0}" Name="lbHorses"></Label>
                 
                 <Image Style="{StaticResource IconStyle}" Source="/Resources/weapons.png" ToolTip="Weapons"></Image>

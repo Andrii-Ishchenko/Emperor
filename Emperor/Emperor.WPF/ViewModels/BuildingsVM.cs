@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Emperor.WPF.ViewModels.Utils;
 
 namespace Emperor.WPF.ViewModels
 {
@@ -26,7 +27,7 @@ namespace Emperor.WPF.ViewModels
 
         public void FetchBuildings (List<Building> buildings)
         {
-            Buildings = buildings.Select(x => new BuildingVM(x)).ToList();
+            Buildings = buildings.Select(BuildingVMFactory.GetInstance).ToList();
             Buildings.ForEach(x=>x.PropertyChanged+=(s,a)=> {OnBuildingsChanged();});
             SelectedBuilding = Buildings.FirstOrDefault();
         }

@@ -19,7 +19,7 @@ namespace Emperor.WPF.Framework
             {
                 BuildingVM building = item as BuildingVM;
 
-                string templateName = building.Name + "DetailsTemplate";
+                string templateName = building.Name + "Details";
             
                 return element.TryFindResource(templateName) as DataTemplate;
             }

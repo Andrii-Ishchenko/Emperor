@@ -62,17 +62,31 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Framework\BuildingDetailTemplateSelector.cs" />
+    <Compile Include="Framework\BuildingDetailsTemplateSelector.cs" />
     <Compile Include="ViewModels\AdviceVM.cs" />
     <Compile Include="ViewModels\ArmyVM.cs" />
     <Compile Include="ViewModels\BalancePopupWindowVM.cs" />
     <Compile Include="ViewModels\BuildingsVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\AcademyVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\BankVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\BarracksVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\CastleVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\ChurchVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\FarmVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\MarketVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\MineVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\QuarryVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\SawmillVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\SmithVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\StableVM.cs" />
+    <Compile Include="ViewModels\DataVM\Buildings\TavernVM.cs" />
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
     <Compile Include="ViewModels\DataVM\TitleStateVM.cs" />
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\BalancesVM.cs" />
     <Compile Include="ViewModels\ProductsVM.cs" />
+    <Compile Include="ViewModels\Utils\BuildingVMFactory.cs" />
     <Compile Include="Views\Advice\AdviceView.xaml.cs">
       <DependentUpon>AdviceView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +114,45 @@
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\DataVM\BuildingVM.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
+    <Compile Include="Views\Buildings\DetailsTemplates\AcademyDetails.xaml.cs">
+      <DependentUpon>AcademyDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\BankDetails.xaml.cs">
+      <DependentUpon>BankDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\BarracksDetails.xaml.cs">
+      <DependentUpon>BarracksDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\CastleDetails.xaml.cs">
+      <DependentUpon>CastleDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\ChurchDetails.xaml.cs">
+      <DependentUpon>ChurchDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\FarmDetails.xaml.cs">
+      <DependentUpon>FarmDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\MarketDetails.xaml.cs">
+      <DependentUpon>MarketDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\MineDetails.xaml.cs">
+      <DependentUpon>MineDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\QuarryDetails.xaml.cs">
+      <DependentUpon>QuarryDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\SawmillDetails.xaml.cs">
+      <DependentUpon>SawmillDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\SmithDetails.xaml.cs">
+      <DependentUpon>SmithDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\StableDetails.xaml.cs">
+      <DependentUpon>StableDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Buildings\DetailsTemplates\TavernDetails.xaml.cs">
+      <DependentUpon>TavernDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductsTopPanel.xaml.cs">
       <DependentUpon>ProductsTopPanel.xaml</DependentUpon>
     </Compile>
@@ -163,6 +216,58 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Buildings\DetailsTemplates\AcademyDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\BankDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\BarracksDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\CastleDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\ChurchDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\FarmDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\MarketDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\MineDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\QuarryDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\SawmillDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\SmithDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\StableDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Buildings\DetailsTemplates\TavernDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductsTopPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,7 +344,6 @@
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Buildings\DataTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\coal.png" />
@@ -274,44 +378,53 @@
     <Resource Include="Resources\tools.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Consideration\all-seeing-eye.png" />
-    <Resource Include="Resources\Consideration\anvil-impact.png" />
-    <Resource Include="Resources\Consideration\axe-in-stump.png" />
-    <Resource Include="Resources\Consideration\battle-gear %281%29.png" />
-    <Resource Include="Resources\Consideration\battle-gear %282%29.png" />
-    <Resource Include="Resources\Consideration\battle-gear.png" />
-    <Resource Include="Resources\Consideration\cash.png" />
-    <Resource Include="Resources\Consideration\castle %281%29.png" />
-    <Resource Include="Resources\Consideration\castle %282%29.png" />
-    <Resource Include="Resources\Consideration\castle %283%29.png" />
-    <Resource Include="Resources\Consideration\castle.png" />
-    <Resource Include="Resources\Consideration\chart.png" />
-    <Resource Include="Resources\Consideration\church %281%29.png" />
-    <Resource Include="Resources\Consideration\church.png" />
-    <Resource Include="Resources\Consideration\coins %281%29.png" />
-    <Resource Include="Resources\Consideration\coins %282%29.png" />
-    <Resource Include="Resources\Consideration\coins.png" />
-    <Resource Include="Resources\Consideration\dig-dug.png" />
-    <Resource Include="Resources\Consideration\gladius.png" />
-    <Resource Include="Resources\Consideration\gold-mine %282%29.png" />
-    <Resource Include="Resources\Consideration\gold-mine.png" />
-    <Resource Include="Resources\Consideration\horse-head %281%29.png" />
-    <Resource Include="Resources\Consideration\horse-head %282%29.png" />
-    <Resource Include="Resources\Consideration\horse-head %283%29.png" />
-    <Resource Include="Resources\Consideration\info-full.png" />
-    <Resource Include="Resources\Consideration\log %281%29.png" />
-    <Resource Include="Resources\Consideration\log.png" />
-    <Resource Include="Resources\Consideration\metal-bar.png" />
-    <Resource Include="Resources\Consideration\mining.png" />
-    <Resource Include="Resources\Consideration\ore.png" />
-    <Resource Include="Resources\Consideration\pie-chart.png" />
-    <Resource Include="Resources\Consideration\podium.png" />
-    <Resource Include="Resources\Consideration\rock.png" />
-    <Resource Include="Resources\Consideration\stone-crafting.png" />
-    <Resource Include="Resources\Consideration\tools.png" />
-    <Resource Include="Resources\Consideration\village.png" />
-    <Resource Include="Resources\Consideration\windmill.png" />
-    <Resource Include="Resources\Consideration\wood-pile.png" />
+    <None Include="Resources\Consideration\all-seeing-eye.png" />
+    <None Include="Resources\Consideration\anvil-impact.png" />
+    <None Include="Resources\Consideration\axe-in-stump.png" />
+    <None Include="Resources\Consideration\battle-gear %281%29.png" />
+    <None Include="Resources\Consideration\battle-gear %282%29.png" />
+    <None Include="Resources\Consideration\battle-gear.png" />
+    <None Include="Resources\Consideration\cash.png" />
+    <None Include="Resources\Consideration\castle %281%29.png" />
+    <None Include="Resources\Consideration\castle %282%29.png" />
+    <None Include="Resources\Consideration\castle %283%29.png" />
+    <None Include="Resources\Consideration\castle.png" />
+    <None Include="Resources\Consideration\chart.png" />
+    <None Include="Resources\Consideration\church %281%29.png" />
+    <None Include="Resources\Consideration\church.png" />
+    <None Include="Resources\Consideration\coins %281%29.png" />
+    <None Include="Resources\Consideration\coins %282%29.png" />
+    <None Include="Resources\Consideration\coins.png" />
+    <None Include="Resources\Consideration\dig-dug.png" />
+    <None Include="Resources\Consideration\gladius.png" />
+    <None Include="Resources\Consideration\gold-mine %282%29.png" />
+    <None Include="Resources\Consideration\gold-mine.png" />
+    <None Include="Resources\Consideration\horse-head %281%29.png" />
+    <None Include="Resources\Consideration\horse-head %282%29.png" />
+    <None Include="Resources\Consideration\info-full.png" />
+    <None Include="Resources\Consideration\log %281%29.png" />
+    <None Include="Resources\Consideration\log.png" />
+    <None Include="Resources\Consideration\metal-bar.png" />
+    <None Include="Resources\Consideration\mining.png" />
+    <None Include="Resources\Consideration\ore.png" />
+    <None Include="Resources\Consideration\pie-chart.png" />
+    <None Include="Resources\Consideration\podium.png" />
+    <None Include="Resources\Consideration\rock.png" />
+    <None Include="Resources\Consideration\stone-crafting.png" />
+    <None Include="Resources\Consideration\tools.png" />
+    <None Include="Resources\Consideration\village.png" />
+    <None Include="Resources\Consideration\windmill.png" />
+    <None Include="Resources\Consideration\wood-pile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\horses.png" />
+    <Resource Include="Resources\wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Consideration\horses.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
