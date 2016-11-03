@@ -14,28 +14,68 @@ namespace Emperor.Core
         protected Building(Game game, string name, int price, int startLevel)
         {
             _game = game;
-            Price = price;
-            Name = name;
-            Level = startLevel;
+            _price = price;
+            _name = name;
+            _level = startLevel;
             _buildRequirements = new List<Func<Game, bool>>();
             _names = new Dictionary<int, string>();
         }
 
         protected Dictionary<int,string> _names;
-        protected List<Func<Game, bool>> _buildRequirements; 
-        public string Name { get; protected set; }
-        public int Price { get; protected set; }
-        public int Level { get; protected set; }
-        public string Description { get; protected set; }
+        protected List<Func<Game, bool>> _buildRequirements;
+
+        public string Description
+        {
+            get { return _description; }
+            protected set { _description = value; }
+        }
 
         private bool _isBuildingAvailable = false;
+        private string _name;
+        private int _price;
+        private int _level;
+        private string _description;
+
+        public string Name
+        {
+            get { return _name; }
+            protected set
+            {
+                _name = value; 
+                OnBuildingChanged();
+            }
+        }
+
+        public int Price
+        {
+            get { return _price; }
+            protected set
+            {
+                _price = value; 
+                OnBuildingChanged();
+            }
+        }
+
+        public int Level
+        {
+            get { return _level; }
+            protected set
+            {
+                _level = value; 
+                OnBuildingChanged();
+            }
+        }
+
+
         public bool IsBuildingAvailable
         {
             get { return _isBuildingAvailable; }
-            set {
-                if( _isBuildingAvailable != value)
+            set
+            {
+                if (_isBuildingAvailable != value)
                 {
                     _isBuildingAvailable = value;
+                    OnBuildingChanged();
                 }
             }
         }
@@ -51,7 +91,8 @@ namespace Emperor.Core
         {
             if (_buildRequirements == null || _buildRequirements.Count == 0)
                 return true;
-            return _buildRequirements.All(br => br.Invoke(_game) == true);
+            IsBuildingAvailable = _buildRequirements.All(br => br.Invoke(_game));
+            return IsBuildingAvailable;
         }
 
         public virtual bool Build(int count)
@@ -67,7 +108,16 @@ namespace Emperor.Core
         public override string ToString()
         {
             return Name;
-        }    
+        }
+
+        public event EventHandler BuildingChanged;
+
+        protected void OnBuildingChanged()
+        {
+            if (BuildingChanged!=null)
+                BuildingChanged(this,new EventArgs());
+        }
+
 
     }
 }

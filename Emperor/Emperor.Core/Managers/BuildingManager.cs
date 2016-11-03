@@ -19,17 +19,22 @@ namespace Emperor.Core.Managers
 
         public void Build(Building building, int count)
         {
-
+            if (CanBeBuilt(building, count))
+            {
+                
+            }
         }
 
         public bool CanBeBuilt(Building building, int count)
         {
+            //if (IsBuildingAvailable(building))
+
             return true;
         }
 
-        public bool IsBuildingAvailable(Building building, int count)
+        public bool IsBuildingAvailable(Building building)
         {
-            return true;
+            return building.BuildingAvailable();
         }
 
         public void UpdateAvailability()

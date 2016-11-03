@@ -19,6 +19,10 @@ namespace Emperor.WPF.ViewModels.DataVM
         public BuildingVM(Building building)
         {
             _building = building;
+            _building.BuildingChanged += (s, a) =>
+            {
+                OnPropertyChanged(string.Empty);
+            };
             _buyBuildingCommand = new RelayCommand(Build, CanBeBuilt);
         }
 
@@ -47,7 +51,7 @@ namespace Emperor.WPF.ViewModels.DataVM
             int count = Convert.ToInt32(parameter);
 
             var res = _building.Build(count);
-            OnPropertyChanged(string.Empty);
+           // OnPropertyChanged(string.Empty);
 
         }
 

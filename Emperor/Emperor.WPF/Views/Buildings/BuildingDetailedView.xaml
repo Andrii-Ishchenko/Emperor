@@ -33,11 +33,44 @@
         </Grid>
         <ContentControl Grid.Row="3" ContentTemplateSelector="{StaticResource BuildingDetailsTemplateSelector}" Content="{Binding}">
             <ContentControl.Resources>
+                <DataTemplate x:Key="AcademyDetails">
+                    <details:AcademyDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="BankDetails">
+                    <details:BankDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="BarracksDetails">
+                    <details:BarracksDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="CastleDetails">
+                    <details:CastleDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="ChurchDetails">
+                    <details:ChurchDetails/>
+                </DataTemplate>
                 <DataTemplate x:Key="FarmDetails">
                     <details:FarmDetails/>
                 </DataTemplate>
+                <DataTemplate x:Key="MarketDetails">
+                    <details:MarketDetails/>
+                </DataTemplate>
                 <DataTemplate x:Key="MineDetails">
                     <details:MineDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="QuarryDetails">
+                    <details:QuarryDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="SawmillDetails">
+                    <details:SawmillDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="SmithDetails">
+                    <details:SmithDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="StableDetails">
+                    <details:StableDetails/>
+                </DataTemplate>
+                <DataTemplate x:Key="TavernDetails">
+                    <details:TavernDetails/> 
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
