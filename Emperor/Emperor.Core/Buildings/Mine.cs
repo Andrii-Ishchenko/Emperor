@@ -11,7 +11,7 @@ namespace Emperor.Core.Buildings
         
         public Mine(Game game, int price, int level) : base(game,"Mine",price, level)
         {
-
+            Description = "Allows to get iron.";
         }
 
         public override void Produce(YearlyBalance balance)

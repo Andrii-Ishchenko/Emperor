@@ -24,7 +24,7 @@ namespace Emperor.WPF.ViewModels
         public BuildingsVM BuildingsVM { get; private set; }
         public RatesVM RatesVM { get; private set; }
         public ProductsVM ProductsVM { get; private set; }
-
+        public GraphVM GraphsVM { get; private set; }
         public GameVM()
         {
             _game = ((App) Application.Current).Game;
@@ -54,6 +54,8 @@ namespace Emperor.WPF.ViewModels
             ProductsVM = new ProductsVM(this);
             ProductsVM.FetchProducts(_game.Products);
             ProductsVM.ProductsChanged += (sender, args) => { OnPropertyChanged(string.Empty); };
+
+            GraphsVM = new GraphVM(this);
 
             ShowPopup = true;
         }

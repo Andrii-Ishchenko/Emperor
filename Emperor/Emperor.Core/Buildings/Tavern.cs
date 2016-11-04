@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 
 namespace Emperor.Core.Buildings
 {
-    public class Tavern
+    public class Tavern : Building
     {
         //passively increase happiness by 10 for citizens
         //each lvl decrease atck, def by 1
         //consume food 100
         //provide gold 200
         //increase human disaster chance
+        public Tavern(Game game, string name, int price, int startLevel) : base(game, name, price, startLevel)
+        {
+            Description = "Allow to greatly increase happiness, harming warrior capabilities, though.";
+        }
+
+        public override void Produce(YearlyBalance income)
+        {
+            
+        }
     }
 }

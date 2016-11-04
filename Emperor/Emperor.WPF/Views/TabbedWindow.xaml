@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Emperor.WPF.Views"     
+        xmlns:graph="clr-namespace:Emperor.WPF.Views.Graphs"
         xmlns:vm="clr-namespace:Emperor.WPF.ViewModels"
        
         mc:Ignorable="d"
@@ -73,8 +74,8 @@
             <TabItem Header="Yearly Reports">
                 <local:BalancesView x:Name="balancesViewControl" DataContext="{Binding BalancesVM}" />
             </TabItem>
-            <TabItem Header="Graphs" Visibility="Collapsed">
-                
+            <TabItem Header="Graphs">
+                <graph:GraphsView DataContext="{Binding GraphsVM}"/>
             </TabItem>
            
         </TabControl>

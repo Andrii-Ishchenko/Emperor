@@ -14,6 +14,7 @@ namespace Emperor.Core.Buildings
 
         public Barracks(Game game, int price, int startLevel) : base(game, "Barracks", price, startLevel)
         {
+            Description = "Allow to hire warriors.";
         }
 
         public override void Produce(YearlyBalance income)

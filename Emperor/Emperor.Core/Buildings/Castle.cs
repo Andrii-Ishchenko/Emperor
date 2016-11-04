@@ -14,7 +14,7 @@ namespace Emperor.Core.Buildings
 
         public Castle(Game game, int price, int startLevel) : base(game, "Castle", price, startLevel)
         {
-            
+            Description = "Required to get promoted. Opens policies when leveling up.";
         }
 
         public override void Produce(YearlyBalance income)

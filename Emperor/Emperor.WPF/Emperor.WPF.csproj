@@ -35,6 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.1.0.0\lib\net45\OxyPlot.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Wpf.1.0.0\lib\net45\OxyPlot.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -82,6 +90,7 @@
     <Compile Include="ViewModels\DataVM\Buildings\TavernVM.cs" />
     <Compile Include="ViewModels\DataVM\ProductVM.cs" />
     <Compile Include="ViewModels\DataVM\TitleStateVM.cs" />
+    <Compile Include="ViewModels\GraphVM.cs" />
     <Compile Include="ViewModels\RatesVM.cs" />
     <Compile Include="ViewModels\DataVM\YearlyBalanceVM.cs" />
     <Compile Include="ViewModels\BalancesVM.cs" />
@@ -152,6 +161,9 @@
     </Compile>
     <Compile Include="Views\Buildings\DetailsTemplates\TavernDetails.xaml.cs">
       <DependentUpon>TavernDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Graphs\GraphsView.xaml.cs">
+      <DependentUpon>GraphsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductsTopPanel.xaml.cs">
       <DependentUpon>ProductsTopPanel.xaml</DependentUpon>
@@ -265,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Buildings\DetailsTemplates\TavernDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Graphs\GraphsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

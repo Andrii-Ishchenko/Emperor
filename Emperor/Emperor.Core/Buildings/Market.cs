@@ -18,10 +18,12 @@ namespace Emperor.Core.Buildings
         //10 - limit +25%
         //15 - limit +50%
 
+        //GOLD <-> PRICE DIFFERENCE
 
         public Market(Game game, int price, int level) :base(game, "Market", price, level)
         {
-                
+            Description = "Allow you to trade goods as well as recieve gold as trade fare.";
+            
         } 
 
 

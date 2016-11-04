@@ -12,7 +12,7 @@ namespace Emperor.Core.Buildings
 
         public Smith(Game game,int price, int level) : base(game,"Smith", price, level)
         {
-
+            Description = "Required to produce weapons and tools";
         }
 
         public override void Produce(YearlyBalance balance)
