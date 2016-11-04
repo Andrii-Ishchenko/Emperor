@@ -16,7 +16,6 @@ namespace Emperor.Core.Buildings
         }
 
         private int _foodPerHorse = 25;
-        private int _maxHorses;
         private int _horses;
 
         public int FoodPerHorse
