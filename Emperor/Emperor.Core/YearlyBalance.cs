@@ -36,6 +36,10 @@ namespace Emperor.Core
         public long WeaponsLost { get; set; }
         public long WeaponsDelta { get; set; }
 
+        public long HorsesGrowth { get; set; }
+        public long HorsesLost { get; set; }
+        public long HorsesDelta { get; set; }
+
         public double HappinessDelta { get; set; }
     }
 }

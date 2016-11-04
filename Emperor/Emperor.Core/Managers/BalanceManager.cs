@@ -42,6 +42,7 @@ namespace Emperor.Core.Managers
             balance.IronDelta = balance.IronGrowth - balance.IronLost - balance.IronConsumed;
             balance.WeaponsDelta = balance.WeaponsGrowth - balance.WeaponsLost;
             balance.SoldiersDelta = balance.SoldiersGrowth - balance.SoldiersLost;
+            balance.HorsesDelta = balance.HorsesGrowth - balance.HorsesLost;
         }
 
         public void CalculatePayedGold()
