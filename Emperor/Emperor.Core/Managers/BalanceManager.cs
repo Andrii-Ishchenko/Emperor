@@ -17,7 +17,7 @@ namespace Emperor.Core.Managers
 
         private void CalculateTaxes(YearlyBalance balance)
         {
-            balance.GoldGrowth = _game.Rates.GetPayedTaxes(_game.Citizens);
+            balance.GoldGrowth += _game.Rates.GetPayedTaxes(_game.Citizens);
             
         }
 
