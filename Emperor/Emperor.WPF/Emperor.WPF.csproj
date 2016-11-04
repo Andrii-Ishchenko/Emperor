@@ -323,14 +323,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Fontin-Bold.ttf" />
-    <Resource Include="Fonts\Fontin-Italic.ttf" />
-    <Resource Include="Fonts\Fontin-Regular.ttf" />
-    <Resource Include="Fonts\Fontin-SmallCaps.ttf" />
     <Resource Include="Fonts\Fontin-Bold.otf" />
+    <Resource Include="Fonts\Fontin-Bold.ttf" />
     <Resource Include="Fonts\Fontin-Italic.otf" />
+    <Resource Include="Fonts\Fontin-Italic.ttf" />
     <Resource Include="Fonts\Fontin-Regular.otf" />
-    <Resource Include="Fonts\Fontin-SmallCaps.otf" />
+    <Resource Include="Fonts\Fontin-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -346,6 +344,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Fonts\Fontin-SmallCaps.otf" />
+    <Resource Include="Fonts\Fontin-SmallCaps.ttf" />
     <Resource Include="Resources\coal.png" />
     <Resource Include="Resources\food.png" />
     <Resource Include="Resources\weapons.png" />

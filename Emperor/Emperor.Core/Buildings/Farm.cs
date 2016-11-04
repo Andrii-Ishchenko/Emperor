@@ -41,6 +41,11 @@ namespace Emperor.Core.Buildings
             get { return 400*Level; }
         }
 
+        public int GrowthFluctuation
+        {
+            get { return 100 * Level; }
+        }
+
         public int FoodGrowth
         {
             get { return MeanGrowth - Horses*(_foodPerHorse); }
@@ -48,7 +53,7 @@ namespace Emperor.Core.Buildings
 
         public override void Produce(YearlyBalance balance)
         {          
-            var delta = -100*Level + Utils.GetRandomInstance().Next(2*100*Level);
+            var delta = -GrowthFluctuation + Utils.GetRandomInstance().Next(2*GrowthFluctuation);
             var growth = MeanGrowth + delta;
 
             int horseCount = Math.Min((int) ((double) growth/_foodPerHorse), Horses);

@@ -41,7 +41,16 @@
                 <StackPanel Grid.Column="2" Orientation="Vertical">
                     <Label HorizontalAlignment="Center" Padding="4,2">Food</Label>
                     <Image Source="/Resources/food.png" Width="32" Margin="8,4"/>
-                    <Label HorizontalAlignment="Center" Padding="4,2" Content="{Binding FoodGrowth, FallbackValue=0}" />
+                    <TextBlock HorizontalAlignment="Center" Padding="4,2" >
+
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}(?){1}">
+                                <Binding Path="FoodGrowth" FallbackValue="0"></Binding>
+                                <Binding Path="GrowthFluctuation" FallbackValue="0"></Binding>
+                            </MultiBinding>
+                        </TextBlock.Text>
+
+                    </TextBlock>
                 </StackPanel>
 
             </Grid>

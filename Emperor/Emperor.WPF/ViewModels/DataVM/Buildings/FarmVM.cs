@@ -44,5 +44,10 @@ namespace Emperor.WPF.ViewModels.DataVM.Buildings
         {
             get { return _farm.FoodPerHorse; }
         }
+
+        public int GrowthFluctuation
+        {
+            get { return _farm.GrowthFluctuation; }
+        }
     }
 }
