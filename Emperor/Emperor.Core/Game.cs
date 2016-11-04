@@ -91,6 +91,7 @@ namespace Emperor.Core
         public TradeManager TradeManager { get; private set; }
         public ArmyManager ArmyManager { get; private set; }
         public BalanceManager BalanceManager { get; private set; }
+        public BuildingManager BuildingManager { get; private set; }
 
         public Game()
         {
@@ -143,6 +144,7 @@ namespace Emperor.Core
             TradeManager = new TradeManager(this);
             ArmyManager = new ArmyManager(this);
             BalanceManager = new BalanceManager(this);
+            BuildingManager = new BuildingManager(this);
             StatsHistory = new Dictionary<int, Stats>();
 
             SaveStats();

@@ -46,11 +46,8 @@ namespace Emperor.WPF.ViewModels
 
             BuildingsVM = new BuildingsVM(this);
             BuildingsVM.FetchBuildings(_game.Buildings);
-            //TODO: do as with tradevm
-            foreach (var building in BuildingsVM.Buildings)
-            {
-                building.PropertyChanged += (sender, args) => { OnPropertyChanged(""); };
-            }
+            BuildingsVM.BuildingsChanged += (sender, args) => { OnPropertyChanged(string.Empty); };
+
 
             RatesVM = new RatesVM(this);
 
@@ -238,6 +235,11 @@ namespace Emperor.WPF.ViewModels
         public ArmyManager ArmyManager
         {
             get { return _game.ArmyManager; }
+        }
+
+        public BuildingManager BuildingManager
+        {
+            get { return _game.BuildingManager; }
         }
 
         public void NextTurn(object parameter)

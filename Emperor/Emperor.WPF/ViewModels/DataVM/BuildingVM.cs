@@ -13,17 +13,17 @@ namespace Emperor.WPF.ViewModels.DataVM
 {
     public class BuildingVM : BaseVM
     {
-
         private Building _building;
+
 
         public BuildingVM(Building building)
         {
-            _building = building;
-            _building.BuildingChanged += (s, a) =>
+            Building = building;
+            Building.BuildingChanged += (s, a) =>
             {
                 OnPropertyChanged(string.Empty);
             };
-            _buyBuildingCommand = new RelayCommand(Build, CanBeBuilt);
+          //  _buyBuildingCommand = new RelayCommand(Build, CanBeBuilt);
         }
 
         public string Name => _building.Name;
@@ -34,39 +34,46 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public string Description => _building.Description;
 
-        public bool BuildingAvailable => _building.BuildingAvailable();
+        public bool BuildingAvailable => _building.IsBuildingAvailable;
 
-        public ICommand BuyCommand
+        //public ICommand BuyCommand
+        //{
+        //    get { return _buyBuildingCommand; }
+
+        //    set { _buyBuildingCommand = value; }
+        //}
+
+        public Building Building
         {
-            get { return _buyBuildingCommand; }
+            get { return _building; }
 
-            set { _buyBuildingCommand = value; }
+            private set { _building = value; }
         }
 
-        public void Build(object parameter)
-        {
-            if (parameter == null)
-                return;
+        //public void Build(object parameter)
+        //{
+        //    if (parameter == null)
+        //        return;
 
-            int count = Convert.ToInt32(parameter);
+        //    int count = Convert.ToInt32(parameter);
 
-            var res = _building.Build(count);
-           // OnPropertyChanged(string.Empty);
+        //    var res = _building.Build(count);
+        //   // OnPropertyChanged(string.Empty);
 
-        }
+        //}
 
-        public bool CanBeBuilt(object parameter)
-        {
-            
-            if (parameter == null)
-                return false;
+        //public bool CanBeBuilt(object parameter)
+        //{
 
-            int count = Convert.ToInt32(parameter);
+        //    if (parameter == null)
+        //        return false;
 
-            return _building.CanBeBuilt(count);
-        }
+        //    int count = Convert.ToInt32(parameter);
 
-        private ICommand _buyBuildingCommand;
+        //    return _building.CanBeBuilt(count);
+        //}
+
+        //private ICommand _buyBuildingCommand;
        
     }
 }

@@ -30,7 +30,7 @@ namespace Emperor.Core
             protected set { _description = value; }
         }
 
-        private bool _isBuildingAvailable = false;
+        private bool _isBuildingAvailable = true;
         private string _name;
         private int _price;
         private int _level;
@@ -39,7 +39,7 @@ namespace Emperor.Core
         public string Name
         {
             get { return _name; }
-            protected set
+            internal set
             {
                 _name = value; 
                 OnBuildingChanged();
@@ -49,7 +49,7 @@ namespace Emperor.Core
         public int Price
         {
             get { return _price; }
-            protected set
+            internal set
             {
                 _price = value; 
                 OnBuildingChanged();
@@ -59,7 +59,7 @@ namespace Emperor.Core
         public int Level
         {
             get { return _level; }
-            protected set
+            internal set
             {
                 _level = value; 
                 OnBuildingChanged();
@@ -70,7 +70,7 @@ namespace Emperor.Core
         public bool IsBuildingAvailable
         {
             get { return _isBuildingAvailable; }
-            set
+            internal set
             {
                 if (_isBuildingAvailable != value)
                 {
@@ -82,10 +82,10 @@ namespace Emperor.Core
 
         public abstract void Produce(YearlyBalance income);
 
-        public bool CanBeBuilt(int quantity)
-        {
-            return  BuildingAvailable() && (quantity*Price <= _game.Gold) ;
-        }
+        //public bool CanBeBuilt(int quantity)
+        //{
+        //    return  BuildingAvailable() && (quantity*Price <= _game.Gold) ;
+        //}
 
         public bool BuildingAvailable()
         {
@@ -95,15 +95,15 @@ namespace Emperor.Core
             return IsBuildingAvailable;
         }
 
-        public virtual bool Build(int count)
-        {
-            if (_game.Gold < count * Price)
-                return false;
+        //public virtual bool Build(int count)
+        //{
+        //    if (_game.Gold < count * Price)
+        //        return false;
 
-            _game.Gold -= count * Price;
-            Level += count;          
-            return true;
-        }
+        //    _game.Gold -= count * Price;
+        //    Level += count;          
+        //    return true;
+        //}
 
         public override string ToString()
         {

@@ -21,15 +21,22 @@ namespace Emperor.Core.Managers
         {
             if (CanBeBuilt(building, count))
             {
-                
+                building.Level += count;
+                _game.Gold -= count * building.Price;
             }
+
+            UpdateAvailability();
         }
 
         public bool CanBeBuilt(Building building, int count)
         {
-            //if (IsBuildingAvailable(building))
+            if (!IsBuildingAvailable(building))
+                return false;
 
-            return true;
+            if (building.Price * count <= _game.Gold)
+                return true;
+
+            return false;
         }
 
         public bool IsBuildingAvailable(Building building)
@@ -41,7 +48,7 @@ namespace Emperor.Core.Managers
         {
             foreach(Building building in _buildings)
             {
-               
+                building.BuildingAvailable();
             }
         }
     }

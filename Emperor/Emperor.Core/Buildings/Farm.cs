@@ -19,13 +19,5 @@ namespace Emperor.Core.Buildings
             var growth = 300 * Level + delta;
             balance.FoodGrowth += growth;
         }
-
-        public override bool Build(int count)
-        {
-            var res = base.Build(count);
-            Price = (int)(Price*1.1);
-            return res;
-
-        }
     }
 }

@@ -28,7 +28,7 @@
                         <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
-                    <Button Grid.Column="4" Content="Upgrade" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=BuyCommand}" CommandParameter="{Binding Path=DataContext.Multiplicator, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}"></Button>
+                    <Button Grid.Column="4" Content="Upgrade" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=DataContext.BuyCommand , RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}" CommandParameter="{Binding}"></Button>
                 </Grid>
             </Border>
         </DataTemplate>

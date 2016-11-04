@@ -14,7 +14,7 @@ namespace Emperor.Core.Buildings
         public Academy(Game game, int price, int startLevel) : base(game, "Academy", price, startLevel)
         {
             Description = "Allows to learn new technologies to boost productivity and warriors battle capability.";
-            _buildRequirements.Add((g) => { return g.Buildings.FirstOrDefault(b => b.Name == "Castle")?.Level > 1; });
+            _buildRequirements.Add((g) => { return g.Buildings.FirstOrDefault(b => b.Name == "Farm")?.Level > 2; });
         }
 
         public override void Produce(YearlyBalance income)

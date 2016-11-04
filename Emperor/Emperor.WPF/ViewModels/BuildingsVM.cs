@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Emperor.WPF.ViewModels.Utils;
+using Emperor.Core.Managers;
 
 namespace Emperor.WPF.ViewModels
 {
     public class BuildingsVM :BaseVM
     {
         private long _multiplicatorMaxValue = 1000000000;
+        private BuildingManager _buildingManager;
 
         public BuildingsVM(GameVM gameVM)
         {
             _multiplicator = 1;
+            _buildingManager = gameVM.BuildingManager; 
             IncreaseMultiplicatorCommand = new RelayCommand(IncreaseMultiplicator, CanIncreaseMultiplicator);
             DecreaseMultiplicatorCommand = new RelayCommand(DecreaseMultiplicator, CanDecreaseMultiplicator);
+            BuyCommand = new RelayCommand(Buy, CanBuy);
+
             BuildingsChanged += (s, e) => { OnPropertyChanged("Buildings"); };
+
         }
 
         public List<BuildingVM> Buildings { get; private set; }
@@ -46,8 +52,8 @@ namespace Emperor.WPF.ViewModels
 
         #region Multiplicator
 
-        private long _multiplicator;
-        public long Multiplicator
+        private int _multiplicator;
+        public int Multiplicator
         {
             get
             {
@@ -84,6 +90,30 @@ namespace Emperor.WPF.ViewModels
         }
 
         #endregion
+
+        public ICommand BuyCommand { get; private set; }
+
+        public void Buy(object parameter)
+        {
+            BuildingVM building = parameter as BuildingVM;
+
+            if (building == null)
+                return;
+
+            _buildingManager.Build(building.Building, Multiplicator);
+            OnBuildingsChanged();
+            
+        }
+
+        public bool CanBuy(object parameter)
+        {
+            BuildingVM building = parameter as BuildingVM;
+
+            if (building == null)
+                return false;
+
+            return _buildingManager.CanBeBuilt(building.Building, Multiplicator);
+        }
 
         public event EventHandler BuildingsChanged;
 
