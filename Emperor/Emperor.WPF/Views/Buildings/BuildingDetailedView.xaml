@@ -31,9 +31,9 @@
             </Border>
 
         </Grid>
-        <ContentControl Grid.Row="3" ContentTemplateSelector="{StaticResource BuildingDetailsTemplateSelector}" Content="{Binding}">
+        <ContentControl Grid.Row="3" ContentTemplateSelector="{StaticResource BuildingDetailsTemplateSelector}" Content="{Binding}" Visibility="{Binding DetailsViewAvailable, Converter={StaticResource BoolToVis}}">
             <ContentControl.Resources>
-                <DataTemplate x:Key="AcademyDetails">
+               <DataTemplate x:Key="AcademyDetails">
                     <details:AcademyDetails/>
                 </DataTemplate>
                 <DataTemplate x:Key="BankDetails">

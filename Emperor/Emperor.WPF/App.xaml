@@ -6,6 +6,8 @@
              xmlns:enums="clr-namespace:Emperor.Core.Enums;assembly=Emperor.Core"
              StartupUri="Views\TabbedWindow.xaml">
     <Application.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+
         <Style x:Key="BorderedInfoTooltip" TargetType="{x:Type ToolTip}">
             <Setter Property="Template">
                 <Setter.Value>

@@ -36,6 +36,7 @@ namespace Emperor.WPF.ViewModels.DataVM
 
         public bool BuildingAvailable => _building.IsBuildingAvailable;
 
+        public bool DetailsViewAvailable => _building.Level > 0;
         //public ICommand BuyCommand
         //{
         //    get { return _buyBuildingCommand; }
