@@ -13,7 +13,7 @@ namespace Emperor.Core.Buildings
         //consume food 100
         //provide gold 200
         //increase human disaster chance
-        public Tavern(Game game, string name, int price, int startLevel) : base(game, name, price, startLevel)
+        public Tavern(Game game, int price, int startLevel) : base(game, "Tavern", price, startLevel)
         {
             Description = "Allow to greatly increase happiness, harming warrior capabilities, though.";
         }

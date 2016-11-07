@@ -5,8 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Emperor.WPF.Views.Buildings.DetailsTemplates"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="550">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="0" Source="/Resources/weapons.png" Width="32" Margin="8,4"/>
+                <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4,2" Content="{Binding Weapons, FallbackValue=0}"/>
+
+                <Slider Grid.Column="2" HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Center" 
+                        Margin="2" 
+                        Minimum="0" Maximum="{Binding MaxWeapons, Mode=OneWay}" 
+                        Value="{Binding Weapons}" 
+                        TickFrequency="1" 
+                        TickPlacement="BottomRight"
+                        IsSnapToTickEnabled="True"/>
+
+                <Label Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4,2" Content="{Binding Tools, FallbackValue=0, Mode=OneWay}"/>
+                <Image Grid.Column="4" Source="/Resources/tools.png" Width="32" Margin="8,4"/>
+
+                <Image Grid.Column="0" Grid.Row="1" Source="/Resources/iron.png" Width="32" Margin="8,4"/>
+                <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4,2"  ContentStringFormat="{}{0:0.##}" Content="{Binding WeaponsIronTotal, FallbackValue=0, Mode=OneWay}"/>
+
+                <Label Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4,2"  ContentStringFormat="{}{0:0.##}" Content="{Binding ToolsIronTotal, FallbackValue=0, Mode=OneWay}"/>
+                <Image Grid.Column="4" Grid.Row="1" Source="/Resources/iron.png" Width="32" Margin="8,4"/>
+
+                <Label Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right">
+                    <Label.Content>
+                        <Italic>Total Iron :</Italic>
+                    </Label.Content>
+                </Label>
+
+                <Label Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"  Content="{Binding IronTotal,Mode=OneWay, FallbackValue=0}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

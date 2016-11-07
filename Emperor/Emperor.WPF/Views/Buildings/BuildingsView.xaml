@@ -8,7 +8,7 @@
              xmlns:modelVM="clr-namespace:Emperor.WPF.ViewModels.DataVM"
              xmlns:framework="clr-namespace:Emperor.WPF.Framework"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.Resources>
         
         <DataTemplate x:Key="lvBuildingListItem" DataType="{x:Type modelVM:BuildingVM}" >
@@ -21,19 +21,19 @@
                         <ColumnDefinition Width="54"></ColumnDefinition>
                         <ColumnDefinition Width="54"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Ellipse Grid.Column="0" Width="24" Height="24" Fill="SandyBrown"></Ellipse>
+                    <Ellipse Grid.Column="0" Width="18" Height="18" Fill="SandyBrown"></Ellipse>
                     <Label Grid.Column="1" Content="{Binding Path=Name}" VerticalAlignment="Center"></Label>
                     <Label Grid.Column="2" Content="{Binding Path=Level}"  VerticalAlignment="Center"></Label>
                     <StackPanel Grid.Column="3"  Orientation="Horizontal" HorizontalAlignment="Center">
                         <Image Source="/Resources/gold.png" Width="15" Height="15"></Image>
                         <Label Content="{Binding Path=Price}" VerticalAlignment="Center" Margin="0"></Label>
                     </StackPanel>
-                    <Button Grid.Column="4" Content="Upgrade" Width="50" Height="20" Name="btnBuildingsListBuy" Command="{Binding Path=DataContext.BuyCommand , RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}" CommandParameter="{Binding}"></Button>
+                    <Button Grid.Column="4" Content="Upgrade" Width="54" Height="20" Margin="0" Name="btnBuildingsListBuy" Command="{Binding Path=DataContext.BuyCommand , RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:BuildingsView}}}" CommandParameter="{Binding}"/>
                 </Grid>
             </Border>
         </DataTemplate>
     
-        <framework:BuildingDetailsTemplateSelector x:Key="BuildingDetailsTemplateSelector"/>
+        <!--<framework:BuildingDetailsTemplateSelector x:Key="BuildingDetailsTemplateSelector"/>-->
     
         <!-- Buidling mappings -->
        
@@ -41,7 +41,7 @@
     </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Column="0">

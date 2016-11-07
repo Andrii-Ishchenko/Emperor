@@ -11,7 +11,7 @@ namespace Emperor.Core.Buildings
         //allow to hire lvl3 warriors
         //each lvl grant passively 5 more horses per year
         //each lvl +2 atck +1 def to lvl3 units
-        public Stable(Game game, string name, int price, int startLevel) : base(game, name, price, startLevel)
+        public Stable(Game game, int price, int startLevel) : base(game, "Stable", price, startLevel)
         {
             Description = "Allow to hire cavalry warriors.";
         }

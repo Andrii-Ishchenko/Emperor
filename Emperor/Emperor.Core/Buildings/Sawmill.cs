@@ -11,7 +11,7 @@ namespace Emperor.Core.Buildings
         //produce wood
         //if we have tools produce wood x4 per tool
         //if we have free horse increase productivity +x2
-        public Sawmill(Game game, string name, int price, int startLevel) : base(game, name, price, startLevel)
+        public Sawmill(Game game, int price, int startLevel) : base(game, "Sawmill", price, startLevel)
         {
             Description = "Allow to get wood";
         }

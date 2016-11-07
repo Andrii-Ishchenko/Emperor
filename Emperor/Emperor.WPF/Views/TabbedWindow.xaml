@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:Emperor.WPF.ViewModels"
        
         mc:Ignorable="d"
-        Title="Emperor" Height="600" Width="720" ResizeMode="CanMinimize">
+        Title="Emperor" Height="720" Width="960" ResizeMode="CanMinimize">
     <Window.DataContext>
         <vm:GameVM/>
     </Window.DataContext>

@@ -101,9 +101,14 @@ namespace Emperor.Core
                 new Market(this, 2000, 0),
                 new Mine(this, 3000, 0),
                 new Smith(this, 4000, 0),
+                new Quarry(this,3000,0),
+                new Sawmill(this,2000,0),
                 new Barracks(this,2500,0),
+                new Stable(this,2000,0),
                 new Academy(this,5000,0),
-                new Bank(this,1000,0),
+                new Bank(this,4000,0),
+                new Tavern(this,1000,0),
+                new Church(this,4000,0),
                 new Castle(this, 5000, 0),    
                         
             };

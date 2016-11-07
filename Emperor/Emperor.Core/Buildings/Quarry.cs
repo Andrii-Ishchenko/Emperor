@@ -11,7 +11,7 @@ namespace Emperor.Core.Buildings
         //provide stone
         //if we have tools provide x4
         //if we have horse provide +x2
-        public Quarry(Game game, string name, int price, int startLevel) : base(game, name, price, startLevel)
+        public Quarry(Game game, int price, int startLevel) : base(game, "Quarry", price, startLevel)
         {
             Description = "Allow to get stone";
         }

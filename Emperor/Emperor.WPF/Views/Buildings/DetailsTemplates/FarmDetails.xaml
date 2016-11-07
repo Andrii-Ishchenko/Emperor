@@ -8,7 +8,6 @@
              d:DesignHeight="300" d:DesignWidth="550">
     <Grid>
         <Grid.RowDefinitions>
-
             <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions> 
