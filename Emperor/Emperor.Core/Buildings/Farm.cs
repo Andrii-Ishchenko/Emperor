@@ -15,7 +15,7 @@ namespace Emperor.Core.Buildings
             Horses = 0;
         }
 
-        private int _foodPerHorse = 25;
+        private int _foodPerHorse = 50;
         private int _horses;
 
         public int FoodPerHorse
@@ -26,7 +26,7 @@ namespace Emperor.Core.Buildings
 
         public int MaxHorses
         {
-            get { return (int) Math.Min((double) MeanGrowth/_foodPerHorse,5*Level); }
+            get { return (int) Math.Min((double) MeanGrowth/_foodPerHorse,2*Level); }
         }
 
         public int Horses
@@ -64,5 +64,9 @@ namespace Emperor.Core.Buildings
             balance.HorsesGrowth += horseCount;
         }
 
+        public override void OnBuild()
+        {
+            Price = (int)(Price * 1.2);
+        }
     }
 }

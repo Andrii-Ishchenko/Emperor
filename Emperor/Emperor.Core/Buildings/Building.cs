@@ -82,6 +82,11 @@ namespace Emperor.Core
 
         public abstract void Produce(YearlyBalance income);
 
+        public virtual void  OnBuild()
+        {
+
+        }
+
         //public bool CanBeBuilt(int quantity)
         //{
         //    return  BuildingAvailable() && (quantity*Price <= _game.Gold) ;

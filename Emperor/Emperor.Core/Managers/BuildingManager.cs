@@ -25,6 +25,7 @@ namespace Emperor.Core.Managers
                 _game.Gold -= count * building.Price;
             }
 
+            building.OnBuild();
             UpdateAvailability();
         }
 

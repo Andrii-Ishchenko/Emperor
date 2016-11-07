@@ -9,28 +9,31 @@
     <Grid>
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions> 
         
         <Grid Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0" Orientation="Vertical">
-                    <Label HorizontalAlignment="Center" Padding="4,2" Content="Horses"/>
-                    <Image Source="/Resources/horses.png" Width="32" Margin="8,4"/>
+                  <Image Grid.Column="0" Source="/Resources/horses.png" Width="32" Margin="8,4"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                    <Label HorizontalAlignment="Center" Padding="4,2" Content="Horses"/>             
                     <Label HorizontalAlignment="Center" Padding="4,2" Content="{Binding Horses, FallbackValue=0}"/>
                 </StackPanel>
 
                
 
-                <Slider Grid.Column="1" HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Bottom" 
+                <Slider Grid.Column="2" HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Center" 
                         Margin="2" 
                         Minimum="0" Maximum="{Binding MaxHorses}" 
                         Value="{Binding Horses}" 
@@ -38,9 +41,8 @@
                         TickPlacement="BottomRight"
                         IsSnapToTickEnabled="True"/>
 
-                <StackPanel Grid.Column="2" Orientation="Vertical">
+                <StackPanel Grid.Column="3" Orientation="Vertical">
                     <Label HorizontalAlignment="Center" Padding="4,2">Food</Label>
-                    <Image Source="/Resources/food.png" Width="32" Margin="8,4"/>
                     <TextBlock HorizontalAlignment="Center" Padding="4,2" >
 
                         <TextBlock.Text>
@@ -53,6 +55,7 @@
                     </TextBlock>
                 </StackPanel>
 
+                <Image Grid.Column="4" Source="/Resources/food.png" Width="32" Margin="8,4"/>
             </Grid>
         </Grid>
     </Grid>
