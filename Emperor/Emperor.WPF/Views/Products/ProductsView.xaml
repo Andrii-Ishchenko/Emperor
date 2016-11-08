@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640">
     <UserControl.Resources>
-        <DataTemplate x:Key="ProductVMListItem" DataType="{x:Type modelVM:ProductVM}"  >
+        <DataTemplate x:Key="ProductVMListItem" DataType="{x:Type modelVM:ProductVM}" >
             <Border Background="#eee" CornerRadius="2" BorderThickness="1" BorderBrush="#ccc" Margin="0">
                 <Grid Background="#eee">
                     <Grid.ColumnDefinitions>
@@ -31,11 +31,11 @@
     <Grid>
         <Grid Margin="8">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="180"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ListView Grid.Column="0" Name="productsList" ItemsSource="{Binding Products}" ItemTemplate="{StaticResource ProductVMListItem}" SelectedItem="{Binding SelectedProduct}">
+            <ListView Grid.Column="0" Name="productsList" ItemsSource="{Binding Products}" ItemTemplate="{StaticResource ProductVMListItem}" SelectedItem="{Binding SelectedProduct}" HorizontalContentAlignment="Stretch">
              
             </ListView>
             <local:ProductDetailedView Grid.Column="1" DataContext="{Binding SelectedProduct}"/>

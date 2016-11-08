@@ -13,8 +13,8 @@
            <RowDefinition Height="*"/>
        </Grid.RowDefinitions>     
         
-        <ComboBox Grid.Row="0" Width="160" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,4,10,4"/>
-        <oxy:PlotView Grid.Row="1" Margin="20" Model="{Binding CurrentGraph}"></oxy:PlotView>
+        <ComboBox Grid.Row="0" Width="140" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,4,10,4"/>
+        <oxy:PlotView Grid.Row="1" Margin="20,10" Model="{Binding CurrentGraph}"></oxy:PlotView>
         
     </Grid>
 </UserControl>
