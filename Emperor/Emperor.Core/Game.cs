@@ -191,6 +191,7 @@ namespace Emperor.Core
             Weapons += balance.WeaponsDelta;
             Soldiers += balance.SoldiersDelta;
             Horses += balance.HorsesDelta;
+            Tools += balance.ToolsDelta;
             Happiness = (long) Math.Max(Math.Min(100, Happiness + balance.HappinessDelta), 0);
         }
 

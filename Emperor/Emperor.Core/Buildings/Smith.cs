@@ -12,6 +12,7 @@ namespace Emperor.Core.Buildings
         
         public int ProductionTotal { get { return Level*100; } }
 
+        public bool ProduceWeapons { get; set; }
         public int WeaponsCount { get; set; }
         public int MaxWeapons { get { return (int) (ProductionTotal/ProductionPerWeapon); } }
         public double WeaponsProductionTotal { get { return ProductionPerWeapon*WeaponsCount; } }
@@ -19,6 +20,7 @@ namespace Emperor.Core.Buildings
         public double IronPerWeapon { get { return 2; } }
         public double WeaponsIronTotal { get { return IronPerWeapon*WeaponsCount; } }
 
+        public bool ProduceTools { get; set; }
         public int ToolsCount { get { return (int)Math.Floor(ToolsProductionTotal/ProductionPerTool); } }
         public double ToolsProductionTotal { get { return ProductionTotal - WeaponsProductionTotal; } }
         public double ProductionPerTool { get { return 5; } }
@@ -31,14 +33,34 @@ namespace Emperor.Core.Buildings
         {
             Description = "Required to produce weapons and tools";
             WeaponsCount = 0;
+
+            ProduceWeapons = true;
+            ProduceTools = true;
         }
 
         public override void Produce(YearlyBalance balance)
         {
-            var maxProduceCount = 10 * Level;
-            var takenIron = Math.Min(_game.Iron , maxProduceCount);
-            balance.WeaponsGrowth = takenIron;// 1<->1
-            balance.IronConsumed = takenIron;
+            double takenIron  = Math.Min(_game.Iron, IronTotal);
+            int producedWeapon = 0, producedTools =0;
+            double weaponIron = 0, toolsIron = 0;
+
+            if (ProduceWeapons)
+            {
+                producedWeapon = (int) Math.Min(Math.Floor(takenIron/IronPerWeapon), WeaponsCount);
+                weaponIron = producedWeapon*IronPerWeapon;
+            }
+
+            if (ProduceTools)
+            {
+                var ironForTools = takenIron - weaponIron;
+                producedTools = (int)Math.Min(Math.Floor(ironForTools / IronPerTool), ToolsCount);
+                toolsIron = producedTools * IronPerTool;
+            }
+
+            balance.WeaponsGrowth += producedWeapon;
+            balance.ToolsGrowth += producedTools;
+
+            balance.IronConsumed = (int)Math.Ceiling(weaponIron + toolsIron);
         }
     }
 }
