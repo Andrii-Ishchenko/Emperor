@@ -37,7 +37,7 @@ namespace Emperor.Core
             }
         }
 
-        public double BuyPrice { get { return Price * 1.075; } }
+        public double BuyPrice { get { return Price; } }
         public double SellPrice { get { return Price * 0.93; } }
 
         public Product(string name, long count, double price)
